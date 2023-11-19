@@ -1,0 +1,23 @@
+body{
+    background: rgb(40, 40, 40);
+    color: white;
+    font-family: 'DM Sans', sans-serif;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+a{
+    padding: 10px;
+    color: rgb(69, 152, 255);
+    text-decoration: none;
+}
+
+p{
+    line-height: 22px;
+}
+
+.nav{
+    padding: 10px;
+    text-align: center;
+}
