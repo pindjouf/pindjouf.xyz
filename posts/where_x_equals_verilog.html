@@ -82,15 +82,15 @@ endmodule</code></pre>
     <pre><code>assign b = a;</code></pre>
 
     <h2>Simple diagram of the module `top_module`:</h2>
-    <pre><code>// a->□->b</code></pre>
+    <pre><code class="comment">// a->□->b</code></pre>
 
     <h2>Wires and Registers:</h2>
-    <pre><code>// Wires are just there to connect different elements, they are driven by continuous assign statements or module ports. 
-//They can be thought of as physical wires.
-wire a;
-
-// Registers resemble traditional variables more since they store values in memory.
-reg b;</code></pre>
+    <pre><code class="comment">// Wires are just there to connect different elements, they are driven by continuous assign statements or module ports. 
+//They can be thought of as physical wires.</code>
+<code>wire a;</code>
+<code class="comment">
+// Registers resemble traditional variables more since they store values in memory.</code>
+<code>reg b;</code></pre>
 
     <h2>Buses or Vectors:</h2>
     <pre><code>// Buses or Vectors let you extend your ports or signals by giving them a range of n-bits.
@@ -102,7 +102,7 @@ input [7:0] hehe;
 assign out = hehe[4];</code></pre>
 
     <h2>Number Representations:</h2>
-    <pre><code>// Numbers in verilog can represented in multiple number systems like hex, octal, decimal or binary.
+    <pre><code class="comment">// Numbers in verilog can represented in multiple number systems like hex, octal, decimal or binary.
 // The syntax is as follows:
 // w'snnn
 // w = width of digit(s) (how many bits it uses) 
@@ -122,7 +122,7 @@ assign out = hehe[4];</code></pre>
 // Notice I've used the exact same value for each example.</code></pre>
 
     <h2>Operators:</h2>
-    <pre><code>// NOT = ~
+    <pre><code class="comment">// NOT = ~
 // AND = &
 // OR = |
 // XOR = ^
