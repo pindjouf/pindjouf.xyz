@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@Pindjouf</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="nav">
+    <a href="https://twitter.com/pindjouf">Twitter</a>
+    <a href="">Blog</a>
+    <a href="/log.html">Logs</a>
+    <hr>
+</div>
+<h3><a href="/index.html" style="padding: 0;">Pindjouf.xyz</a></h3>
+<div class="post">
+    <h1>Comfy HDL Design Setup</h1>
+    <p>This is for those who want to get into coding in an HDL but don't know where to start, as I was a few months ago.</p>
+    <ul>
+        <li><b>The language:</b> systemVerilog</li>
+        <li><b>The simulator:</b> Verilator</li>
+        <li><b>The visualizer:</b> GTKWave</li>
+    </ul>
+    <h2>How to code - simulate - visualize?</h2>
+    <h3>Code</h3>
+    <p>First step is to write your design.</p>
+    <p><b>Simple example:</b></p>
+    <xmp>
+        module blink (
+            input clk,
+            output led
+        );
+        
+        assign led = clk;
+    
+        endmodule // blink
+    </xmp>
+    <p>Then you write your testbench<a href="#glossary">¹</a> to provide input to your DUT/UUT<a href="#glossary">²</a>.</p>
+    <p><b>Simple example:</b></p>
+    <xmp>
+        module blink_tb;
+            reg clk;
+            wire led;
+
+        blink dut (
+            .clk(clk),
+            .led(led)
+            );
+       
+        initial clk = 0;
+        always #5 clk <= ~clk;
+      
+        initial 
+            begin
+                $display("Running testbench...");
+                $dumpfile("dump.vcd");
+                $dumpvars(0);
+                #30_000_000;
+                $display("Done: made file dump.vcd");
+                $finish;
+            end
+        endmodule // blink_tb
+    </xmp>
+    <h3>Simulate</h3>
+    <p>If we keep the same design and testbench as above you can use a command such as this one to compile your tb: <mark>verilator --trace --binary --build-jobs 0 -Wall blink_tb.sv -Wno-lint -timing -o cool</mark></p>
+    <p>After that, go into the obj_dir and the run the executable.</p>
+    <p>If you added a dumpfile in your code it should now be in the same directory.</p>
+    <h3>Visualize</h3>
+    <ul>
+        <li>Go into GTKWave.</li>
+        <li>Make new tab with your .vcd file.</li>
+        <li>Select all your signals in the left column.</li>
+        <li>Analyze and enjoy! :D</li>
+    </ul>
+    <img src="/assets/waves.png" alt="electrical waves">
+    <h3>Glossary</h3>
+    <ol>
+        <li>The function of a testbench is to apply stimulus (inputs) to the DUT/UUT, and report the outputs in a readable and user-friendly format.</li>
+        <li>Device Under Test | Unit Under Test.</li>
+    </ol>
+</body>
