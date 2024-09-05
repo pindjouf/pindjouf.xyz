@@ -60,9 +60,14 @@ endmodule // blink
 \`\`\`
 `);
 </script>
+        <script>
+    document.getElementById('content').innerHTML =
+      marked.parse(`
 Then you write your testbench[¹](#glossary), to provide input to your DUT/UUT[²](#glossary).
 
 Simple example:
+`);
+        </script>
 <script>
 const marked = new Marked(
   markedHighlight({
