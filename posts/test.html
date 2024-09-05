@@ -19,44 +19,83 @@
   <script>
     document.getElementById('content').innerHTML =
       marked.parse(`
-# Recruitment
 
-## Quotes from MYSELF
+# Comfy HDL Design setup
 
-- *The yap is a force multiplier.*
-- *Most things are already good enough, you just have to learn how to use them.*
+- The language: systemVerilog
+- The simulator: Verilator
+- The visualizer: GTKWave
 
-## Job Search Framework
+## How to code - simulate - visualize?
 
-### LinkedIn
+### Code
 
-- Contact recruiters gently (hi x I see that you have an open position for y) -> ask where you can send CV -> send CV ASAP where they told you
+First step is to write your design.
 
-### Spontaneous Mail
+Simple example:
 
-- Contact recruiters directly with enthusiastic mail -> cover letter + CV
+```systemverilog
+module blink (
+    input clk,
+    output led
+);
+    
+    assign led = clk;
+    
+endmodule // blink
+```
 
-## How Recruiters Work
+Then you write your testbench[¹](#glossary), to provide input to your DUT/UUT[²](#glossary).
 
-- They call to get to know you -> write down most intereseting parts.
-- Contact their client to sell you.
-- If client likes it you get an interview.
+Simple example:
 
-## How To Hack The Recruiter
+```systemverilog
+module blink_tb;
+    reg clk;
+    wire led;
 
-- When you hear them write something down -> inject good selling points into their mind.
+    blink dut (
+        .clk(clk),
+        .led(led)
+        );
+   
+    initial clk = 0;
+    always #5 clk <= ~clk;
+  
+    initial 
+        begin
+            $display("Running testbench...");
+            $dumpfile("dump.vcd");
+            $dumpvars(0);
+            #30_000_000;
+            $display("Done: made file dump.vcd");
+            $finish;
+        end
+endmodule // blink_tb
+```
 
-## misc
+### Simulate
 
-- Lots of calls happen in the afternoon.
+If we keep the same design and testbench as above you can use a command such as this one to compile your tb: `verilator --trace --binary --build-jobs 0 -Wall blink_tb.sv -Wno-lint -timing -o cool`
 
-### Directives to optimize job search
+After that, go into the obj_dir and the run the executable.
 
-- [x] Contacter directement -> Plus direct -> creer des liens dans la lettre de motiv/mail -> [example](https://x.com/kytalli/status/1827009167619674574)
-- [ ] Relancer les anciennes postulations -> Washed up gonna take care of it one day
-- [ ] Contacter Kangaroot DIRECT
-- [ ] Look for companies on google maps
-~~- [ ] Sign up on ictjobs.be~~
+If you added a dumpfile in your code it should now be in the same directory.
+
+### Visualize
+
+- Go into GTKWave.
+- Make new tab with your .vcd file.
+- Select all your signals in the left column.
+- Analyze and enjoy! :D
+
+![waves](assets/waves.png) 
+
+### Glossary
+
+1. The function of a testbench is to apply stimulus (inputs) to the DUT/UUT, and report the outputs in a readable and user-friendly format.
+
+2. Device Under Test | Unit Under Test.
             `);
   </script>
 </body>
