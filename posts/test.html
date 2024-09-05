@@ -34,7 +34,7 @@ First step is to write your design.
 
 Simple example:
 
-\```systemverilog
+\`\`\`systemverilog
 module blink (
     input clk,
     output led
@@ -43,13 +43,13 @@ module blink (
     assign led = clk;
     
 endmodule // blink
-\```
+\`\`\`
 
 Then you write your testbench[¹](#glossary), to provide input to your DUT/UUT[²](#glossary).
 
 Simple example:
 
-\```systemverilog
+\`\`\`systemverilog
 module blink_tb;
     reg clk;
     wire led;
@@ -72,7 +72,7 @@ module blink_tb;
             $finish;
         end
 endmodule // blink_tb
-\```
+\`\`\`
 
 ### Simulate
 
