@@ -5,11 +5,50 @@
   <title>Marked in the browser</title>
 </head>
 <body>
-  <div id="content"></div>
+  <div id="content">what happens if I do this</div>
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script>
     document.getElementById('content').innerHTML =
-      marked.parse('# Marked in browser\n\nRendered by **marked**.');
+      marked.parse(`
+# Recruitment
+
+## Quotes from MYSELF
+
+- *The yap is a force multiplier.*
+- *Most things are already good enough, you just have to learn how to use them.*
+
+## Job Search Framework
+
+### LinkedIn
+
+- Contact recruiters gently (hi x I see that you have an open position for y) -> ask where you can send CV -> send CV ASAP where they told you
+
+### Spontaneous Mail
+
+- Contact recruiters directly with enthusiastic mail -> cover letter + CV
+
+## How Recruiters Work
+
+- They call to get to know you -> write down most intereseting parts.
+- Contact their client to sell you.
+- If client likes it you get an interview.
+
+## How To Hack The Recruiter
+
+- When you hear them write something down -> inject good selling points into their mind.
+
+## misc
+
+- Lots of calls happen in the afternoon.
+
+### Directives to optimize job search
+
+- [x] Contacter directement -> Plus direct -> creer des liens dans la lettre de motiv/mail -> [example](https://x.com/kytalli/status/1827009167619674574)
+- [ ] Relancer les anciennes postulations -> Washed up gonna take care of it one day
+- [ ] Contacter Kangaroot DIRECT
+- [ ] Look for companies on google maps
+~~- [ ] Sign up on ictjobs.be~~
+            `);
   </script>
 </body>
 </html>
