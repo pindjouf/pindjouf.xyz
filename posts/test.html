@@ -21,122 +21,43 @@
   <div id="content4">what happens if I do this</div>
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/marked/lib/marked.umd.js"></script>
-  <script>
-    document.getElementById('content').innerHTML =
-      marked.parse(`
+<script>
+    const marked = new Marked(
+      markedHighlight({
+        langPrefix: 'hljs language-',
+        highlight(code, lang, info) {
+          const language = hljs.getLanguage(lang) ? lang : 'plaintext';
+          return hljs.highlight(code, { language }).value;
+        }
+      })
+    );
 
-# Comfy HDL Design setup
+    marked.parse(`
+    \`\`\`systemverilog
+    module blink_tb;
+        reg clk;
+        wire led;
 
-- The language: systemVerilog
-- The simulator: Verilator
-- The visualizer: GTKWave
-
-## How to code - simulate - visualize?
-
-### Code
-
-First step is to write your design.
-
-Simple example:
+        blink dut (
+            .clk(clk),
+            .led(led)
+            );
+       
+        initial clk = 0;
+        always #5 clk <= ~clk;
+      
+        initial 
+            begin
+                $display("Running testbench...");
+                $dumpfile("dump.vcd");
+                $dumpvars(0);
+                #30_000_000;
+                $display("Done: made file dump.vcd");
+                $finish;
+            end
+    endmodule // blink_tb
+    \`\`\`
     `);
-    </script>
-<script>
-const marked = new Marked(
-  markedHighlight({
-    langPrefix: 'hljs language-',
-    highlight(code, lang, info) {
-      const language = hljs.getLanguage(lang) ? lang : 'plaintext';
-      return hljs.highlight(code, { language }).value;
-    }
-  })
-);
-
-document.getElementById('content1').innerHTML = marked.parse(`
-\`\`\`systemverilog
-module blink (
-    input clk,
-    output led
-);
-    
-    assign led = clk;
-    
-endmodule // blink
-\`\`\`
-`);
-</script>
-        <script>
-    document.getElementById('content').innerHTML =
-      marked.parse(`
-Then you write your testbench[¹](#glossary), to provide input to your DUT/UUT[²](#glossary).
-
-Simple example:
-`);
-        </script>
-<script>
-const marked = new Marked(
-  markedHighlight({
-    langPrefix: 'hljs language-',
-    highlight(code, lang, info) {
-      const language = hljs.getLanguage(lang) ? lang : 'plaintext';
-      return hljs.highlight(code, { language }).value;
-    }
-  })
-);
-
-marked.parse(`
-\`\`\`systemverilog
-module blink_tb;
-    reg clk;
-    wire led;
-
-    blink dut (
-        .clk(clk),
-        .led(led)
-        );
-   
-    initial clk = 0;
-    always #5 clk <= ~clk;
-  
-    initial 
-        begin
-            $display("Running testbench...");
-            $dumpfile("dump.vcd");
-            $dumpvars(0);
-            #30_000_000;
-            $display("Done: made file dump.vcd");
-            $finish;
-        end
-endmodule // blink_tb
-\`\`\`
-`);
 </script>  
-<script>
-    document.getElementById('content').innerHTML =
-      marked.parse(`
-
-### Simulate
-
-If we keep the same design and testbench as above you can use a command such as this one to compile your tb: \`verilator --trace --binary --build-jobs 0 -Wall blink_tb.sv -Wno-lint -timing -o cool\`
-
-After that, go into the obj_dir and the run the executable.
-
-If you added a dumpfile in your code it should now be in the same directory.
-
-### Visualize
-
-- Go into GTKWave.
-- Make new tab with your .vcd file.
-- Select all your signals in the left column.
-- Analyze and enjoy! :D
-
-![waves](/assets/waves.png) 
-
-### Glossary
-
-1. The function of a testbench is to apply stimulus (inputs) to the DUT/UUT, and report the outputs in a readable and user-friendly format.
-
-2. Device Under Test | Unit Under Test.
-            `);
-  </script>
 </body>
 </html>
