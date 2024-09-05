@@ -16,6 +16,7 @@
 <h3><a href="/index.html" style="padding: 0;">Pindjouf.xyz</a></h3>
   <div id="content">what happens if I do this</div>
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/lib/marked.umd.js"></script>
   <script>
     document.getElementById('content').innerHTML =
       marked.parse(`
@@ -33,7 +34,20 @@
 First step is to write your design.
 
 Simple example:
+    `)
+    </script>
+<script>
+const marked = new Marked(
+  markedHighlight({
+    langPrefix: 'hljs language-',
+    highlight(code, lang, info) {
+      const language = hljs.getLanguage(lang) ? lang : 'plaintext';
+      return hljs.highlight(code, { language }).value;
+    }
+  })
+);
 
+marked.parse(`
 \`\`\`systemverilog
 module blink (
     input clk,
@@ -44,11 +58,23 @@ module blink (
     
 endmodule // blink
 \`\`\`
-
+`);
+</script>
 Then you write your testbench[¹](#glossary), to provide input to your DUT/UUT[²](#glossary).
 
 Simple example:
+<script>
+const marked = new Marked(
+  markedHighlight({
+    langPrefix: 'hljs language-',
+    highlight(code, lang, info) {
+      const language = hljs.getLanguage(lang) ? lang : 'plaintext';
+      return hljs.highlight(code, { language }).value;
+    }
+  })
+);
 
+marked.parse(`
 \`\`\`systemverilog
 module blink_tb;
     reg clk;
@@ -73,6 +99,11 @@ module blink_tb;
         end
 endmodule // blink_tb
 \`\`\`
+`);
+</script>  
+<script>
+    document.getElementById('content').innerHTML =
+      marked.parse(`
 
 ### Simulate
 
@@ -89,7 +120,7 @@ If you added a dumpfile in your code it should now be in the same directory.
 - Select all your signals in the left column.
 - Analyze and enjoy! :D
 
-![waves](assets/waves.png) 
+![waves](/assets/waves.png) 
 
 ### Glossary
 
