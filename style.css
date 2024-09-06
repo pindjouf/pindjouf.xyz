@@ -11,8 +11,8 @@ Site Color Palette:
 body{
     background: #2D2424;
     color: #E4C59E;
-    font-family: 'ADLaM Display';
-    /*font-weight: 400;*/
+    font-family: "Roboto","Arial",sans-serif;
+    font-weight: 700;
     font-style: normal;
     max-width: 800px;
     margin-left: auto;
