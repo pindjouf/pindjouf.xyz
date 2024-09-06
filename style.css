@@ -6,13 +6,12 @@ Site Color Palette:
 - Miscellaneous: #B85C38
 */
 
-/*@import url('https://fonts.googleapis.com/css?family=ADLaM Display');*/
-@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+@import url('https://fonts.googleapis.com/css?family=ADLaM Display');
 
 body{
     background: #2D2424;
     color: #E4C59E;
-    font-family: 'Jua', sans-sherif;
+    font-family: 'ADLaM Display';
     font-weight: 400;
     font-style: normal;
     max-width: 800px;
