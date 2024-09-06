@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=ADLaM Display');
 
 body{
-    background: #1C0A00;
+    background: #2D2424;
     color: #E4C59E;
     font-family: 'ADLaM Display';
     max-width: 800px;
@@ -15,6 +15,13 @@ a{
 }
 
 hr{
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #B85C38;
+    margin: 1em 0;
+    padding: 0;
+    border-color: #B85C38;
     background-color: #B85C38;
 }
 
