@@ -1,14 +1,16 @@
+@import url('https://fonts.googleapis.com/css?family=ADLaM Display');
+
 body{
-    background: rgb(40, 40, 40);
-    color: #D8C99B;
-    font-family: 'TV-Globo-1976', sans-serif;
+    background: #322C2B;
+    color: #E4C59E;
+    font-family: 'ADLaM Display';
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
 }
 
 a{
-    color: #bd632f;
+    color: #AF8260;
     text-decoration: none;
 }
 
