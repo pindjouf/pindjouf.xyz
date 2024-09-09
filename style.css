@@ -1,16 +1,25 @@
 /*
 Site Color Palette:
-- Background: #181818
+- Background: #282828
 - Text: #f0f0f0
-- Links: #fe8019
-- Miscellaneous: #B85C38
+- Alt-text: #fbf1c7
+- Links: #458588
+- Miscellaneous: #83a598
 */
+
+:root {
+    --black: #282828;
+    --white: #f0f0f0;
+    --off-white: #fbf1c7;
+    --blue: #458588;
+    --light-blue: #83a598;
+}
 
 @import url('https://fonts.googleapis.com/css?family=ADLaM Display');
 
 body{
-    background: #181818;
-    color: #f0f0f0;
+    background: var(--black);
+    color: var(--white);
     font-family: "Roboto","Arial",sans-serif;
     font-weight: 700;
     font-style: normal;
@@ -20,20 +29,20 @@ body{
 }
 
 a{
-    color: #fe8019;
-    text-decoration: #B85C38 underline;
+    color: var(--light-blue);
+    text-decoration: var(--blue) underline;
 }
 
 hr{
     display: block;
     height: 1px;
     border: 0;
-    border-top: 1px solid #B85C38;
+    border-top: 1px solid var(--blue);
     border-radius: 2px;
     margin: 1em 0;
     padding: 0;
-    border-color: #B85C38;
-    background-color: #B85C38;
+    border-color: var(--blue);
+    background-color: var(--blue);
 }
 
 p{
