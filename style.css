@@ -1,8 +1,8 @@
 /*
 Site Color Palette:
-- Background: #2D2424
-- Text: #E4C59E
-- Links: #704a37
+- Background: #181818
+- Text: #f0f0f0
+- Links: #fe8019
 - Miscellaneous: #B85C38
 */
 
@@ -10,7 +10,7 @@ Site Color Palette:
 
 body{
     background: #181818;
-    color: #E4C59E;
+    color: #f0f0f0;
     font-family: "Roboto","Arial",sans-serif;
     font-weight: 700;
     font-style: normal;
@@ -20,7 +20,7 @@ body{
 }
 
 a{
-    color: #704a37;
+    color: #fe8019;
     text-decoration: #B85C38 underline;
 }
 
