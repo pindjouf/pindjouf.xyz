@@ -38,7 +38,11 @@ p {
 }
 
 ul li {
-margin-bottom: 3px;
+    margin-bottom: 3px;
+}
+
+input[type="checkbox"] {
+    margin-bottom: 3px; /* Adjust the value as needed */
 }
 
 .nav {
