@@ -5,9 +5,7 @@
     --link: #83a598;
 }
 
-@import url('https://fonts.googleapis.com/css?family=ADLaM Display');
-
-body{
+body {
     background: var(--background);
     color: var(--text);
     font-family: "Roboto","Arial",sans-serif;
@@ -18,12 +16,12 @@ body{
     margin-right: auto;
 }
 
-a{
+a {
     color: var(--link);
     text-decoration: var(--blue) underline;
 }
 
-hr{
+hr {
     display: block;
     height: 1px;
     border: 0;
@@ -35,11 +33,15 @@ hr{
     background-color: var(--blue);
 }
 
-p{
+p {
     line-height: 22px;
 }
 
-.nav{
+li {
+    margin: 10px 0;
+}
+
+.nav {
     padding: 10px;
     text-align: center;
 }
