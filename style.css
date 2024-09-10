@@ -37,8 +37,8 @@ p {
     line-height: 22px;
 }
 
-li {
-    margin: 10px 0;
+ul li {
+margin-bottom: 5px;
 }
 
 .nav {
