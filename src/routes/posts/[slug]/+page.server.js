@@ -1,58 +1,31 @@
-import { readdir, readFile } from 'fs/promises';
+import fs from 'fs';
+import path from 'path';
 import matter from 'gray-matter';
-import { join } from 'path';
+import { marked } from 'marked';
 import { error } from '@sveltejs/kit';
 
 /** @type {import('./$types').PageLoad} */
-export async function load() {
-    if (!import.meta.env.SSR) {
-        console.log('Not SSR, returning empty groupedPosts');
-        return { groupedPosts: [] };
+export async function load({ params }) {
+    const { slug } = params;
+
+    // Define the path to the posts folder
+    const postsDirectory = path.resolve('src/routes/posts');
+    const fullPath = path.resolve(postsDirectory, `${slug}.md`);
+
+    // Check if the file exists
+    if (!fs.existsSync(fullPath)) {
+        throw error(404, 'Post not found');
     }
 
-    try {
-        // Change this line to look for posts in the correct location
-        const postsDirectory = join(process.cwd(), 'src', 'routes', 'posts');
-        console.log('Posts Directory:', postsDirectory);
+    // Read the markdown file
+    const markdownWithMeta = fs.readFileSync(fullPath, 'utf-8');
+    const { content, data } = matter(markdownWithMeta);
 
-        const files = await readdir(postsDirectory);
-        console.log('Files in posts directory:', files);
+    // Convert markdown content to HTML
+    const htmlContent = marked(content);
 
-        const posts = await Promise.all(
-            files
-                .filter(file => file.endsWith('.md'))
-                .map(async (file) => {
-                    const filePath = join(postsDirectory, file);
-                    console.log('Reading file:', filePath);
-                    const markdownWithMeta = await readFile(filePath, 'utf-8');
-                    const { data } = matter(markdownWithMeta);
-
-                    return {
-                        slug: file.replace('.md', ''),
-                        title: data.title,
-                        date: new Date(data.date)
-                    };
-                })
-        );
-
-        console.log('Parsed posts:', posts);
-
-        posts.sort((a, b) => b.date - a.date);
-
-        const groupedPosts = posts.reduce((acc, post) => {
-            const year = post.date.getFullYear();
-            if (!acc[year]) {
-                acc[year] = [];
-            }
-            acc[year].push(post);
-            return acc;
-        }, {});
-
-        console.log('Grouped posts:', groupedPosts);
-
-        return { groupedPosts };
-    } catch (err) {
-        console.error('Error loading posts:', err);
-        throw error(500, 'Error loading posts');
-    }
+    return {
+        title: data.title || slug,
+        content: htmlContent
+    };
 }
