@@ -1,22 +1,17 @@
-import vercel from '@sveltejs/adapter-vercel';
+// svelte.config.js
+import adapter from '@sveltejs/adapter-vercel';
+import preprocess from 'svelte-preprocess';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
+  preprocess: preprocess(),
   kit: {
-    adapter: vercel({
-      // if true, will deploy the app using edge functions
-      // (https://vercel.com/docs/concepts/functions/edge-functions)
-      // rather than serverless functions
-      // an array of dependencies that esbuild should not bundle
-      external: [],
-
-      // if true, will split your app into multiple functions
-      // instead of creating a single one for the entire app
-      split: false,
-
-
-      runtime: 'nodejs18.x'
-    })
+    adapter: adapter({
+              runtime: 'nodejs18.x'
+        }),
+    prerender: {
+      entries: ['*', '/posts/*'] // Pre-render all routes and posts
+    }
   }
 };
 
