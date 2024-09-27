@@ -11,7 +11,7 @@ export async function load() {
     }
 
     //const postsDirectory = path.resolve('src/routes/posts'); // Path relative to the project root
-    const postsDirectory = path.join(process.cwd(), 'src', 'routes', 'posts');
+    const postsDirectory = path.join(process.cwd(), 'routes', 'posts');
     const files = fs.readdirSync(postsDirectory);
 
     // Read markdown files and parse the date
