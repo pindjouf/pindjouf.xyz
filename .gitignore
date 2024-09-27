@@ -2,7 +2,7 @@ node_modules
 
 # Output
 .output
-.vercel
+# .vercel
 /.svelte-kit
 /build
 
