@@ -14,7 +14,7 @@ export function load({ params }) {
 	const { slug } = params;
 
 	// path to post
-	const postsDirectory = path.resolve('/posts');
+	const postsDirectory = path.resolve('posts');
 	const fullPath = path.resolve(postsDirectory, `${slug}.md`);
 
 	// check if file exists
