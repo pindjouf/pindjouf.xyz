@@ -11,8 +11,8 @@ export async function load() {
     }
 
     try {
-        const currentDir = new URL('.', import.meta.url).pathname;
-        const postsDirectory = join(currentDir, 'posts');
+        // Change this line to look for posts in the correct location
+        const postsDirectory = join(process.cwd(), 'src', 'routes', 'posts');
         console.log('Posts Directory:', postsDirectory);
 
         const files = await readdir(postsDirectory);

@@ -1,10 +1,18 @@
-import adapter from '@sveltejs/adapter-vercel';
+import vercel from '@sveltejs/adapter-vercel';
 
-export default {
-	kit: {
-		adapter: adapter({
+/** @type {import('@sveltejs/kit').Config} */
+const config = {
+  kit: {
+    adapter: vercel({
             runtime: 'nodejs18.x'
-            // see below for options that can be set here
-		})
-	}
+        }),
+    files: {
+      assets: 'static'
+    },
+    prerender: {
+      entries: ['*']
+    }
+  }
 };
+
+export default config;
