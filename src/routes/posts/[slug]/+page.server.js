@@ -1,38 +1,43 @@
-import fs from 'fs';
-import path from 'path';
+import { readdir, readFile } from 'fs/promises';
 import matter from 'gray-matter';
+import { join } from 'path';
 import { error } from '@sveltejs/kit';
 
 /** @type {import('./$types').PageLoad} */
 export async function load() {
-    // Only run this on the server
     if (!import.meta.env.SSR) {
-        return { groupedPosts: {} };
+        console.log('Not SSR, returning empty groupedPosts');
+        return { groupedPosts: [] };
     }
 
     try {
-        const postsDirectory = path.join(process.cwd(), 'src', 'routes', 'posts');
+        // Change this line to look for posts in the correct location
+        const postsDirectory = join(process.cwd(), 'src', 'routes', 'posts');
         console.log('Posts Directory:', postsDirectory);
 
-        const files = fs.readdirSync(postsDirectory);
+        const files = await readdir(postsDirectory);
         console.log('Files in posts directory:', files);
 
-        const posts = files
-            .filter(file => file.endsWith('.md'))
-            .map(file => {
-                const filePath = path.join(postsDirectory, file);
-                const markdownWithMeta = fs.readFileSync(filePath, 'utf-8');
-                const { data } = matter(markdownWithMeta);
+        const posts = await Promise.all(
+            files
+                .filter(file => file.endsWith('.md'))
+                .map(async (file) => {
+                    const filePath = join(postsDirectory, file);
+                    console.log('Reading file:', filePath);
+                    const markdownWithMeta = await readFile(filePath, 'utf-8');
+                    const { data } = matter(markdownWithMeta);
 
-                return {
-                    slug: file.replace('.md', ''),
-                    title: data.title,
-                    date: new Date(data.date)
-                };
-            })
-            .sort((a, b) => b.date - a.date);
+                    return {
+                        slug: file.replace('.md', ''),
+                        title: data.title,
+                        date: new Date(data.date)
+                    };
+                })
+        );
 
         console.log('Parsed posts:', posts);
+
+        posts.sort((a, b) => b.date - a.date);
 
         const groupedPosts = posts.reduce((acc, post) => {
             const year = post.date.getFullYear();

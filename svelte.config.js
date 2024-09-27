@@ -4,14 +4,21 @@ import vercel from '@sveltejs/adapter-vercel';
 const config = {
   kit: {
     adapter: vercel({
-            runtime: 'nodejs18.x'
-        }),
-    files: {
-      assets: 'static'
-    },
-    prerender: {
-      entries: ['*']
-    }
+      // if true, will deploy the app using edge functions
+      // (https://vercel.com/docs/concepts/functions/edge-functions)
+      // rather than serverless functions
+      edge: false,
+
+      // an array of dependencies that esbuild should not bundle
+      external: [],
+
+      // if true, will split your app into multiple functions
+      // instead of creating a single one for the entire app
+      split: false,
+
+
+      runtime: 'nodejs18.x'
+    })
   }
 };
 
