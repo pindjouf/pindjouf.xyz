@@ -43,4 +43,4 @@ File Encryption for repos that are stored in the cloud.
 
 *kof is being built at Noir Chapeau Labs*
 <br>
-![rust neofetch](/src/assets/rust.png)
+![rust neofetch](/assets/rust.png)
