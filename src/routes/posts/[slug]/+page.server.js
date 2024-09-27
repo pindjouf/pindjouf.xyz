@@ -1,31 +1,53 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import { marked } from 'marked';
 import { error } from '@sveltejs/kit';
 
 /** @type {import('./$types').PageLoad} */
-export async function load({ params }) {
+export async function load() {
     // Only run this on the server
     if (!import.meta.env.SSR) {
-        return { title: '', content: '' }; // Return default values if not SSR
+        return { groupedPosts: {} };
     }
 
-    const { slug } = params;
-    const fullPath = path.resolve(`src/routes/posts/${slug}.md`); // Path to the markdown file
+    try {
+        const postsDirectory = path.join(process.cwd(), 'src', 'routes', 'posts');
+        console.log('Posts Directory:', postsDirectory);
 
-    // Check if the file exists
-    if (!fs.existsSync(fullPath)) {
-        throw error(404, 'Not found');
+        const files = fs.readdirSync(postsDirectory);
+        console.log('Files in posts directory:', files);
+
+        const posts = files
+            .filter(file => file.endsWith('.md'))
+            .map(file => {
+                const filePath = path.join(postsDirectory, file);
+                const markdownWithMeta = fs.readFileSync(filePath, 'utf-8');
+                const { data } = matter(markdownWithMeta);
+
+                return {
+                    slug: file.replace('.md', ''),
+                    title: data.title,
+                    date: new Date(data.date)
+                };
+            })
+            .sort((a, b) => b.date - a.date);
+
+        console.log('Parsed posts:', posts);
+
+        const groupedPosts = posts.reduce((acc, post) => {
+            const year = post.date.getFullYear();
+            if (!acc[year]) {
+                acc[year] = [];
+            }
+            acc[year].push(post);
+            return acc;
+        }, {});
+
+        console.log('Grouped posts:', groupedPosts);
+
+        return { groupedPosts };
+    } catch (err) {
+        console.error('Error loading posts:', err);
+        throw error(500, 'Error loading posts');
     }
-
-    // Read markdown file
-    const markdownWithMeta = fs.readFileSync(fullPath, 'utf-8');
-    const { content, data } = matter(markdownWithMeta);
-    const htmlContent = marked(content);
-
-    return {
-        title: data.title,
-        content: htmlContent
-    };
 }
