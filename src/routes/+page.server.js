@@ -10,8 +10,16 @@ export async function load() {
         return { groupedPosts: [] }; // Return an empty array if not SSR
     }
 
-    //const postsDirectory = path.resolve('src/routes/posts'); // Path relative to the project root
-    const postsDirectory = path.join(process.cwd(), 'routes', 'posts');
+    // Correct path to posts directory
+    const postsDirectory = path.join(process.cwd(), 'src', 'routes', 'posts');
+    console.log('Posts Directory:', postsDirectory); // Debugging
+
+    // Check if the directory exists
+    if (!fs.existsSync(postsDirectory)) {
+        console.error('Posts directory does not exist:', postsDirectory);
+        throw error(404, 'Posts directory not found');
+    }
+
     const files = fs.readdirSync(postsDirectory);
 
     // Read markdown files and parse the date
