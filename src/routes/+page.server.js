@@ -4,26 +4,20 @@ import matter from 'gray-matter';
 
 /** @type {import('./$types').PageLoad} */
 export function load() {
-    // Ensure server-side rendering
+    // fix ssr shit
 	if (!import.meta.env.SSR) {
 		return;
 	}
 
-	// Use process.cwd() to ensure correct path resolution
-	const postsDirectory = path.join(process.cwd(), 'src/routes/posts');
-
-	// Check if the directory exists
-	if (!fs.existsSync(postsDirectory)) {
-		throw new Error(`Posts directory not found: ${postsDirectory}`);
-	}
-
+	const postsDirectory = path.resolve('src/routes/posts');
 	const files = fs.readdirSync(postsDirectory);
+    console.log('Looking for posts in:', postsDirectory);
 
-	// Read markdown files and parse the data
+	// read md files and parse the date
 	const posts = files
 		.filter(file => file.endsWith('.md'))
 		.map(file => {
-			const filePath = path.join(postsDirectory, file);
+			const filePath = path.resolve(postsDirectory, file);
 			const markdownWithMeta = fs.readFileSync(filePath, 'utf-8');
 			const { data } = matter(markdownWithMeta);
 
