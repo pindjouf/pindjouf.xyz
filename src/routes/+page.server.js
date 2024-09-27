@@ -4,19 +4,26 @@ import matter from 'gray-matter';
 
 /** @type {import('./$types').PageLoad} */
 export function load() {
-    // fix ssr shit
+    // Ensure server-side rendering
 	if (!import.meta.env.SSR) {
 		return;
 	}
 
-	const postsDirectory = path.resolve('src/routes/posts');
+	// Use process.cwd() to ensure correct path resolution
+	const postsDirectory = path.join(process.cwd(), 'src/routes/posts');
+
+	// Check if the directory exists
+	if (!fs.existsSync(postsDirectory)) {
+		throw new Error(`Posts directory not found: ${postsDirectory}`);
+	}
+
 	const files = fs.readdirSync(postsDirectory);
 
-	// read md files and parse the date
+	// Read markdown files and parse the data
 	const posts = files
 		.filter(file => file.endsWith('.md'))
 		.map(file => {
-			const filePath = path.resolve(postsDirectory, file);
+			const filePath = path.join(postsDirectory, file);
 			const markdownWithMeta = fs.readFileSync(filePath, 'utf-8');
 			const { data } = matter(markdownWithMeta);
 
