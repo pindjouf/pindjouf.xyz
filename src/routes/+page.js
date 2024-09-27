@@ -9,7 +9,7 @@ export function load() {
 		return;
 	}
 
-	const postsDirectory = path.resolve('src/routes/posts');
+	const postsDirectory = path.resolve('/src/routes/posts');
 	const files = fs.readdirSync(postsDirectory);
 
 	// read md files and parse the date
