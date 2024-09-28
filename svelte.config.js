@@ -1,17 +1,14 @@
-// svelte.config.js
 import adapter from '@sveltejs/adapter-vercel';
-import preprocess from 'svelte-preprocess';
+import { mdsvex } from 'mdsvex';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-  preprocess: preprocess(),
+  extensions: ['.svelte', '.md'],
+  preprocess: mdsvex(),
   kit: {
     adapter: adapter({
-              runtime: 'nodejs18.x'
-        }),
-    prerender: {
-      entries: ['*'] // Pre-render all routes and posts
-    }
+      runtime: 'nodejs18.x'
+    }),
   }
 };
 
