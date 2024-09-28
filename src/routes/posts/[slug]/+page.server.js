@@ -5,7 +5,7 @@ import { error } from '@sveltejs/kit';
 import path from 'path';
 
 /** @type {import('./$types').PageLoad} */
-export const prerender = true;
+//export const prerender = auto;
 
 export async function load({ params }) {
     const { slug } = params;

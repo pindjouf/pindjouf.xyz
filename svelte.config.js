@@ -10,7 +10,7 @@ const config = {
               runtime: 'nodejs18.x'
         }),
     prerender: {
-      entries: ['*', '/posts/*'] // Pre-render all routes and posts
+      entries: ['*'] // Pre-render all routes and posts
     }
   }
 };
