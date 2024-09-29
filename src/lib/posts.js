@@ -32,13 +32,3 @@ export async function getAllPosts() {
 
   return allPosts;
 }
-
-export function getPostBySlug(slug) {
-    const realSlug = slug.replace(/\.md$/, '');
-    const fullPath = path.join(postsDirectory, `${realSlug}.md`);
-
-    return {
-        slug: realSlug,
-        path: fullPath
-    };
-}

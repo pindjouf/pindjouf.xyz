@@ -3,7 +3,6 @@
     const slug = data.slug;
     const filePath = './' + slug + '.md'
 
-    Post = (await import(filePath)).default;
+    //Post = (await import(filePath)).default;
 </script>
 
-<Post />
