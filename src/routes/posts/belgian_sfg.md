@@ -5,7 +5,7 @@ date: "2024-05-23"
 
 # Belgian SFG Training Program
 
-![cycle](/src/assets/SFG.png)  
+![cycle](/assets/SFG.png)  
 **[Skip to Program Section](#program-section)**
 
 I summarized the training for the Q-Course in a readable format because the official document is quite overwhelming.

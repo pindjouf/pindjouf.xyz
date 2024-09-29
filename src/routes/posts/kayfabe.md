@@ -42,7 +42,8 @@ You have to realize that a lot of people are straight up lying on their resume. 
 
 The advice you should derive from this is not to start lying like them, but learn to stretch the truth, sell yourself. Understand that if something is asked of you, and you can do that thing, it effectively qualifies you for the job. Nothing other than that is a real requirement. If you have no formal experience to justify that skill, find a way to fit it in there.
 
-Now in the case where they're asking for 5 skills and you only have 2 what should you do?\
+Now in the case where they're asking for 5 skills and you only have 2 what should you do?
+
 Honestly it really depends on who you are at that point, if you're a quick learner (as you should be in IT) don't be scared to put them on there. Do some research on the subject, learn at night, on the weekends and on the job. Don't disqualify yourself just because you're not that confident on a particular topic, let THEM tell you no.
 
 **wakeup #1:** *There are people who can barely code, making 6 figures in engineer roles.*
@@ -63,7 +64,8 @@ Your CV will mostly be viewed by non-technical HR people, so don't write it like
 
 Put all the industry buzzwords on there, make sure to have something that's easy to read.
 
-Most skills are learned on the job, especially if you're a junior.\
+Most skills are learned on the job, especially if you're a junior.
+
 So focus on showcasing your adaptability and that you're able learn quickly based on the company's needs.
 
 Instead of saying things like: *I'm familiar with google cloud* use something in this style: *expert in google cloud, had 99% availability*

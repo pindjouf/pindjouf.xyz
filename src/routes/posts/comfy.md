@@ -74,7 +74,7 @@ If you added a dumpfile in your code it should now be in the same directory.
 *   Select all your signals in the left column.
 *   Analyze and enjoy! :D
 
-![electrical waves](/src/assets/waves.png)
+![electrical waves](/assets/waves.png)
 
 ### Glossary
 
