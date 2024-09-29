@@ -6,6 +6,12 @@
         "content": "Content for achievements.md."
     },
     {
+        "title": "Svelte first impressions",
+        "slug": "svelte",
+        "date": "2024-09-30",
+        "content": "Content for svelte.md."
+    },
+    {
         "title": "Belgian SFG Training Program",
         "slug": "belgian_sfg",
         "date": "2024-05-23",
