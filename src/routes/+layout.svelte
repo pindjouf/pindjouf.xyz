@@ -1,5 +1,5 @@
 <script>
-    import "./style.css";
+    import "../style.css";
     import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
     import { dev } from '$app/environment';
     import { inject } from '@vercel/analytics';

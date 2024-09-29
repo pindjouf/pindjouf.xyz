@@ -12,13 +12,13 @@ Btw if you don't know this is written in the style of [learnxinyminutes.com](htt
 
 ## Simple hello world example:
 
-```systemverilog
+```verilog
 initial $display("Hello, world!");
 ```
 
 ## Declaring a module looks like this:
 
-```systemverilog
+```verilog
 module top_module (
     input a,
     output b
@@ -40,26 +40,26 @@ endmodule
 
 ## Assigning signals looks like this:
 
-```systemverilog
+```verilog
 assign b = a;
 ```
 
 ## Simple diagram of the module \`top\_module\`:
 
-```systemverilog
+```verilog
 // a->□->b
 ```
 
 ## Wires and Registers:
 
-```systemverilog
+```verilog
 // Wires are just there to connect different elements, they are driven by continuous assign statements or module ports. 
 //They can be thought of as physical wires.
 ```
 
 ## Buses or Vectors:
 
-```systemverilog
+```verilog
 // Buses or Vectors let you extend your ports or signals by giving them a range of n-bits.
 // They're usually written from MSB to LSB although it doesn't really matter.
 // Ex with an 8-bit input port:
@@ -71,7 +71,7 @@ assign out = hehe[4];
 
 ## Number Representations:
 
-```systemverilog
+```verilog
 // Numbers in verilog can represented in multiple number systems like hex, octal, decimal or binary.
 // The syntax is as follows:
 // w'snnn
@@ -94,7 +94,7 @@ assign out = hehe[4];
 
 ## Operators:
 
-```systemverilog
+```verilog
 // NOT = ~
 // AND = &
 // OR = |
@@ -106,7 +106,7 @@ assign out = hehe[4];
 
 ## IF statement:
 
-```systemverilog
+```verilog
 if (condition) begin
   // code to execute if true;
 end else begin
@@ -116,14 +116,14 @@ end
 
 ## Delays:
 
-```systemverilog
+```verilog
 // Delays tell the program how many time units to wait before executing a line of code. Similar to the sleep command in shell.
 #20; // code goes here;
 ```
 
 ## Always blocks:
 
-```systemverilog
+```verilog
 // Always, is a procedural block. It can be used as a set of instruction or as a statement.
 // Statement example:
 always #5 clk = ~clk;
@@ -139,3 +139,4 @@ always @(posedge clk) begin
 end
 // I think of the always blocks as being if statements inside a while true.
 ```
+<br>

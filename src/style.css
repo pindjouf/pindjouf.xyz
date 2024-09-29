@@ -1,3 +1,5 @@
+@import './styles/gruvbox-dark.css';
+
 :root {
     --background: #1c1c1c;
     --text: #ebdbb2;

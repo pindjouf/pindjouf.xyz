@@ -25,6 +25,7 @@
 		"marked": "^14.1.2",
 		"mdsvex": "^0.12.3",
 		"promises": "^0.2.5",
+		"rehype-highlight": "^7.0.0",
 		"shiki": "^1.20.0",
 		"vite-plugin-markdown": "^2.2.0"
 	}
