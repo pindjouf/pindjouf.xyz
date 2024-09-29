@@ -1,5 +1,4 @@
-// src/lib/getPosts.js
-import posts from './posts.json'; // Adjust the path accordingly
+import posts from './posts.json';
 
 export function getAllPosts() {
     // Convert the date strings to Date objects
