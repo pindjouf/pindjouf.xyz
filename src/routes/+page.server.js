@@ -1,19 +1,24 @@
 import { getAllPosts } from '$lib/posts';
 
-export async function load() {
-  const posts = await getAllPosts();
-  
-  // Group posts by year
-  const groupedPosts = posts.reduce((group, post) => {
-    const year = new Date(post.date).getFullYear();
-    if (!group[year]) {
-      group[year] = [];
-    }
-    group[year].push(post);
-    return group;
-  }, {});
+export const load = async () => {
+    const allPosts = getAllPosts();
 
-  return {
-    groupedPosts
-  };
-}
+    // Group posts by year
+    const groupedPosts = allPosts.reduce((acc, post) => {
+        const year = post.date.getFullYear();
+        if (!acc[year]) {
+            acc[year] = [];
+        }
+        acc[year].push(post);
+        return acc;
+    }, {});
+
+    // Sort posts within each year by date
+    for (const year in groupedPosts) {
+        groupedPosts[year].sort((a, b) => b.date - a.date); // Sort descending by date
+    }
+
+    return {
+        groupedPosts
+    };
+};

@@ -1,0 +1,74 @@
+[
+    {
+        "title": "Achievements",
+        "slug": "achievements",
+        "date": "2023-12-17",
+        "content": "Content for achievements.md."
+    },
+    {
+        "title": "Assumption-based learning",
+        "slug": "assumption",
+        "date": "2024-09-30",
+        "content": "Content for assumption.md."
+    },
+    {
+        "title": "Belgian SFG Training Program",
+        "slug": "belgian_sfg",
+        "date": "2024-05-23",
+        "content": "Content for belgian_sfg.md."
+    },
+    {
+        "title": "Chord functionalities",
+        "slug": "chord_functionalities",
+        "date": "2022-01-23",
+        "content": "Content for chord_functionalities.md."
+    },
+    {
+        "title": "Comfy HDL Design Setup",
+        "slug": "comfy",
+        "date": "2024-09-02",
+        "content": "Content for comfy.md."
+    },
+    {
+        "title": "Copycat",
+        "slug": "copycat",
+        "date": "2024-08-15",
+        "content": "Content for copycat.md."
+    },
+    {
+        "title": "Hello, world!",
+        "slug": "hello_world",
+        "date": "2023-11-19",
+        "content": "Content for hello_world.md."
+    },
+    {
+        "title": "KayFabe: The art of selling your job skills, a guide for zoomers.",
+        "slug": "kayfabe",
+        "date": "2024-09-19",
+        "content": "Content for kayfabe.md."
+    },
+    {
+        "title": "10 Days For Kof",
+        "slug": "kof",
+        "date": "2024-09-10",
+        "content": "Content for kof.md."
+    },
+    {
+        "title": "Svelte first impressions",
+        "slug": "svelte",
+        "date": "2024-10-01",
+        "content": "Content for svelte.md."
+    },
+    {
+        "title": "T-shaped day",
+        "slug": "t_shaped",
+        "date": "2023-12-18",
+        "content": "Content for t_shaped.md."
+    },
+    {
+        "title": "Where X=verilog",
+        "slug": "where_x_equals_verilog",
+        "date": "2024-08-06",
+        "content": "Content for where_x_equals_verilog.md."
+    }
+]
