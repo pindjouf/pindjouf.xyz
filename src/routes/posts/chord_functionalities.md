@@ -5,9 +5,6 @@ date: "2022-01-23"
 
 # Chord Functionalities
 
-> [!WARNING]
-> this post is a wip, I have to bring the syntax highlighting back.
-
 The tonic chord is the big boss, no matter what you’re doing there comes a time when you have to return to it otherwise you’re just building tension indefinitely, and no one wants to hear that.
 
 So understanding how a chord relates to the tonic chord is essential in music.  
@@ -41,7 +38,6 @@ Take your tonic and sub-dominant chords for instance and let’s see how we can 
 **G#°**: **G**, **Bb**, **D** / Our new tonic and the dominant of **Cm**  
 **Cm**: **C**, **Eb**, **G** / Our new tonic and the dominant of **Fm**  
 **Fm**: **F**, **Ab**, **C** / Our new tonic and the dominant of **Bbm**  
-Etc...
 
 As you can see we’ve gone through multiple scales and yet there are still more to discover.  
 Equivalently, using major chords is an option that allows us to either head to a major key or provide a more intense resolution when we do end up changing to our minor tonic of choice.  
@@ -49,11 +45,11 @@ Equivalently, using major chords is an option that allows us to either head to a
 Also take note that the transition from chord 1 to 4 is simply raising the third and fifth degree to its second / 9th all whilst making our ex-tonic the new fifth. See detailed explanation below;  
 (Inverted tonic chord / **Bm** for illustrative purposes only)
 
-{**F#m**: **F#**, **A** **C#**  
+**F#m**: **F#**, **A** **C#**  
 **Bm** 2nd inv: **F#**, **B** **D**} in natural minor the tonic chord's 3rd degree goes up a whole tone and the 5th goes up by a semitone.
 
-{**F#m**: **F#**, **A#** **C#**  
+**F#m**: **F#**, **A#** **C#**  
 **Bm** 2nd inv: **F#**, **B** **D**} in harmonic minor the tonic chord's 3rd degree goes up a semitone and the 5th goes up by a semitone.
 
-{**F#m**: **F#**, **A#** **C#**  
+**F#m**: **F#**, **A#** **C#**  
 **Bm** 2nd inv: **F#**, **B** **D#**} in natural major the tonic chord's 3rd degree goes up a semitone and the 5th goes up by a whole tone.

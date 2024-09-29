@@ -1,13 +1,17 @@
 <script>
+    import { onMount } from 'svelte';
+    let Post;
     export let data;
-    const slug = data.slug;
-    const filePath = './' + slug + '.md'
 
-    import Post from "../where_x_equals_verilog.md";
-
-    console.log(filePath);
-
-    //Post = (await import(filePath)).default;
+    onMount(async () => {
+        const slug = data.slug;
+        const post = await import(`../${slug}.md`);
+        Post = post.default;
+    });
 </script>
 
-<Post />
+{#if Post}
+    <Post />
+{:else}
+    <p>Loading...</p>
+{/if}

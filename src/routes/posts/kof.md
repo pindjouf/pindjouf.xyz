@@ -6,7 +6,6 @@ date: "2024-09-10"
 # 10 Days For Kof
 
 In ten days I finish my cybersecurity bootcamp, I have nothing to show for it.
-<br>
 So I will make sure to have something to show in ten days.
 
 Everything in my life will be on standby until kof gets done.
@@ -30,17 +29,15 @@ Main entries in **main.md** file with `kof --main` or `main`.
 #### Syncing
 
 File syncing on self-hosted server or on the Noir Chapeau Cloud with `kof --sync`.
-<br>
+
 File Encryption for repos that are stored in the cloud.
 
 ## Gameplan
 
-**Day 1:** get familiar with rust -> [cli with rust](https://rust-cli.github.io/book/index.html)
-<br>
-**Day 2-9:** build
-<br>
-**Day 10:** make banger linkedin post, article on personal blog and poast on X (formerly twitter) -> "what started as a joke now serves as an outlet for actual projects" when talking about [noirchapeau.com](https://noirchapeau.com)
+- **Day 1:** get familiar with rust -> [cli with rust](https://rust-cli.github.io/book/index.html)
+- **Day 2-9:** build
+- **Day 10:** make banger linkedin post, article on personal blog and poast on X (formerly twitter) -> "what started as a joke now serves as an outlet for actual projects" when talking about [noirchapeau.com](https://noirchapeau.com)
 
 *kof is being built at Noir Chapeau Labs*
-<br>
+
 ![rust neofetch](/assets/rust.png)
