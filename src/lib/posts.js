@@ -3,7 +3,8 @@ import path from 'path';
 import matter from 'gray-matter';
 
 // Define the path where your markdown files are stored
-const postsDirectory = '/routes/posts';
+const postsDirectory = '../routes/posts';
+console.log(postsDirectory);
 
 // Get all posts, filtering out directories
 export async function getAllPosts() {
