@@ -1,6 +1,9 @@
 <script>
-	/** @type {import('./$types').PageData} */
-	export let data;
+    export let data;
+    const slug = data.slug;
+    const filePath = './' + slug + '.md'
+
+    Post = (await import(filePath)).default;
 </script>
 
-<div>{@html data.content}</div>
+<Post />

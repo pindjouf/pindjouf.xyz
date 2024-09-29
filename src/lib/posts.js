@@ -37,18 +37,8 @@ export function getPostBySlug(slug) {
     const realSlug = slug.replace(/\.md$/, '');
     const fullPath = path.join(postsDirectory, `${realSlug}.md`);
 
-    try {
-        const fileContents = fs.readFileSync(fullPath, 'utf8');
-        const { data, content } = matter(fileContents);
-
-        return {
-            slug: realSlug,
-            frontmatter: data,
-            content, // Raw markdown content
-        };
-    } catch (err) {
-        console.error('Error fetching post by slug:', err);
-        return null; // Return null if an error occurs
-    }
+    return {
+        slug: realSlug,
+        path: fullPath
+    };
 }
-
