@@ -6,8 +6,9 @@ date: "2024-09-30"
 # Svelte first impressions
 
 **TL;DR:** I remade my blog with sveltekit.
+
 This is kind of a tutorial to use as a reference more than anything else.
-You can find the source code to my blog which I remade with svelte, sveltekit and mdsvex here -> [repository](https://github.com/pindjouf/pindjouf.xyz).
+You can find the source code to my blog here -> [repository](https://github.com/pindjouf/pindjouf.xyz).
 
 ## Why am I using svelte & sveltekit?
 
