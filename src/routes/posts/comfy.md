@@ -19,7 +19,7 @@ First step is to write your design.
 
 **Simple example:**
 
-```systemverilog
+```verilog
 module blink ( 
     input clk,
     output led
@@ -34,7 +34,7 @@ Then you write your testbench[¹](#glossary) to provide input to your DUT/UUT[²
 
 **Simple example:**
 
-```systemverilog
+```verilog
     module blink_tb;
         reg clk;
         wire led;
@@ -49,7 +49,7 @@ Then you write your testbench[¹](#glossary) to provide input to your DUT/UUT[²
   
     initial 
         begin
-            $display("PindjoRunning testbench...");
+            $display("Running testbench...");
             $dumpfile("dump.vcd");
             $dumpvars(0);
             #30_000_000;
