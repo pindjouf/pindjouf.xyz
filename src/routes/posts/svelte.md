@@ -114,7 +114,7 @@ Then you'll be able to use it in your +page.svelte:
 
 Now for syntax highligting it's very simple, configure your svelte.config.js like so:
 
-```svelte
+```javascript
 import adapter from '@sveltejs/adapter-vercel';
 import { mdsvex } from 'mdsvex';
 import rehypeHighlight from 'rehype-highlight';
