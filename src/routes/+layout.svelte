@@ -18,3 +18,8 @@
 
 <slot></slot>
 
+<style>
+    .nav {
+        font-weight: bold;
+    }
+</style>

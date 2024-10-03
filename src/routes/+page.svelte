@@ -8,7 +8,7 @@
 	{#each data.groupedPosts[year] as post}
 		<p>
 			{post.date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })} -> 
-			<a href={`/posts/${post.slug}`}>{post.title}</a>
+			<a href={`/posts/${post.slug}`} style="font-weight: bold;">{post.title}</a>
 		</p>
 	{/each}
 {/each}

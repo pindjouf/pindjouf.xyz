@@ -3,7 +3,7 @@
     --background: #1c1c1c;
     --text: white;
     --link: #d79921;
-    --blue: #458588;
+    --blue: #30B0B8;
 }
 
 body {
@@ -29,14 +29,14 @@ a:hover {
 
 hr {
     display: block;
-    height: 1px;
+    height: 2px;
     border: 0;
-    border-top: 1px solid var(--text);
-    border-radius: 2px;
+    border-top: 1px solid #8b8b8b;
+    border-radius: 4px;
     margin: 1em 0;
     padding: 0;
-    border-color: var(--text);
-    background-color: var(--text);
+    border-color: #8b8b8b;
+    background-color: #8b8b8b;
 }
 
 p {
