@@ -1,7 +1,7 @@
 @import './styles/gruvbox-dark.css';
 :root {
     --background: #1f1d1d;
-    --text: #ebdbb2;
+    --text: white;
     --link: #d79921;
     --blue: #458588;
 }
