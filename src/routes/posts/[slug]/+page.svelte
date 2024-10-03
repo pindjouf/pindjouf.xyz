@@ -11,7 +11,7 @@
 </script>
 
 <svelte:head>
-    <title>{post.title} | Pindjouf.xyz</title>
+    <title>{data.slug} | Pindjouf.xyz</title>
 </svelte:head>
 
 {#if Post}
