@@ -84,16 +84,18 @@ Once you've installed wireguard you can either set it up [manually](https://www.
 
 Here's what your config file should look like:
 ---
-**[Interface]**\
-Address = 10.145.16.9/24\
-PrivateKey = fGU3YoHmVYtGnaSsKX2eTi6Z06No4BwcSw2jzA1X2aZ=\
+```conf
+[Interface]
+Address = 10.145.16.9/24
+PrivateKey = fGU3YoHmVYtGnaSsKX2eTi6Z06No4BwcSw2jzA1X2aZ=
 DNS = 1.1.1.1, 1.0.0.1
 
-**[Peer]**\
-PublicKey = IATY9j5PVlNxbJXXj7YiOQOyXijykotSiohgY9ZLYz0=\
-PresharedKey = PclEs511E1/9Tlrg+nIhWbNofx+0eIgPvFIOzkLDYBc=\
-Endpoint = acrobat.duckdns.org:51820\
+[Peer]
+PublicKey = IATY9j5PVlNxbJXXj7YiOQOyXijykotSiohgY9ZLYz0=
+PresharedKey = PclEs511E1/9Tlrg+nIhWbNofx+0eIgPvFIOzkLDYBc=
+Endpoint = acrobat.duckdns.org:51820
 AllowedIPs = 0.0.0.0/0, ::/0
+```
 ___
 **Notes:**
 
