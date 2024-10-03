@@ -107,3 +107,13 @@ ___
 Once everything is set up you should be able to start your connection with `wg-quick up wg0` and to close it, replace `up` with `down`
 
 Don't forget to port forward port `51820` it is the wireguard port.
+
+## Disclaimer:
+
+The information provided in this material about peer-to-peer (P2P) file sharing is for educational purposes only. P2P technology can be misused for piracy, including unauthorized distribution of copyrighted material such as movies, music, books, and games, which is illegal.
+
+I expressly disclaim any responsibility or liability for the misuse of P2P file sharing for piracy or any other illegal activity. Users are solely responsible for ensuring compliance with all applicable laws and regulations.
+
+I condemn piracy and advocate for respect of intellectual property rights. This material does not endorse or encourage illegal activities. Use P2P file sharing responsibly and lawfully, respecting copyright holders' rights.
+
+By accessing this material, you agree to release me from any liability arising from the misuse of P2P file sharing technology. I shall have neither liability nor responsibility to any person or entity with respect to any loss or damages arising from the information contained in this repository or from the use of the programs accompanying it.
