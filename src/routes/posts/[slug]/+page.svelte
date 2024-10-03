@@ -10,6 +10,10 @@
     });
 </script>
 
+<svelte:head>
+    <title>{post.title} | Pindjouf.xyz</title>
+</svelte:head>
+
 {#if Post}
     <Post />
 {:else}
