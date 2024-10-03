@@ -5,10 +5,9 @@ date: "2024-10-03"
 
 # Media Pirate Stack
 
-First I have to thank [@Kalos](https://www.youtube.com/@KalosLikesComputers) for inspiring me to do this.
+Thanks to [@Kalos](https://www.youtube.com/@KalosLikesComputers) for inspiring me to do this.
 
-In this post you'll learn how to get accustomed to working with home servers, VPNs & P2P file sharing.
-
+In this post you'll learn how to get accustomed to working with home servers, VPNs & P2P file sharing. With the goal of setting up your very own media service.
 The setup is fairly simple, here's a list of what we need:
 
 **Hardware**:
