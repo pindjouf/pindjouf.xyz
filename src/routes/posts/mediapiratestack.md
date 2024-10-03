@@ -8,6 +8,7 @@ date: "2024-10-03"
 Thanks to [@Kalos](https://www.youtube.com/@KalosLikesComputers) for inspiring me to do this.
 
 In this post you'll learn how to get accustomed to working with home servers, VPNs & P2P file sharing. With the goal of setting up your very own media service.
+
 The setup is fairly simple, here's a list of what we need:
 
 **Hardware**:
@@ -31,7 +32,8 @@ When you're ready to download I suggest you run all the download related service
 - Media Finder Interface = [Radarr](https://radarr.video/), [Sonarr](https://sonarr.tv/), [Lidarr](https://lidarr.audio/)
 - API support for torrent trackers = [Jackett](https://github.com/Jackett/Jackett)
 
-on startup it'll make the whole experience smoother.\
+on startup it'll make the whole experience smoother.
+
 Read below for the setup of each service.
 
 ### Torrenting Client Setup
