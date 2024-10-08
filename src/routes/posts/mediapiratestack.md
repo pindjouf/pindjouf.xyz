@@ -8,8 +8,6 @@ date: "2024-10-03"
 *my pi and its beloved SSD :D*
 <img src="/assets/pi.png" alt="raspberry pi" style="display: block; width: 50%;">
 
-Thanks to [@Kalos](https://www.youtube.com/@KalosLikesComputers) for inspiring me to do this.
-
 This post was originally a repo on github but I want to clean up and only keep projects on there. Here you'll learn how to get accustomed to working with home servers, VPNs & P2P file sharing. With the goal of setting up your very own media service.
 
 The setup is fairly simple, here's a list of what we need (these are just options/recommendations):
