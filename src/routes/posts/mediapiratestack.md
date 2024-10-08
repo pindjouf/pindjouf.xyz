@@ -1,6 +1,6 @@
 ---
 title: "Media Pirate Stack"
-date: "2024-10-08"
+date: "2024-10-03"
 ---
 
 # Media Pirate Stack
