@@ -9,7 +9,7 @@ Thanks to [@Kalos](https://www.youtube.com/@KalosLikesComputers) for inspiring m
 
 This post was originally a repo but I want to clean up and only keep projects on there. Here you'll learn how to get accustomed to working with home servers, VPNs & P2P file sharing. With the goal of setting up your very own media service.
 
-The setup is fairly simple, here's a list of what we need:
+The setup is fairly simple, here's a list of what we need (these are just options/recommendations):
 
 **Hardware**:
 - Server = [Raspberry Pi](https://www.amazon.com.be/s?k=raspberry+pi), [ZimaBlade](https://shop.zimaboard.com/products/zimablade-single-board-server-for-cyber-native)
