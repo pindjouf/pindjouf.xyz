@@ -37,8 +37,6 @@ The goal is to narrow down your area of focus for the next few years to somethin
 
 - [x] **Get Selected For Bootcamp**
 
-**Get Internship**
-
 - [ ] **Get Job/Internship & 6k**
     - Optimize [CV](https://www.theladders.com/career-advice/the-high-score-resume-format-how-to-write-a-resume-for-2020) with buzzwords | add extra years of exp on things you know well.
     - Apply to random jobs just to upskill your interviewing skills.
