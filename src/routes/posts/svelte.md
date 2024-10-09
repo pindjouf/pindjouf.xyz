@@ -25,7 +25,7 @@ And I need:
 Is easily achieved by having a [slug] directory in your routes
 
 For example in my project it's done like this:
-```
+```txt
 .
 └── posts
     ├── achievements.md
@@ -54,7 +54,7 @@ There is a super easy way to do this with [mdsvex](https://mdsvex.com).
 
 Set up your page like in this example:
 
-```
+```txt
 .
 ├── +layout.svelte
 ├── +page.svelte
