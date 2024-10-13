@@ -1,5 +1,11 @@
 [
     {
+        "title": "Day 1 of making a UART 𓇲 I made a SIPO shift register",
+        "slug": "day_1",
+        "date": "2024-10-13",
+        "content": "Content for day_1.md."
+    },
+    {
         "title": "Media Pirate Stack",
         "slug": "mediapiratestack",
         "date": "2024-10-03",
