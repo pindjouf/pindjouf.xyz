@@ -37,7 +37,7 @@ end
 endmodule
 ```
 
-You can see how this closely reflects the flip flops in the previous image, the only thing that's missing here is the ***set*** input, but it's not something that I felt was necessary for our use case so I simply decided not to include it. As you can see it's pretty simple, the output `q` updates to match the input `d` at **posedge** or **negedge** of **clk** , unless **reset** is active high, in which case `q` is set to `0`.
+You can see how this closely reflects the flip flops in the previous image, the only thing that's missing here is the ***set*** input, but it's not something that I felt was necessary for our use case so I simply decided not to include it. As you can see it's pretty simple, the output `q` updates to match the input `d` at **posedge** or **negedge** of **clk**, unless **reset** is active high, in which case `q` is set to `0`.
 
 ## SIPO
 
