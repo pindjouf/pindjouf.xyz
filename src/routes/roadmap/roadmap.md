@@ -24,7 +24,7 @@ The goal is to narrow down your area of focus for the next few years to somethin
 
 ### Year 2 Plan -- 2025
 
-- Explore Freelancing/remote job
+- Launch profitable product à la [tpot](https://knowyourmeme.com/memes/subcultures/tpot-postrat)
     - Get To > 1k MRR (outside of main income)
 
 ### Year 3 Plan -- 2026
