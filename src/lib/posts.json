@@ -1,5 +1,11 @@
 [
     {
+        "title": "Day 2 of making a UART 𓇲 I made a PISO shift register",
+        "slug": "day_2",
+        "date": "2024-10-14",
+        "content": "Content for day_2.md."
+    },
+    {
         "title": "Day 1 of making a UART 𓇲 I made a SIPO shift register",
         "slug": "day_1",
         "date": "2024-10-13",
