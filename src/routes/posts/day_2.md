@@ -55,7 +55,7 @@ if (reset) begin
 ```
 
 As you can see in the previous codeblock I have a hold register in the works, I plan on using it to stop the shifting and keep the same value in the register. Or eventually use it as a *"spare"* register that can hold data while the main one works on another block.  
-I think that's all for this one, I'll leave you with the full module:
+I think that's all for this one, I'll leave you with the full module in verilog:
 
 ```verilog
 `timescale 1ns/1ps
