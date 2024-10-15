@@ -91,14 +91,15 @@ td {
 @media only screen and (max-width: 600px) {
     body {
         font-size: 15px;
-        font-weight: 300px;
+        font-weight: 50%;
         padding: 0 5px;
-        margin-left: auto;
-        margin-right: auto;
+        margin-left: 5%;
+        margin-right: 5%;
     }
 
     .nav a {
         padding: 8px;
+        display: block;
     }
 
     p {
