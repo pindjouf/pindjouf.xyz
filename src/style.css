@@ -11,7 +11,7 @@ body {
     background: var(--background);
     color: var(--text);
     font-family: "Roboto","Arial",sans-serif;
-    font-weight: 575;
+    font-weight: 350;
     font-size: 17px;
     font-style: normal;
     max-width: 800px;

@@ -1,5 +1,11 @@
 [
     {
+        "title": "Runnin’ With the Devil",
+        "slug": "runnin",
+        "date": "2024-10-16",
+        "content": "Content for runnin.md."
+    },
+    {
         "title": "Day 2 of making a UART 𓇲 I made a PISO shift register",
         "slug": "day_2",
         "date": "2024-10-14",
