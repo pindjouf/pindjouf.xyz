@@ -97,9 +97,18 @@ td {
         margin-right: 5%;
     }
 
+    .nav {
+        flex-wrap: wrap;
+        list-style-type: square;
+    }
+
+    .nav li {
+        width: 50%;
+        box-sizing: border-box;
+    }
+
     .nav a {
         padding: 8px;
-        display: block;
     }
 
     p {
