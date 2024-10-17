@@ -15,6 +15,15 @@ I've recently started getting back into it to expand my horizons and get out of 
 
 ## Getting comfy
 
+%appdata% is your new .config and Microsoft.PowerShell_profile.ps1 is your new .bashrc  
+P.S. just access it with $PROFILE:
+
+```powershell
+nvim $PROFILE
+```
+
+### Ricing
+
 Of course as an avid linux user, and linux [ricer](https://jie-fang.github.io/blog/basics-of-ricing), I had to find a way to customize my environment. Honestly I thought it wasn't possible, I always saw windows users as people that exclusively used GUI software, and didn't take the time to look at alternative ways to do their day-to-day tasks on the computer. So I figured the "market" for things like [tiling window managers](https://en.wikipedia.org/wiki/Tiling_window_manager), hotkey daemons or different [terminal emulators](https://en.wikipedia.org/wiki/Terminal_emulator) than the default powershell one wouldn't even exist! But in fact, I was pleasantly surprised to find out that things were not so different on the other side after all.
 
 After a quick search I was able to find alternatives to most of the things that I needed and that's what I'm gonna cover now, so whether you've been a classic GUI windows user your whole life, or a linux user trying to experiment outside of his comfort zone, you can read on to learn a bit more about my journey into the windows ecosystem.
