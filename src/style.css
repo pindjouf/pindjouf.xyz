@@ -88,7 +88,7 @@ td {
 }
 
 /*Responsive shit*/
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
     body {
         font-size: 15px;
         font-weight: 50%;
