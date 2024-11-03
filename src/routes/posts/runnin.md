@@ -82,7 +82,7 @@ Here’s a list of what I’m using on my Windows System:
 
 ## Dev environment
 
-As I've mentioned in previous posts I'm working on [fromthetransistor](https://github.com/pindjouf/fromthetransistor) so I mostly spend time developing in verilog, and for that I need [verilator](https://www.veripool.org/verilator/). I also like having [GTKWave](https://gtkwave.sourceforge.net/) with me when possible but it's not necessary. For this it was a bit more difficult and I'm actually still working on finding a solution for this, the simplest way to go would be to use wsl obviously but I'd like to keep it all at the windows level since I'm trying to get better at powershell, but then again this is not something that necessarily needs to be on windows. But I've been looking for so long that it feels like a challenge now!
+As I've mentioned in previous posts I'm working on [fromthetransistor](https://github.com/pindjouf/fromthetransistor) so I mostly spend time developing in verilog, and for that I need [verilator](https://www.veripool.org/verilator/). I also like having [GTKWave](https://gtkwave.sourceforge.net/) with me when possible but it's not necessary. For this it was a bit more difficult and I'm actually still working on finding a solution, the simplest way to go would be to use wsl obviously but I'd like to keep it all at the windows level since I'm trying to get better at powershell, but then again this is not something that necessarily needs to be on windows. But I've been looking for so long that it feels like a challenge now!
 
 ## where the dotfiles at?
 
