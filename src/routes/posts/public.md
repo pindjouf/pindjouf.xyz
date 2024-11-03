@@ -29,6 +29,10 @@ I'll start being unapologetically involved in my interests and politely decline 
 
 Asia is cool af btw, I'll probably make a post about that trip later.
 
+## RTFM culture
+
+Zoomers grew up in a peculiar time because when we started asking too many questions to our parents we didn't just get told the stfu, we got told to stfu and/or google it. I think that's become a habit in many of us to rely on technology more than people, which can be a good thing in some cases but it kills social interactions to unprecedented levels. Social situations, often happen when we rely on each other and make choices that could be considered as dumb/not efficient (from the digital mfs watching from the sidelines) If you try to be perfect and not sound dumb or make any mistake and purely rely on machines for correct information you'll never end up socializing and the terrible thing is that nowadays it's possible to truly not interact with anyone and get by. You can get food, accomodation, money, and way more without talking to anybody. That's kreeeeezi
+
 ## Final notes
 
 So for those in my condition, my advice would be to publicize your passions. Even if it doesn't make too much sense sometimes, I get that you want to work on circuit design at home but sometimes it's okay to go to an event and talk to mfs about azure and containers. The idea is to bring more love into your life, and you do that by experiencing the things you love more, with more people, with more passion. Like Yngwie said *more is more* :D. Otherwise you'll be frustrated that you can't find the same bliss everyone seems to be experiencing.
