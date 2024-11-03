@@ -1,5 +1,17 @@
 [
     {
+        "title": "Publicly passionate",
+        "slug": "public",
+        "date": "2024-11-03",
+        "content": "Content for public.md."
+    },
+    {
+        "title": "Day 3 of making a UART 𓇲 I made a baud rate generator",
+        "slug": "day_3",
+        "date": "2024-10-17",
+        "content": "Content for day_3.md."
+    },
+    {
         "title": "Runnin’ With the Devil",
         "slug": "runnin",
         "date": "2024-10-16",
