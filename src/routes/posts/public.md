@@ -53,3 +53,4 @@ Find places that play the music you listen to on spotify, who's building this??
 
 - **IT**
     - idk about this I still have to learn but I guess hacker houses or some shit like that
+    - coworking places i guess????? even though they're full of instagram people. deep down ur just like them bro stop the caaaaap
