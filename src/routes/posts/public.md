@@ -31,9 +31,9 @@ Asia is cool af btw, I'll probably make a post about that trip later.
 
 ## RTFM culture
 
-Zoomers grew up in a peculiar time because when we started asking too many questions to our parents we didn't just get told the stfu, we got told to stfu and/or google it. I think that's become a habit in many of us to rely on technology more than people, which can be a good thing in some cases but it kills social interactions to unprecedented levels. Social situations, often happen when we rely on each other and make choices that could be considered as dumb/not efficient (from the digital mfs watching from the sidelines) If you try to be perfect and not sound dumb or make any mistake and purely rely on machines for correct information you'll never end up socializing and the terrible thing is that nowadays it's possible to truly not interact with anyone and get by. You can get food, accomodation, money, and way more without talking to anybody. That's kreeeeezi  
+Zoomers grew up in a peculiar time, because when we started asking our parents too many questions, we didn't just get told the stfu, we got told to stfu and/or google it. I think that's become a habit in many of us to rely on technology more than people, which can be a good thing in some cases, but it kills social interactions to unprecedented levels. Social situations, often happen when we rely on each other and make choices that could be considered as dumb/not efficient (from the digital mfs watching from the sidelines).  
 
-Even older people are getting affected by it, or workers that are supposed to help you will often redirect you to their online ressource or some other inanimate source of information. Just look at AI chat bots bro this shit is so useless.
+If you try to be perfect and not sound dumb or make any mistake and purely rely on machines for correct information you'll never end up socializing and the terrible thing is that nowadays it's possible to truly not interact with anyone and get by. You can get food, accomodation, money, and way more without talking to anybody. That's kreeeeezi, even older people are getting affected by it, or workers that are supposed to help you will often redirect you to their online ressource or some other inanimate source of information. Just look at AI chat bots bro this shit is so useless.
 
 ## Final notes
 
