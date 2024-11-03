@@ -15,6 +15,10 @@
   };
 </script>
 
+<svelte:head>
+    <title>Projects | Pindjouf.xyz</title>
+</svelte:head>
+
 <style>
   :root {
     --whiiiiiiite: #fff;
