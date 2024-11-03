@@ -25,6 +25,8 @@ Things are different on this trip since I'm in new territory, I'd previously onl
 
 Here I've learned that when you're around total strangers the best way to connect is to find common ground, that's always been difficult for me because I genuinely do not care about most things/people. I just found out that the only way to pique my curiosity and make myself want to meet and learn about mfs is if we share an interest! When I'm in front of someone that has way more knowledge than I do about something I love, I will automatically be interested in a conversation, which in turn makes it easier to connect with that person. Because that's what you always hear in those self help books right, be interested in people and they will love you for it.  
 
+I'll start being unapologetically involved in my interests and politely decline anything that I don't care about (most things). I think that it's a childish way to experience life but that's where I'm at currently, perhaps it'll change in the near future.
+
 Asia is cool af btw, I'll probably make a post about that trip later.
 
 ## Final notes
