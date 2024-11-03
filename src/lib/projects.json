@@ -1,0 +1,36 @@
+[
+  {
+    "title": "Cryptoooor",
+    "link": "https://cryptoooor.com",
+    "description": "A file encryption tool that uses AES-GCM",
+    "launch_date": "2023-10-03",
+    "category": "online"
+  },
+  {
+    "title": "pindjouf.xyz",
+    "description": "Personal website",
+    "launch_date": "2023-11-19",
+    "category": "online"
+  },
+  {
+    "title": "(web) UART",
+    "link": "https://uart.pindjouf.xyz",
+    "description": "An interactive UART communication project with real-time signal visualization",
+    "launch_date": "2024-11-02",
+    "category": "in dev"
+  },
+  {
+    "title": "Kof",
+    "link": "https://github.com/pindjouf/kof",
+    "description": "A git & terminal-based note management system",
+    "launch_date": "2024-09-01",
+    "category": "in dev"
+  },
+  {
+    "title": "Xorr",
+    "link": "https://github.com/pindjouf/xorr",
+    "description": "A xor cli tool.",
+    "launch_date": "2024-07-13",
+    "category": "abandoned"
+  }
+]
