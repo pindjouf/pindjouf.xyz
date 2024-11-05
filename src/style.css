@@ -25,10 +25,6 @@ a {
     text-decoration: var(--blue) none;
 }
 
-a:hover {
-    text-decoration: var(--blue) underline;
-}
-
 hr {
     display: block;
     height: 2px;

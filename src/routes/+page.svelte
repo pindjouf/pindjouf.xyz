@@ -3,6 +3,17 @@
 	export let data;
 </script>
 
+<style>
+    a {
+        color: var(--blue);
+        text-decoration: var(--blue) none;
+    }
+
+    a:hover {
+        text-decoration: var(--blue) underline;
+    }
+</style>
+
 {#each Object.keys(data.groupedPosts).sort((a, b) => b - a) as year}
 	<h2>{year}</h2>
 	{#each data.groupedPosts[year] as post}

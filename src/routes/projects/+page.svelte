@@ -20,112 +20,148 @@
 </svelte:head>
 
 <style>
-  :root {
-    --whiiiiiiite: #fff;
-    --gruvbox-fg: #ebdbb2; 
-    --gruvbox-green: #98971a;
-    --gruvbox-yellow: #fabd2f;
-  }
+    :root {
+      --whiiiiiiite: #fff;
+      --gruvbox-fg: #ebdbb2; 
+      --gruvbox-green: #98971a;
+      --gruvbox-yellow: #fabd2f;
+    }
 
-  main {
-    color: var(--whiiiiiiite);
-    /*font-family: monospace;*/
-  }
+    main {
+      color: var(--whiiiiiiite);
+    }
 
-  h1 {
-    margin-bottom: 2rem;
-    color: var(--whiiiiiiite);
-  }
+    h1 {
+      margin-bottom: 2rem;
+      color: var(--whiiiiiiite);
+    }
 
-  .project {
-    margin-bottom: 1rem;
-    border-left: 0.2rem solid;
-    border-radius: 30px;
-    padding: 1rem;
-  }
+    .project {
+      margin-bottom: 1rem;
+      border-left: 0.2rem solid var(--whiiiiiiite);
+      padding: 1rem;
+      transition: background-color 0.3s ease;
+    }
 
-  .project-title {
-    font-size: 16px;
-    font-weight: bold;
-    color: var(--whiiiiiiite);
-  }
+    .clickable:hover .project-title {
+      text-decoration: underline;
+    }
 
-  .project-link {
-    color: var(--whiiiiiiite);
-    text-decoration: none;
-    opacity: 0.66;
-  }
+    .clickable {
+      cursor: pointer;
+      display: block;
+    }
 
-  .project-link:hover {
-    text-decoration: underline;
-  }
+    .clickable:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
 
-  .badge {
-    display: inline-block;
-    margin-left: 10px;
-    padding: 2px 6px;
-    font-size: 12px;
-    font-weight: bold;
-    border-radius: 3px;
-  }
+    .project-title {
+      font-size: 16px;
+      font-weight: bold;
+      color: var(--whiiiiiiite);
+      text-decoration: none;
+    }
 
-  .green {
-    background-color: var(--gruvbox-green);
-    color: var(--whiiiiiiite);
-  }
+    .project-link {
+      color: var(--whiiiiiiite);
+      text-decoration: none;
+      opacity: 0.66;
+      display: block;
+      margin-top: 0.5rem;
+    }
 
-  .yellow {
-    background-color: var(--gruvbox-yellow);
-    color: black;
-  }
+    .badge {
+      display: inline-block;
+      margin-left: 10px;
+      padding: 2px 6px;
+      font-size: 12px;
+      font-weight: bold;
+      border-radius: 3px;
+    }
 
-  .grey {
-    background-color: #6c757d;
-    color: var(--whiiiiiiite);
-  }
+    .green {
+      background-color: var(--gruvbox-green);
+      color: var(--whiiiiiiite);
+    }
 
-  .launch-date {
-    color: var(--whiiiiiiite);
-    font-size: 0.85rem;
-    margin-top: 5px;
-    opacity: 0.33;
-  }
+    .yellow {
+      background-color: var(--gruvbox-yellow);
+      color: black;
+    }
 
-  .description {
-    margin-top: 5px;
-    font-size: 1rem;
-    color: var(--whiiiiiiite);
-    opacity: 0.88;
-  }
+    .grey {
+      background-color: #6c757d;
+      color: var(--whiiiiiiite);
+    }
+
+    .launch-date {
+      color: var(--whiiiiiiite);
+      font-size: 0.85rem;
+      margin-top: 5px;
+      opacity: 0.33;
+    }
+
+    .description {
+      margin-top: 5px;
+      font-size: 1rem;
+      color: var(--whiiiiiiite);
+      opacity: 0.88;
+    }
 </style>
 
 <main>
   <h1>Projects</h1>
   {#each projects as project}
-    <div class="project">
-      <div class="project-title">
-        {project.title}
-        <span class="badge {getBadgeColor(project.category)}">
-          {#if project.category === 'online'}ONLINE{/if}
-          {#if project.category === 'in dev'}IN DEV{/if}
-          {#if project.category === 'abandoned'}ABANDONED{/if}
-        </span>
+    {#if project.link}
+      <a class="project-link-wrapper clickable" href={project.link} target="_blank" rel="noopener noreferrer">
+        <div class="project">
+          <div class="project-title">
+            {project.title}
+            <span class="badge {getBadgeColor(project.category)}">
+              {#if project.category === 'online'}ONLINE{/if}
+              {#if project.category === 'in dev'}IN DEV{/if}
+              {#if project.category === 'abandoned'}ABANDONED{/if}
+            </span>
+          </div>
+          <a class="project-link" href={project.link} target="_blank">{project.link}</a>
+          <div class="description">{project.description}</div>
+          <div class="launch-date">
+            {#if project.category === 'online'}
+              Launched {formatDate(project.launch_date)}
+            {/if}
+            {#if project.category === 'in dev'}
+              Started {formatDate(project.launch_date)}
+            {/if}
+            {#if project.category === 'abandoned'}
+              Abandoned {formatDate(project.launch_date)}
+            {/if}
+          </div>
+        </div>
+      </a>
+    {:else}
+      <div class="project">
+        <div class="project-title">
+          {project.title}
+          <span class="badge {getBadgeColor(project.category)}">
+            {#if project.category === 'online'}ONLINE{/if}
+            {#if project.category === 'in dev'}IN DEV{/if}
+            {#if project.category === 'abandoned'}ABANDONED{/if}
+          </span>
+        </div>
+        <div class="description">{project.description}</div>
+        <div class="launch-date">
+          {#if project.category === 'online'}
+            Launched {formatDate(project.launch_date)}
+          {/if}
+          {#if project.category === 'in dev'}
+            Started {formatDate(project.launch_date)}
+          {/if}
+          {#if project.category === 'abandoned'}
+            Abandoned {formatDate(project.launch_date)}
+          {/if}
+        </div>
       </div>
-      {#if project.link}
-        <a class="project-link" href={project.link}>{project.link}</a>
-      {/if}
-      <div class="description">{project.description}</div>
-      <div class="launch-date">
-        {#if project.category === 'online'}
-          Launched {formatDate(project.launch_date)}
-        {/if}
-        {#if project.category === 'in dev'}
-          Started {formatDate(project.launch_date)}
-        {/if}
-        {#if project.category === 'abandoned'}
-          Abandoned {formatDate(project.launch_date)}
-        {/if}
-      </div>
-    </div>
+    {/if}
   {/each}
 </main>
