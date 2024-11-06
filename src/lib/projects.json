@@ -20,6 +20,13 @@
     "category": "online"
   },
   {
+    "title": "(unnamed)",
+    "link": "https://sonicfields.vercel.app",
+    "description": "Find a third place based on your music preferences",
+    "launch_date": "2024-11-04",
+    "category": "in dev"
+  },
+  {
     "title": "(web) UART",
     "link": "https://uart.pindjouf.xyz",
     "description": "An interactive UART communication project with real-time signal visualization",
