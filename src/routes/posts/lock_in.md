@@ -5,8 +5,6 @@ date: "2024-11-17"
 
 # I just need to lock in
 
-I started this blog last year on the same day which is my birthday, with this post -> [Hello, world!](https://pindjouf.xyz/posts/hello_world).
-
 Shit's fucked, so I decided to reflect on a few things and take some notes to remind myself of the advice my GOAT mentor's been giving me throughout the years.
 
 ## Ouroboros
