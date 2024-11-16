@@ -5,6 +5,8 @@ date: "2024-11-17"
 
 # I just need to lock in
 
+<img src="/assets/lock_in.jpg" alt="raspberry pi" style="display: block; width: 50%;">
+
 Shit's fucked, so I decided to reflect on a few things and take some notes to remind myself of the advice my GOAT mentor's been giving me throughout the years.
 
 ## Ouroboros
@@ -33,7 +35,7 @@ None of your thoughts and feelings are real nor do they matter, they have no imp
 
 The only thing keeping me going right now, is looking back through email exchanges I've had with someone I deeply respect.  
 
-### Emails & excerpts
+### Email excerpts
 
 > *"Above all, don’t let Belgium lull you to sleep. You’re young, smart, and patient... if you play your cards right, you could quickly find yourself in a coworking space in the States, working on coding projects by day and playing guitar in the evening.
 > Find online programs that teach you the basics (there are free and paid ones), and as soon as you can, sign up on freelance websites. You can offer services for small, basic coding jobs, but at least it will help you learn. Little by little, you'll progress and be able to work on more complex things."*
