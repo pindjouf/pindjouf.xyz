@@ -1,5 +1,11 @@
 [
     {
+        "title": "I just need to lock in",
+        "slug": "lock_in",
+        "date": "2024-11-17",
+        "content": "Content for lock_in.md."
+    },
+    {
         "title": "MainDump #1",
         "slug": "dump_1",
         "date": "2024-11-08",

@@ -83,6 +83,14 @@ td {
     color: white;
 }
 
+blockquote {
+  border-left: 4px solid #ccc;
+  padding-left: 16px;
+  margin: 16px 0;
+  color: #ccc;
+  font-style: italic;
+}
+
 /*Responsive shit*/
 @media only screen and (max-width: 800px) {
     body {
