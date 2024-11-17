@@ -76,10 +76,9 @@ The `DIVIDER` is a parameter we use to divide the system clock frequency by the 
 
 > The symbol duration time, also known as the [unit interval](url), can be directly measured as the time between transitions by looking at an eye diagram of the signal on an oscilloscope. The duration *Ts* can be calculated as:
 
-> *Ts = 1/fs* insert formula cause this looks like shit
+<img src="/assets/formula.svg" alt="formula" style="width: 20%; display: block; filter: invert(1) brightness(2);">
 
 > where fs is sthe symbol rate. There is also a chance of miscommunication which leads to ambiguity.
-
 > Example: Communication at the baud rate *1000 Bd* means communication by means of sending *1000 symbols per second.* The symbol duration time is 1/1000 second (that is, 1 millisecond).
 
 This excerpt wasn't necessary, but I feel that it could help the reader understand the concept more deeply in case of any future confusion. I know that it helped me clarify some misunderstandings.
@@ -104,7 +103,7 @@ end
 Here we've got 2 conditions (excluding the default condition).  
 What the first one does is fairly simple, once our counter reaches the `DIVIDER` value i.e. 868 in our case. We reset every signal to 0 and toggle the baud signal.
 
-The second condition is where I get to talk about the utility of a `sample` signal, this is exclusively used in my receiver, but it's purpose is very interesting. The `sample` signal is used to send a sample bit everytime we're in the middle of the symbol duration time i.e. in the middle of a `baud` signal, which is a method used to ensure we reduce the risks of missing a bit, since by default, the *"catching"* logic on the reception side is done at the positive edge of the `baud` signal we might try to catch it too early. So having a standardized way to ensure we only activate reception when there's a sample bit is very useful! We increment the counter in here as well.
+The second condition is where I get to talk about the utility of a `sample` signal, this is exclusively used in my receiver, but it's purpose is very interesting. The `sample` signal is used to send a sample bit every time we're in the middle of the symbol duration time i.e. in the middle of a `baud` signal, which is a method used to ensure we reduce the risks of missing a bit, since by default, the *"catching"* logic on the reception side is done at the positive edge of the `baud` signal we might try to catch it too early. So having a standardized way to ensure we only activate reception when there's a sample bit is very useful! We increment the counter in here as well.
 
 The default condition is fairly obvious, as long as we haven't reached any of the previous conditions, we keep incrementing the counter.
 
