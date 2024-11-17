@@ -91,6 +91,14 @@ blockquote {
   font-style: italic;
 }
 
+code {
+    font-size: 15px;
+    background-color: #1d2021;
+    padding: 1px;
+    border-radius: 4px;
+    color: var(--link);
+}
+
 /*Responsive shit*/
 @media only screen and (max-width: 800px) {
     body {

@@ -1,5 +1,11 @@
 [
     {
+        "title": "Day 3 of making a UART 𓇲 I made a baud rate generator",
+        "slug": "day_3",
+        "date": "2024-11-18",
+        "content": "Content for day_3.md."
+    },
+    {
         "title": "I just need to lock in",
         "slug": "lock_in",
         "date": "2024-11-17",
