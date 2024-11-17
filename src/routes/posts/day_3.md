@@ -78,7 +78,7 @@ The `DIVIDER` is a parameter we use to divide the system clock frequency by the 
 
 <img src="/assets/formula.svg" alt="formula" style="width: 15%; display: block; filter: invert(1) brightness(2);">
 
-> where fs is sthe symbol rate. There is also a chance of miscommunication which leads to ambiguity.
+> where fs is the symbol rate. There is also a chance of miscommunication which leads to ambiguity.
 > Example: Communication at the baud rate *1000 Bd* means communication by means of sending *1000 symbols per second.* The symbol duration time is 1/1000 second (that is, 1 millisecond).
 
 This excerpt wasn't necessary, but I feel that it could help the reader understand the concept more deeply in case of any future confusion. I know that it helped me clarify some misunderstandings.
