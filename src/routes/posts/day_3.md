@@ -76,7 +76,7 @@ The `DIVIDER` is a parameter we use to divide the system clock frequency by the 
 
 > The symbol duration time, also known as the [unit interval](url), can be directly measured as the time between transitions by looking at an eye diagram of the signal on an oscilloscope. The duration *Ts* can be calculated as:
 
-<img src="/assets/formula.svg" alt="formula" style="width: 20%; display: block; filter: invert(1) brightness(2);">
+<img src="/assets/formula.svg" alt="formula" style="width: 15%; display: block; filter: invert(1) brightness(2);">
 
 > where fs is sthe symbol rate. There is also a chance of miscommunication which leads to ambiguity.
 > Example: Communication at the baud rate *1000 Bd* means communication by means of sending *1000 symbols per second.* The symbol duration time is 1/1000 second (that is, 1 millisecond).
