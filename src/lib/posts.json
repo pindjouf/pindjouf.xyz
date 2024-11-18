@@ -1,5 +1,11 @@
 [
     {
+        "title": "Finally going east",
+        "slug": "finally_going_east",
+        "date": "2024-11-19",
+        "content": "Content for finally_going_east.md."
+    },
+    {
         "title": "Day 3 of making a UART 𓇲 I made a baud rate generator",
         "slug": "day_3",
         "date": "2024-11-18",
