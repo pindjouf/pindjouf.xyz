@@ -83,7 +83,7 @@ The `DIVIDER` is a parameter we use to divide the system clock frequency by the 
 
 This excerpt wasn't necessary, but I feel that it could help the reader understand the concept more deeply in case of any future confusion. I know that it helped me clarify some misunderstandings.
 
-### Combinational logic
+### Logic
 
 ```verilog
 always @(posedge clk) begin
