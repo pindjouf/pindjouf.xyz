@@ -13,6 +13,7 @@
     <a href="https://cryptoooor.com">My web app</a>
     <a href="https://twitter.com/pindjouf">Twitter</a>
     <a href="https://pindjouf.xyz/roadmap">Roadmap</a>
+    <a href="https://pindjouf.xyz/projects">Projects</a>
     <hr>
 </div>
 
