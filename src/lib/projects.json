@@ -27,13 +27,6 @@
     "category": "in dev"
   },
   {
-    "title": "Cang",
-    "link": "https://github.com/pindjouf/cang",
-    "description": "Infra setup/management TUI app with plug and play security features",
-    "launch_date": "2024-11-23",
-    "category": "in dev"
-  },
-  {
     "title": "Noir Chapeau",
     "link": "https://noirchapeau.com/",
     "description": "Cybersecurity Consultancy",
@@ -53,6 +46,13 @@
     "description": "A git & terminal-based note management system",
     "launch_date": "2024-09-01",
     "category": "in dev"
+  },
+  {
+    "title": "Cang",
+    "link": "https://github.com/pindjouf/cang",
+    "description": "Infra setup/management TUI app with plug and play security features",
+    "launch_date": "2024-11-23",
+    "category": "abandoned"
   },
   {
     "title": "Xorr",

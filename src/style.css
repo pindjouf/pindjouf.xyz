@@ -87,7 +87,7 @@ blockquote {
   border-left: 4px solid #ccc;
   padding-left: 16px;
   margin: 16px 0;
-  color: #ccc;
+  opacity: 75%;
   font-style: italic;
 }
 

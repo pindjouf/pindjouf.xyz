@@ -71,7 +71,7 @@ localparam int DIVIDER = SYSTEM_CLOCK_FREQ / BAUD_RATE;
 ```
 
 My system's clock frequency is 100 MHz because I toggle the `clk` signal every 5 ns, so I declare it as such.  
-There are many common baud rates like 9600, ..., ... but I settled on 115200, for no particular reason other than wanting to get on with it. (I'm not sure how others make that choice, perhaps it's about cost or something similar).  
+There are many common baud rates like 9600, 19200, 38400, ... but I settled on 115200, for no particular reason other than wanting to get on with it. (I'm not sure how others make that choice, perhaps it's about cost or something similar).  
 The `DIVIDER` is a parameter we use to divide the system clock frequency by the baud rate to determine how many clock cycles it takes for each `baud` signal toggle. That's my simplified explanation. If you want the full details, feel free to check out this excerpt from wikipedia:
 
 > The symbol duration time, also known as the [unit interval](url), can be directly measured as the time between transitions by looking at an eye diagram of the signal on an oscilloscope. The duration *Ts* can be calculated as:

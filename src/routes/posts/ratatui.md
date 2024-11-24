@@ -36,7 +36,7 @@ You can then use the [restore()](https://docs.rs/ratatui/latest/ratatui/fn.resto
 
 ### side note
 
-Before we move on to the UI I'd like to take the time to address tomething crucial first, I've already covered how to initialize a program and then restore the terminal back to its original state. But the actual magic of a TUI is what happens in between, the loop. Without a loop between your `init()` and `restore()` you won't have any app, it'll just start and close straight away because that's all you ask it to do.
+Before we move on to the UI I'd like to take the time to address something crucial first, I've already covered how to initialize a program and then restore the terminal back to its original state. But the actual magic of a TUI is what happens in between, the loop. Without a loop between your `init()` and `restore()` you won't have any app, it'll just start and close straight away because that's all you ask it to do.
 
 ## Layout
 
