@@ -12,8 +12,8 @@
     <a href="/" on:click={(e) => { e.preventDefault(); window.location.href = '/' }}>Blog</a>
     <a href="https://cryptoooor.com">My web app</a>
     <a href="https://twitter.com/pindjouf">Twitter</a>
-    <a href="https://pindjouf.xyz/roadmap">Roadmap</a>
-    <a href="https://pindjouf.xyz/projects">Projects</a>
+    <a href="/roadmap">Roadmap</a>
+    <a href="/projects">Projects</a>
     <hr>
 </div>
 
@@ -22,14 +22,5 @@
 <style>
     .nav {
         font-weight: bold;
-    }
-
-    a {
-        color: var(--blue);
-        text-decoration: var(--blue) none;
-    }
-
-    a:hover {
-        text-decoration: var(--blue) underline;
     }
 </style>

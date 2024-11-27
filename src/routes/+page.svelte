@@ -4,13 +4,8 @@
 </script>
 
 <style>
-    a {
-        color: var(--blue);
-        text-decoration: var(--blue) none;
-    }
-
-    a:hover {
-        text-decoration: var(--blue) underline;
+    h2 {
+        border-bottom: unset;
     }
 </style>
 

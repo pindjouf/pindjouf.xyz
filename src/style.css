@@ -18,11 +18,21 @@ body {
     margin-left: auto;
     margin-right: auto;
     padding: 0 10px;
+    opacity: 87%;
+}
+
+h1, h2, h3, h4 {
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--line);
 }
 
 a {
     color: var(--blue);
     text-decoration: var(--blue) none;
+}
+
+a:hover {
+    text-decoration: var(--blue) underline;
 }
 
 hr {
@@ -84,10 +94,10 @@ td {
 }
 
 blockquote {
-  border-left: 4px solid #ccc;
+  border-left: 4px solid;
   padding-left: 16px;
   margin: 16px 0;
-  opacity: 75%;
+  opacity: 70%;
   font-style: italic;
 }
 

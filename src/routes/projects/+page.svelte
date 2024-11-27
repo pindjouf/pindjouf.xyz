@@ -34,6 +34,12 @@
     h1 {
       margin-bottom: 2rem;
       color: var(--whiiiiiiite);
+      border-bottom: unset;
+    }
+
+    a {
+        color: unset;
+        text-decoration: unset;
     }
 
     .project {
@@ -54,6 +60,14 @@
 
     .clickable:hover {
       background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .clickable:hover .green {
+      background-color: #7c9f1a;
+    }
+
+    .clickable:hover .yellow {
+      background-color: #c99a2e;
     }
 
     .project-title {
