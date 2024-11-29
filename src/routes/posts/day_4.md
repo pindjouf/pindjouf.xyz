@@ -186,6 +186,6 @@ end
 
 ## A few considerations
 
-Voila! That's my implementation of a UART transmitter feel free to go check out the [repo](https://github.com/pindjouf/uart). I'd also like to acknowledge the fact that some people will probably see the flaws in my design straight away, from what I know I still have to implement things like handling the the data changing in between states with something like a `tx_busy` signal. I know there are many ways to make this design more robust, but for now I'd like to focus on a basic implementation to understand the basics. I plan on coming back to this as a more knowledgeable person and rewriting it from top to bottom with better practices.
+Voila! That's my implementation of a UART transmitter feel free to go check out the [repo](https://github.com/pindjouf/uart). I'd also like to acknowledge the fact that some people will probably see the flaws in my design straight away, from what I know, I still have to implement things like handling the data bus changing in between states with something like a `tx_busy` signal. I know there are many ways to make this design more robust, but for now I'd like to focus on a basic implementation to understand the basics. I plan on coming back to this as a more knowledgeable person and rewriting it from top to bottom with better practices.
 
 If you have any advice on how to improve this design or ideas on how to better understand computers, feel free to reach out on [X](https://x.com/pindjouf) (formerly twitter).
