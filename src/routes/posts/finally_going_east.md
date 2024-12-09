@@ -198,4 +198,4 @@ I had plans to come back home to a job, a place, and even a vehicle perhaps (I w
 - I now have a clear(er) direction and my thinking is sharper than ever.
 
 A quote I made to encapsulate this trip is the following: 
-> Good people make bad places feel alright, but even the perfect place can't replace good company.
+> Good people make bad places feel right, but even perfect places can't replace good company.
