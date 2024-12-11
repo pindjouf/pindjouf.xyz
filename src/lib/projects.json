@@ -1,5 +1,19 @@
 [
   {
+    "title": "STD (Simple Timer Daemon)",
+    "link": "https://github.com/pindjouf/std",
+    "description": "A lightweight and configurable timer daemon for managing work and break periods",
+    "launch_date": "2024-12-09",
+    "category": "online"
+  },
+  {
+    "title": "Comfy",
+    "link": "https://github.com/pindjouf/comfy",
+    "description": "CLI environment automation script for comfy server setup with sensible defaults",
+    "launch_date": "2024-12-03",
+    "category": "online"
+  },
+  {
     "title": "Cryptoooor",
     "link": "https://cryptoooor.com",
     "description": "A file encryption tool that uses AES-GCM",
@@ -45,20 +59,6 @@
     "link": "https://github.com/pindjouf/kof",
     "description": "A git & terminal-based note management system",
     "launch_date": "2024-09-01",
-    "category": "in dev"
-  },
-  {
-    "title": "Cang",
-    "link": "https://github.com/pindjouf/cang",
-    "description": "Infra setup/management TUI app with plug and play security features",
-    "launch_date": "2024-11-23",
-    "category": "abandoned"
-  },
-  {
-    "title": "Xorr",
-    "link": "https://github.com/pindjouf/xorr",
-    "description": "A xor cli tool",
-    "launch_date": "2024-07-13",
     "category": "abandoned"
   }
 ]

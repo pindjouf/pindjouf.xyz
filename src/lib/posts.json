@@ -1,5 +1,11 @@
 [
     {
+        "title": "Information gathering/Reconnaissance (passive)",
+        "slug": "passive_recon",
+        "date": "2024-12-11",
+        "content": "Content for passive_recon.md."
+    },
+    {
         "title": "Day 4 of making a UART 𓇲 I made a transmitter",
         "slug": "day_4",
         "date": "2024-11-29",
