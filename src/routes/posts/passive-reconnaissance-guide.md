@@ -4,6 +4,7 @@ description: "An introduction to passive reconnaissance in penetration testing, 
 date: "2024-12-11"
 lastUpdated: "2024-12-11"
 author: "pindjouf"
+nextPost: "domain-name-system-dns-guide"
 slug: "passive-reconnaissance-guide"
 tags:
   - "security"

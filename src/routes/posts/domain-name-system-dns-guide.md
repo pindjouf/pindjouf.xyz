@@ -5,6 +5,7 @@ date: "2024-12-11"
 lastUpdated: "2024-12-11"
 author: "pindjouf"
 published: false
+prevPost: "passive-reconnaissance-guide"
 slug: "domain-name-system-dns-guide"
 draft: true
 tags:
@@ -20,6 +21,8 @@ tableOfContents: true
 featured: true
 ---
 
+### Table of Contents
+
 1. [Domain name system](#domain-name-system)
 2. [What is DNS fundamentally?](#what-is-dns-fundamentally)
     1. [Why do we need DNS?](#why-do-we-need-dns)
@@ -28,7 +31,7 @@ featured: true
 3. [How does DNS work?](#how-does-dns-work)
     1. [A hierarchical and distributed nature](#a-hierarchical-and-distributed-nature)
 
-As promised in my last article, I will show you the technical aspect of passive information gathering/recon. However, I don't want to rush and simply brush over topics that are as important as DNS for instance, which is our topic of the day. I want to dive into its inner workings and explore all it has to offer since it's the main component of our attack surface. I say this because without it, we have nothing to look into. It's our main gateway into discovering the attack surface since it reveals subdomains, IPs and other infra details. You can't look into something you haven't found, can you?
+As promised in my [last article](finally-going-east), I will show you the technical aspect of passive information gathering/recon. However, I don't want to rush and simply brush over topics that are as important as DNS for instance, which is our topic of the day. I want to dive into its inner workings and explore all it has to offer since it's the main component of our attack surface. I say this because without it, we have nothing to look into. It's our main gateway into discovering the attack surface since it reveals subdomains, IPs and other infra details. You can't look into something you haven't found, can you?
 
 I will make this a multipart series so that we have the time to truly cover all the aspects of our subjects. I felt that DNS deserved it's own article, but the next one will probably cover more topics, like the application itself and all its moving parts for instance.
 
@@ -97,7 +100,17 @@ Now that we understand the core of DNS, we can explore its hierarchical and dist
 
 ### A hierarchical and distributed nature
 
-### socket
+
+## A programmer's perspective
+
+I'd like to do a high-level overview of how to implement a DNS. For the more experienced programmers among us, all the information I've provided above is probably enough to figure it out with a bit of documentation[[²]](https://datatracker.ietf.org/doc/html/rfc1034)[[³]](https://datatracker.ietf.org/doc/html/rfc1035). But this can serve as both a learning opportunity for novices and a refresher for the rest. We will see how it all ties back to cybersecurity and finding/developing exploits at the end of the article.
+
+The first step would be to implement our communication interface, because all networked programs need a mutually agreed-upon "place" to do so. We also need it to be full-duplex to allow for concurrent sending and receiving of data, that's why in the case of DNS they chose to use a socket.
+
+### Socket
+
+A simple way to think of sockets is that it's a place where two mfs agree to meet at to communicate.
+As illustrated by this image, you can see that two mfs are just relaxing right in there. Because that's the purpose of sockets, they're comfy endpoints for apps & processes to send and receive data through. Just like in a normal conversation, people can talk at the same time that's also the case for sockets since they're full-duplex which means that they allow for simultaneous bidirectional data transfer between client and server, contrary to traditional client-server models.
 
 <img src="/assets/sockets.webp" alt="tiny people in a power outlet" style="width: 50%; display: block; margin-left: auto; margin-right: auto;">
 <div style="text-align: center;">
@@ -106,15 +119,28 @@ Now that we understand the core of DNS, we can explore its hierarchical and dist
     <hr style="width: 40%; display: block; margin-left: auto; margin-right: auto;">
 </div>
 
-You can think of sockets as a place two mfs agree to meet at to communicate.
-As illustrated by this image, you can see that two mfs are just relaxing right in there. Because that's the purpose of sockets, they're comfy endpoints for apps & processes to send and receive data through. Just like in a normal conversation, people can talk at the same time that's also the case for sockets since they're full-duplex which means that they allow for simultaneous bidirectional data transfer between client and server, contrary to traditional client-server applications
+#### Socket type considerations
 
-great definition:
+Now we've got to take a look at the different ways that the socket can do its job. We're primarily going to focus on TCP and UDP, as they're the traditional and most sensible choices for DNS implementations. While you could theoretically use any type, these make the most sense and allow for all of DNS's features to work correctly. You can find more information on both of these and more in [IBM documentation](https://www.ibm.com/docs/ko/aix/7.1?topic=protocols-socket-types)
 
-> A socket is an abstraction through which an application may send and receive data,in much the same way as an open file allows an application to read and write data to stable storage. A socket allows an application to "plug in" to the network and communicate with other applications that are also plugged in to the same network. Information written to the socket by an application on one machine can be read by an application on a different machine, and vice versa.  
-**Michael J. Doonahoo & Kenneth L. Calvert** 
+##### TCP
 
-## A programmer's perspective
+
+
+##### UDP
+
+UDP is the simplest of the two because it's literally the lazy man's transportation. It's key charachteristics are that you don't need to establish a connection, you don't get a guarantee of delivery and the packets might come back all jumbled up. But that's all to the benefit of speed! Just think about how much time you gain by removing all of these controls!
 
 ## A hacker's perspective
 
+## Endnotes
+
+I wrote this article as I was learning DNS, so if you're more knowledgeable about computers than I am feel free to reach out on [X](https://x.com/pindjouf).
+
+**Citations:**
+
+[1] George Hotz, "what is programming? (noob lessons!)," YouTube, July 31, 2020. [Online video]. Available: https://youtu.be/N2bXEUSAiTI?si=Z9d1Wtpeh8K2ikzK&t=912.
+
+[2] P. Mockapetris, "Domain Names - Concepts and Facilities," RFC 1034, Internet Engineering Task Force, November 1987. [Online]. Available: https://datatracker.ietf.org/doc/html/rfc1034
+
+[3] P. Mockapetris, "Domain Names - Implementation and Specification," RFC 1035, Internet Engineering Task Force, November 1987. [Online]. Available: https://datatracker.ietf.org/doc/html/rfc1035
