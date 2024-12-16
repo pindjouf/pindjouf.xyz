@@ -1,9 +1,25 @@
 ---
 title: "Ratatui first impressions"
+description: "A beginner's guide to building terminal user interfaces with Ratatui in Rust, covering core concepts and implementation details."
 date: "2024-11-22"
+lastUpdated: "2024-11-22"
+author: "pindjouf"
+published: false
+draft: true
+slug: "ratatui-first-impressions"
+tags:
+  - "rust"
+  - "tui"
+  - "programming"
+  - "terminal"
+  - "tutorials"
+category: "Technical"
+readingTime: 8
+language: "en"
+tableOfContents: true
+series: "Learning Rust"
+seriesOrder: 1
 ---
-
-# Ratatui first impressions
 
 I was looking to work on refreshing my infra skills, but the tasks I had laid out seemed tedious and I didn't want to waste time doing something I'd already done countless times before, so I decided to try a different approach. I chose to automate simple server setups, following IaC principles. I'd also been waiting for an opportunity to try out [ratatui](https://ratatui.rs/) for a while, so this seemed like the perfect opportunity for it. I wrote this article while learning it so I really break it down to the basics up until the completion of my program!
 

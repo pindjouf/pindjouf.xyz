@@ -1,9 +1,21 @@
 ---
 title: "Copycat"
+description: "A personal reflection on learning through emulation and the power of following role models across different domains of expertise."
 date: "2024-08-15"
+lastUpdated: "2024-08-15"
+author: "pindjouf"
+slug: "copycat"
+tags:
+  - "learning"
+  - "personal-development"
+  - "role-models"
+  - "inspiration"
+  - "growth"
+category: "Personal"
+readingTime: 6
+language: "en"
+featured: true
 ---
-
-# Copycat
 
 **TLDR: I learn best by copying cracked people.**
 

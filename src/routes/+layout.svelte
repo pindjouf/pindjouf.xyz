@@ -14,7 +14,6 @@
     <a href="https://twitter.com/pindjouf">Twitter</a>
     <a href="/roadmap">Roadmap</a>
     <a href="/projects">Projects</a>
-    <a href="/oscp">OSCP</a>
     <hr>
 </div>
 

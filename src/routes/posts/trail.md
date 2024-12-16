@@ -1,6 +1,7 @@
 ---
 title: "trail"
 date: "2024-09-28"
+published: false
 ---
 
 # planning

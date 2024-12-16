@@ -34,6 +34,13 @@
     "category": "online"
   },
   {
+    "title": "Deem and Nets",
+    "link": "https://github.com/pindjouf/deem-and-nets",
+    "description": "A primitive DNS implementation",
+    "launch_date": "2024-12-13",
+    "category": "in dev"
+  },
+  {
     "title": "(unnamed)",
     "link": "https://sonicfields.vercel.app",
     "description": "Find a third place based on your music preferences",

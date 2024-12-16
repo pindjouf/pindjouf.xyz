@@ -17,6 +17,21 @@
 
 <svelte:head>
     <title>Projects | Pindjouf.xyz</title>
+    <meta name="description" content="Explore my portfolio of software projects, from active web applications and hardware designs to experimental prototypes. Featuring detailed development status, launch dates, and live demos." />
+    
+    <meta property="og:title" content="Software Projects Portfolio | Pindjouf.xyz" />
+    <meta property="og:description" content="Browse through my collection of software projects, including web applications, hardware designs, and experimental prototypes. See project statuses, launch dates, and live demos." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://pindjouf.xyz/projects" />
+    
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Software Projects Portfolio | Pindjouf.xyz" />
+    <meta name="twitter:description" content="Browse through my collection of software projects, including web applications, hardware designs, and experimental prototypes. See project statuses, launch dates, and live demos." />
+    
+    <meta name="keywords" content="software projects, web development, hardware design, portfolio, open source, programming, development" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://pindjouf.xyz/projects" />
+    
 </svelte:head>
 
 <style>
