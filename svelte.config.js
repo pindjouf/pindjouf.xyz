@@ -15,6 +15,10 @@ const config = {
         adapter: adapter({
             runtime: 'nodejs18.x',
         }),
+        prerender: {
+            enabled: true,
+            craw: true,
+        },
     },
 };
 
