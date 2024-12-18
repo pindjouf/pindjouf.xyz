@@ -8,13 +8,11 @@
     <meta name="description" content={metadata.description} />
     <meta name="keywords" content={metadata.keywords} />
     
-    <!-- Open Graph / Social Media -->
     <meta property="og:title" content={`${metadata.title} | Pindjouf.xyz`} />
     <meta property="og:description" content={metadata.description} />
     <meta property="og:image" content={metadata.ogImage} />
     <meta property="og:type" content="article" />
     
-    <!-- Article Metadata -->
     <meta property="article:published_time" content={metadata.date} />
     {#if metadata.lastUpdated}
     <meta property="article:modified_time" content={metadata.lastUpdated} />
@@ -24,7 +22,6 @@
     <meta property="article:tag" content={tag} />
     {/each}
     
-    <!-- If you have a canonical URL -->
     {#if metadata.canonicalUrl}
     <link rel="canonical" href={metadata.canonicalUrl} />
     {/if}

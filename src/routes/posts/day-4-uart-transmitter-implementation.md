@@ -16,7 +16,7 @@ series: "Building a UART from Scratch"
 seriesOrder: 4
 prevPost: "day-3-uart-baud-rate-generator"
 nextPost: "day_5"
-canonicalUrl: "https://pindjouf.xyz/posts/day_4"
+canonicalUrl: "https://pindjouf.xyz/posts/day-4-uart-transmitter-implementation"
 featured: true
 category: "Hardware Engineering"
 readingTime: 12
