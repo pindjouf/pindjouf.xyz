@@ -1,18 +1,23 @@
 const site = 'https://pindjouf.xyz';
 
-async function getPostSlugs() {
-    const posts = Object.entries(import.meta.glob('../posts/*.md'));
-    const slugs = [];
+async function getPostData() {
+    const posts = import.meta.glob('../posts/*.md', { eager: true });
+    const postsData = [];
     
-    for (const [path] of posts) {
+    for (const [path, post] of Object.entries(posts)) {
         const slug = path.split('/').pop().replace('.md', '');
-        slugs.push(`posts/${slug}`);
+        postsData.push({
+            slug: `posts/${slug}`,
+            lastmod: post.metadata.date
+        });
     }
     
-    return slugs;
+    return postsData;
 }
 
 function generateSitemap(pages) {
+    const now = new Date().toISOString();
+    
     return `<?xml version="1.0" encoding="UTF-8" ?>
 <urlset
     xmlns="https://www.sitemaps.org/schemas/sitemap/0.9"
@@ -25,16 +30,19 @@ function generateSitemap(pages) {
     <!-- Static pages -->
     <url>
         <loc>${site}</loc>
+        <lastmod>${now}</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
         <loc>${site}/roadmap</loc>
+        <lastmod>${now}</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>${site}/projects</loc>
+        <lastmod>${now}</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -42,7 +50,8 @@ function generateSitemap(pages) {
     <!-- Dynamic pages (posts) -->
     ${pages.map(page => `
     <url>
-        <loc>${site}/${page}</loc>
+        <loc>${site}/${page.slug}</loc>
+        <lastmod>${new Date(page.lastmod).toISOString()}</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>`).join('')}
@@ -51,9 +60,8 @@ function generateSitemap(pages) {
 
 export async function GET() {
     try {
-        const postSlugs = await getPostSlugs();
-        
-        const body = generateSitemap(postSlugs);
+        const postsData = await getPostData();
+        const body = generateSitemap(postsData);
         
         return new Response(body, {
             headers: {
