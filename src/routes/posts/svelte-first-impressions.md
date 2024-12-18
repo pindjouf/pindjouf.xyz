@@ -5,6 +5,8 @@ date: "2024-09-30"
 lastUpdated: "2024-09-30"
 author: "pindjouf"
 slug: "svelte-first-impressions"
+nextPost: "media-pirate-stack"
+prevPost: "kayfabe-selling-job-skills"
 tags:
   - "svelte"
   - "web-development"

@@ -7,8 +7,8 @@ author: "pindjouf"
 slug: "day-2-uart-piso-shift-register"
 series: "Building a UART from Scratch"
 seriesOrder: 2
+nextPost: "running-with-the-devil-windows"
 prevPost: "day-1-uart-sipo-shift-register"
-nextPost: "day-3-uart-baud-rate-generator"
 tags:
   - "verilog"
   - "uart"

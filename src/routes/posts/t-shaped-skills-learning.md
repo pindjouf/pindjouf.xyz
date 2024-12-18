@@ -5,6 +5,8 @@ date: "2023-12-18"
 lastUpdated: "2023-12-18"
 author: "pindjouf"
 slug: "t-shaped-skills-learning"
+nextPost: "belgian-sfg-training-program"
+prevPost: "achievements-and-progress"
 tags:
   - "learning"
   - "personal-development"

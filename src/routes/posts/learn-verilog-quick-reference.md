@@ -5,6 +5,8 @@ date: "2024-08-06"
 lastUpdated: "2024-08-06"
 author: "pindjouf"
 slug: "learn-verilog-quick-reference"
+nextPost: "copycat"
+prevPost: "belgian-sfg-training-program"
 tags:
   - "verilog"
   - "hardware"

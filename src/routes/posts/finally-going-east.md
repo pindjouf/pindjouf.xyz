@@ -5,6 +5,8 @@ date: "2024-11-19"
 lastUpdated: "2024-11-19"
 author: "pindjouf"
 slug: "finally-going-east"
+nextPost: "attention-and-peace"
+prevPost: "day-3-uart-baud-rate-generator"
 tags:
   - "travel"
   - "asia"

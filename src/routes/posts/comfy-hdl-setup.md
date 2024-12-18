@@ -5,6 +5,8 @@ date: "2024-09-02"
 lastUpdated: "2024-09-02"
 author: "pindjouf"
 slug: "comfy-hdl-design-setup"
+nextPost: "10-days-for-kof"
+prevPost: "copycat"
 tags:
   - "hdl"
   - "systemverilog"

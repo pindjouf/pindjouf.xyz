@@ -5,6 +5,8 @@ date: "2024-09-10"
 lastUpdated: "2024-09-10"
 author: "pindjouf"
 slug: "10-days-for-kof"
+nextPost: "kayfabe-selling-job-skills"
+prevPost: "comfy-hdl-setup"
 tags:
   - "rust"
   - "projects"

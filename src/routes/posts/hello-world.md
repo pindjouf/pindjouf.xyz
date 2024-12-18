@@ -5,6 +5,8 @@ date: "2023-11-19"
 lastUpdated: "2023-11-19"
 author: "pindjouf"
 slug: "hello-world"
+nextPost: "achievements-and-progress"
+prevPost: "chord-functionalities-music-theory"
 tags:
   - "introduction"
   - "personal"

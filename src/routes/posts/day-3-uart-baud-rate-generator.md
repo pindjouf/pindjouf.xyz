@@ -7,8 +7,8 @@ author: "pindjouf"
 slug: "day-3-uart-baud-rate-generator"
 series: "Building a UART from Scratch"
 seriesOrder: 3
-prevPost: "day-2-uart-piso-shift-register"
-nextPost: "day-4-uart-transmitter-implementation"
+nextPost: "finally-going-east"
+prevPost: "day-3-uart-baud-rate-generator"
 tags:
   - "verilog"
   - "uart"

@@ -5,6 +5,8 @@ date: "2024-09-19"
 lastUpdated: "2024-09-19"
 author: "pindjouf"
 slug: "kayfabe-selling-job-skills"
+nextPost: "svelte-first-impressions"
+prevPost: "10-days-for-kof"
 tags:
   - "career"
   - "job-hunting"

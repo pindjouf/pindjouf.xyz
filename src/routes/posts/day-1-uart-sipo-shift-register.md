@@ -5,9 +5,10 @@ date: "2024-10-13"
 lastUpdated: "2024-10-13"
 author: "pindjouf"
 slug: "day-1-uart-sipo-shift-register"
+nextPost: "day-2-uart-piso-shift-register"
+prevPost: "media-pirate-stack"
 series: "Building a UART from Scratch"
 seriesOrder: 1
-nextPost: "day-2-uart-piso-shift-register"
 tags:
   - "verilog"
   - "uart"

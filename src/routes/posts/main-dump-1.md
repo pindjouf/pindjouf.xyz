@@ -5,6 +5,8 @@ date: "2024-11-08"
 lastUpdated: "2024-11-08"
 author: "pindjouf"
 slug: "main-dump-1"
+nextPost: "need-to-lock-in"
+prevPost: "publicly-passionate"
 tags:
   - "notes"
   - "projects"

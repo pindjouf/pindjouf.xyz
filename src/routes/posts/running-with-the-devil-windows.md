@@ -5,6 +5,8 @@ date: "2024-10-16"
 lastUpdated: "2024-10-16"
 author: "pindjouf"
 slug: "running-with-the-devil-windows"
+nextPost: "publicly-passionate"
+prevPost: "day-2-uart-piso-shift-register"
 tags:
   - "windows"
   - "linux"

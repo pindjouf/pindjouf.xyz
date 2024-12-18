@@ -5,6 +5,8 @@ date: "2024-10-03"
 lastUpdated: "2024-10-03"
 author: "pindjouf"
 slug: "media-pirate-stack"
+nextPost: "day-1-uart-sipo-shift-register"
+prevPost: "svelte-first-impressions"
 tags:
   - "raspberry-pi"
   - "self-hosting"

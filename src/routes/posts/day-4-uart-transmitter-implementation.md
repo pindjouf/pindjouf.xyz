@@ -14,8 +14,8 @@ tags:
   - "embedded-systems"
 series: "Building a UART from Scratch"
 seriesOrder: 4
-prevPost: "day-3-uart-baud-rate-generator"
-nextPost: "day_5"
+nextPost: "oscp-preparation-log-1"
+prevPost: "attention-and-peace"
 canonicalUrl: "https://pindjouf.xyz/posts/day-4-uart-transmitter-implementation"
 featured: true
 category: "Hardware Engineering"

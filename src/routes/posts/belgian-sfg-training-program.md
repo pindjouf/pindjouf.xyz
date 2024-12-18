@@ -5,6 +5,8 @@ date: "2024-05-23"
 lastUpdated: "2024-05-23"
 author: "pindjouf"
 slug: "belgian-sfg-training-program"
+nextPost: "learn-verilog-quick-reference"
+prevPost: "t-shaped-skills-learning"
 tags:
   - "fitness"
   - "military-training"

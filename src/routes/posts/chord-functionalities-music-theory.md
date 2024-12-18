@@ -5,6 +5,7 @@ date: "2022-01-23"
 lastUpdated: "2022-01-23"
 author: "pindjouf"
 slug: "chord-functionalities-music-theory"
+nextPost: "hello-world"
 tags:
   - "music-theory"
   - "chords"

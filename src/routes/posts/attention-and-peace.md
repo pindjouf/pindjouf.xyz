@@ -5,6 +5,8 @@ date: "2024-11-27"
 lastUpdated: "2024-11-27"
 author: "pindjouf"
 slug: "attention-and-peace"
+nextPost: "day-4-uart-transmitter-implementation"
+prevPost: "finally-going-east"
 tags:
   - "productivity"
   - "digital-minimalism"

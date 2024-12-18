@@ -5,6 +5,8 @@ date: "2024-08-15"
 lastUpdated: "2024-08-15"
 author: "pindjouf"
 slug: "copycat"
+nextPost: "comfy-hdl-setup"
+prevPost: "learn-verilog-quick-reference"
 tags:
   - "learning"
   - "personal-development"

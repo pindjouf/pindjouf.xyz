@@ -5,6 +5,8 @@ date: "2024-11-17"
 lastUpdated: "2024-11-17"
 author: "pindjouf"
 slug: "need-to-lock-in"
+nextPost: "day-3-uart-baud-rate-generator"
+prevPost: "main-dump-1"
 tags:
   - "personal-development"
   - "mentorship"

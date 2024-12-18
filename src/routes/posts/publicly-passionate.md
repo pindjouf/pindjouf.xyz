@@ -5,6 +5,8 @@ date: "2024-11-03"
 lastUpdated: "2024-11-03"
 author: "pindjouf"
 slug: "publicly-passionate"
+nextPost: "main-dump-1"
+prevPost: "running-with-the-devil-windows"
 tags:
   - "personal"
   - "passion"

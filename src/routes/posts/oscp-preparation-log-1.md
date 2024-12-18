@@ -17,7 +17,8 @@ readingTime: 10
 language: "en"
 series: "OSCP Journey"
 seriesOrder: 1
-nextPost: "oscp-preparation-log-2"
+nextPost: "passive-reconnaissance-guide"
+prevPost: "day-4-uart-transmitter-implementation"
 featured: true
 schedule:
   totalStudyBlocks: 7
