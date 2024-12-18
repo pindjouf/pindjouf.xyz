@@ -16,10 +16,6 @@ const config = {
             runtime: 'nodejs18.x',
         }),
     },
-    prerender: {
-        enabled: true,
-        craw: true,
-    },
 };
 
 export default config;
