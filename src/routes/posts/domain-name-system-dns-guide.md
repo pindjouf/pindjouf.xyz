@@ -1,5 +1,5 @@
 ---
-title: "Domain Name System"
+title: "Attack on 53: A Deep Dive into DNS"
 description: "An in-depth technical exploration of DNS architecture, from basic principles to advanced concepts. Learn how DNS works from the ground up, including resolver types, zone authorities, and hierarchical resolution. Understand DNS from multiple perspectives: as a system administrator, programmer, and security professional."
 date: "2024-12-11"
 lastUpdated: "2024-12-11"
@@ -25,19 +25,23 @@ featured: true
 
 ### Table of Contents
 
-1. [Domain Name System](#domain-name-system)
-2. [What is DNS Fundamentally?](#what-is-dns-fundamentally)
+1. [What is DNS Fundamentally?](#what-is-dns-fundamentally)
     1. [Why do we need DNS?](#why-do-we-need-dns)
         1. [Abstraction](#abstraction)
         2. [Load balancing and scalability](#load-balancing-and-scalability)
-3. [How does DNS work?](#how-does-dns-work)
+2. [How does DNS work?](#how-does-dns-work)
     1. [A hierarchical and distributed nature](#a-hierarchical-and-distributed-nature)
     2. [The Resolution Process](#the-resolution-process)
     3. [DNS Iterators and Authority](#dns-iterators-and-authority)
     4. [Understanding Zone Authority](#understanding-zone-authority)
-4. [A Programmer's Perspective](#a-programmers-perspective)
+3. [A Programmer's Perspective](#a-programmers-perspective)
     1. [Sockets](#sockets)
-5. [A Hacker's Perspective](#a-hackers-perspective)
+        1. [Socket type considerations](#socket-type-considerations)
+    2. [Raw bytes as queries/responses](#raw-bytes-as-queriesresponses)
+        1. [DNS Queries](#dns-queries)
+        2. [DNS Responses](#dns-responses)
+        3. [Final considerations](#final-considerations)
+4. [A Hacker's Perspective](#a-hackers-perspective)
 
 As promised in my [last article](finally-going-east), I will show you the technical aspect of passive information gathering/recon. However, I don't want to rush and simply brush over topics that are as important as DNS for instance, which is our topic of the day. I want to dive into its inner workings and explore all it has to offer since it's the main component of our attack surface. I say this because without it, we have nothing to look into. It's our main gateway into discovering the attack surface since it reveals subdomains, IPs and other infra details. You can't look into something you haven't found, can you?
 
@@ -147,14 +151,14 @@ That pretty much covers it all, you know have a good understanding of the inner-
 
 ## A programmer's perspective
 
-As a practical compliment to this article i made my own DNS, so i'd like to do a high-level overview of how to implement it. For the more experienced programmers among us, all the information I've provided above is probably enough to figure it out with a bit of documentation[[²]](https://datatracker.ietf.org/doc/html/rfc1034)[[³]](https://datatracker.ietf.org/doc/html/rfc1035). But this can serve as both a learning opportunity for novices and a refresher for the rest. We will see how it all ties back to cybersecurity and finding/developing exploits at the end of the article.
+As a practical complement to this article I made [my own DNS](https://github.com/pindjouf/deem-and-nets), so i'd like to do a brief, high-level overview of how to implement it. For the more experienced programmers among us, all the information I've provided above is probably enough to figure it out with a bit of documentation[[²]](https://datatracker.ietf.org/doc/html/rfc1034)[[³]](https://datatracker.ietf.org/doc/html/rfc1035). But this can serve as both a learning opportunity for novices and a refresher for the rest. We will see how it all ties back to cybersecurity and finding/developing exploits at the end of the article.
 
-The first step would be to implement our communication interface, because all networked programs need a mutually agreed-upon "place" to do so. We also need it to be full-duplex to allow for concurrent sending and receiving of data, that's why in the case of DNS they chose to use a socket.
+When you really think about it, making a basic DNS is simple. It's all about setting up a socket, receiving a string and parsing through it to build a response, then serialize the response and send it back to the client. So our first order of business is to implement our communication interface, because all networked programs need a mutually agreed-upon "place" to do so.
 
 ### Sockets
 
 A simple way to think of sockets is that it's a place where two programs/processes agree to meet at to communicate.
-As illustrated by this image, you can see that two tiny people are just relaxing right in there. Because that's the purpose of sockets, they're comfy endpoints for apps & processes to send and receive data through. Just like in a normal conversation, people can talk at the same time that's also the case for sockets since they're full-duplex which means that they allow for simultaneous bidirectional data transfer between client and server, contrary to traditional client-server models.
+As illustrated by this image, you can see that two tiny people are vibing right in there. Because that's the purpose of sockets, they're comfy endpoints for apps & processes to send and receive data through. Just like in a normal conversation, people can talk at the same time that's also the case for sockets since they're full-duplex which means that they allow for simultaneous bidirectional data transfer between client and server, contrary to traditional client-server models.
 
 <img src="/assets/sockets.webp" alt="tiny people in a power outlet" style="width: 50%; display: block; margin-left: auto; margin-right: auto;">
 <div style="text-align: center; padding-top: 10px;">
@@ -165,15 +169,66 @@ Knowing where the data flows is crucial to know when implementing a system. It'l
 
 #### Socket type considerations
 
-Now we've got to take a look at the different ways that the socket can do its job. We're primarily going to focus on TCP and UDP, as they're the traditional and most sensible choices for DNS implementations. While you could theoretically use any type, these make the most sense and allow for all of DNS's features to flourish. You can find more information on both of these and more in [IBM documentation](https://www.ibm.com/docs/ko/aix/7.1?topic=protocols-socket-types)
+Traditionally, DNS has mostly relied on UDP for its speed and efficiency, but it's been changing in recent years due to new technological requirements and security considerations. While you could theoretically use any type, UDP and TCP make the most sense and allow for all of DNSs features to flourish. You can find more information on both of these and more in [IBM documentation](https://www.ibm.com/docs/ko/aix/7.1?topic=protocols-socket-types)
 
-##### TCP
+### Raw bytes as queries/responses
 
+Responses and queries are typically sent as raw bytes and then deserialized inside our programs to parse through the message data. We'll look at them as hex values to simplify here. The query message structur is usually presented with an image such as this one:
 
+<img src="/assets/dns_query_message.png" alt="tiny people in a power outlet" style="width: 80%; display: block; margin-left: auto; margin-right: auto;">
+<div style="text-align: center; padding-top: 10px;">
+    Figure 4: DNS query message
+</div>
 
-##### UDP
+However that visualization has never worked for me, so for those of us who prefer the string here it is already broken down :)
 
-UDP is the simplest of the two because it's literally the lazy man's transportation. It's key charachteristics are that you don't need to establish a connection, you don't get a guarantee of delivery and the packets might come back all jumbled up. But that's all to the benefit of speed! Just think about how much time you gain by removing all of these controls!
+`9620 1000 0010 0000 0000 0000 08 70696e646a6f7566 03 7a7978 00 0001 0001`
+
+#### DNS Queries
+
+Keeping with our example up above, we'll deconstruct what all this data really means!
+DNS messages are comprised of several categories with the most notable ones being covered in Figure 4. In our header section all categories are 2 bytes long, which makes the whole section 12 bytes since it has 6 of them. Here's the header of our example query
+
+- **ID:** `9620`  
+- **Flags:** `1000`
+- **Question count:** `0010`
+- **Answer count:** `0000`
+- **Authority count:** `0000`
+- **Additional count:** `0000`
+
+And its corresponding Question! aka the actual domain name and the question type/class!  
+We can't put a pre-defined size on this since the labels are of dynamic size (although they're restricted to 63 bytes)
+
+- **Labels (length, value):** `08 70696e646a6f7566 03 7a7978` try to guess this domain name ;)
+- **Zero byte terminator:** `00`
+- **Question type:** `0001` (A, AAAA, etc...)
+- **Question class:** `0001` (IN, CH, etc...)
+
+As you can see most of the counters are at 0 because this is only the first part of this "conversation" so no responses have been received yet, thus causing this lack of counts.
+the flags can actually be broken down way more and as for the ID it just servers as well, an identifier so nothing worth noting happens with it. There are many articles covering these details in more depth than we would ever have the time to get into here so I invite you to look at official sources like the ones mentioned in the [endnotes](#endnotes).
+
+#### DNS Responses
+
+The response message follows a similar structure but includes our answer. Let's look at our example:
+
+`9620 8180 0001 0001 0000 0001 08 70696e646a6f7566 03 7a7978 00 0001 0001 c00c 0001 0001 00000e10 0004 0a0a0a0a`
+
+The header has the same categories but with the response bit set and counts updated to reflect included answers. The question section is preserved, and we get the additional our answer section!
+
+- **Name pointer:** `c00c` (points back to question name/labels)
+- **Type/Class:** `0001 0001` (A record, IN)
+- **TTL/Length:** `00000e10 0004` (3600s, 4 bytes)
+- **Address:** `0a0a0a0a` (10.10.10.10)
+
+DNS uses compression (that `c00c` pointer) to avoid repeating the domain name.
+
+#### Final considerations
+
+If you know how to program you pretty much have everything you need to implement a basic DNS right here. That's all there is to it. Consult the official sources for guidelines on connection types, message structures etc... and you're good to go. Of course many features have been built on top of it but this is the core of DNS.
+
+My implementation mostly focuses on understanding everything I've outlined in this section, so I haven't bothered to work on cache or recursive resolution as they're optimizations on top of this very basic protocol. I only have zone file parsing as my method of choice for resolution.
+
+Perhaps I could've covered that part a bit, but I can guarantee you that I'm far from being an authority on writing lexers. mine is barely pulling what it needs to from those files so I kindly invite you to find another source for help on this!!
 
 ## A hacker's perspective
 
