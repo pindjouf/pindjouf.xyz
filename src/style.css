@@ -111,6 +111,49 @@ code {
     color: var(--link);
 }
 
+/* Table of Contents styling */
+.toc {
+    counter-reset: level1;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 20px;
+}
+
+.toc ol {
+    list-style-type: none;
+    counter-reset: level2;
+}
+
+/* First level */
+.toc > ol > li {
+    counter-increment: level1;
+}
+
+.toc > ol > li::before {
+    content: counter(level1) ". ";
+}
+
+/* Second level */
+.toc > ol > li > ol > li {
+    counter-increment: level2;
+}
+
+.toc > ol > li > ol > li::before {
+    content: counter(level1) "." counter(level2) ". ";
+}
+
+/* Third level */
+.toc > ol > li > ol > li > ol {
+    counter-reset: level3;
+}
+
+.toc > ol > li > ol > li > ol > li {
+    counter-increment: level3;
+}
+
+.toc > ol > li > ol > li > ol > li::before {
+    content: counter(level1) "." counter(level2) "." counter(level3) ". ";
+}
+
 /*Responsive shit*/
 @media only screen and (max-width: 800px) {
     body {

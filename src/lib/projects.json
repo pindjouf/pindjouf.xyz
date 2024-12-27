@@ -7,13 +7,6 @@
     "category": "online"
   },
   {
-    "title": "Comfy",
-    "link": "https://github.com/pindjouf/comfy",
-    "description": "CLI environment automation script for comfy server setup with sensible defaults",
-    "launch_date": "2024-12-03",
-    "category": "online"
-  },
-  {
     "title": "Cryptoooor",
     "link": "https://cryptoooor.com",
     "description": "A file encryption tool that uses AES-GCM",
@@ -24,13 +17,6 @@
     "title": "pindjouf.xyz",
     "description": "Personal website",
     "launch_date": "2023-11-19",
-    "category": "online"
-  },
-  {
-    "title": "OpenGraphed",
-    "link": "https://opengraphed.com",
-    "description": "Social media image preview generator",
-    "launch_date": "2024-11-04",
     "category": "online"
   },
   {
@@ -45,13 +31,6 @@
     "link": "https://noirchapeau.com/",
     "description": "Cybersecurity Consultancy",
     "launch_date": "2024-11-19",
-    "category": "in dev"
-  },
-  {
-    "title": "(web) UART",
-    "link": "https://uart.pindjouf.xyz",
-    "description": "An interactive UART communication project with real-time signal visualization",
-    "launch_date": "2024-11-02",
     "category": "in dev"
   },
   {

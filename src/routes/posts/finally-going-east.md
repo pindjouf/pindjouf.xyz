@@ -14,7 +14,7 @@ tags:
   - "adventure"
   - "culture"
 category: "Travel"
-readingTime: 25
+readingTime: 30
 language: "en"
 featured: true
 ogImage: "/assets/nepal.jpg"
@@ -22,32 +22,36 @@ ogImage: "/assets/nepal.jpg"
 
 ### Table of Contents
 
+<div class="toc">
+
 1. [Late October](#late-october)
 2. [Sign the contract, big boy](#sign-the-contract-big-boy)
 3. [How many more flights?](#how-many-more-flights)
 4. [A new itinerary](#a-new-itinerary)
 5. [Landing in Saigon](#landing-in-saigon)
-   - [Moving to Hanoi](#moving-to-hanoi)
-   - [Don't drive in Hanoi!](#dont-drive-in-hanoi)
-   - [Hanoi Rock City is the place to be](#hanoi-rock-city-is-the-place-to-be)
-   - [They took my scooter man...](#they-took-my-scooter-man)
-   - [I like Vietnam](#i-like-vietnam)
+   1. [Moving to Hanoi](#moving-to-hanoi)
+   2. [Don't drive in Hanoi!](#dont-drive-in-hanoi)
+   3. [Hanoi Rock City is the place to be](#hanoi-rock-city-is-the-place-to-be)
+   4. [They took my scooter man...](#they-took-my-scooter-man)
+   5. [I like Vietnam](#i-like-vietnam)
 6. [Traveling in a fried-out Kombi](#traveling-in-a-fried-out-kombi)
-   - [What's up with those visas man...](#whats-up-with-those-visas-man)
-   - [First loss](#first-loss)
-   - [Vietnam-Laos border](#vietnam-laos-border)
-   - [Losing my contract](#losing-my-contract)
-   - [Second loss](#second-loss)
-   - [Laos-Thailand border](#laos-thailand-border)
+   1. [What's up with those visas man...](#whats-up-with-those-visas-man)
+   2. [First loss](#first-loss)
+   3. [Vietnam-Laos border](#vietnam-laos-border)
+   4. [Losing my contract](#losing-my-contract)
+   5. [Second loss](#second-loss)
+   6. [Laos-Thailand border](#laos-thailand-border)
 7. [Studio'Z](#studioz)
 8. [Box hostel n cafe](#box-hostel-n-cafe)
 9. [Pai, my nirvana](#pai-my-nirvana)
-   - [You guys are cool](#you-guys-are-cool)
-   - [It's not my style](#its-not-my-style)
-   - [project x](#project-x)
+   1. [You guys are cool](#you-guys-are-cool)
+   2. [It's not my style](#its-not-my-style)
+   3. [project x](#project-x)
 10. [Emotionally drained -- BKK](#emotionally-drained----bkk)
-    - [The next steps](#the-next-steps)
+    1. [The next steps](#the-next-steps)
 11. [Lessons extracted](#lessons-extracted)
+
+</div>
 
 **TL;DR: My first time in Asia was kinda neat and I learned a lot**  
 The biggest yap on this blog so far.
@@ -227,8 +231,7 @@ The bottleneck was mostly inviting people, if I wanted the party to be good I ha
 
 I'm now in Bangkok preparing my return to Belgium. Despite the bliss of Pai, I've tried countless times to make similar connections to no avail, which has caused a certain lack of energy. It's not physical but I definitely feel the need to recharge. Meeting countless people and sometimes only getting to see them for a day or a few hours and then never hearing of them again feels special. It's the potential of new relationships that eats away at your spirit, and you don't recover until you take time for it.
 
-I think the only ways to recover are to find people to connect with again, which is risky when you're already low on energy, or to isolate. Now there are too kinds of isolation, one is negative where you isolate and feel bad about it because you don't want to but perhaps life has forced you into this position and you don't know how to get out. The other is actually good (I think) which is what I'm doing right now, I've consciously decided not to get involved with other people until I feel ready (only gonna take a couple days). These past two days I've just been by myself and it feels great, just taking the time to be, without reaching for anything. Reflecting, figuring out the next steps and working through mental clutter is what I find beautiful at the moment.
-
+I think the only ways to recover are to find people to connect with again, which is risky when you're already low on energy, or to isolate. Now there are two kinds of isolation, one is negative where you isolate and feel bad about it because you don't want to, but perhaps life has forced you into this position and you don't know how to get out. The other is actually good (I think) which is what I'm doing right now, I've consciously decided not to get involved with other people until I feel ready (only gonna take a couple days). These past two days I've just been by myself, and it feels great. Just taking the time to be, without reaching for anything. Reflecting, figuring out the next steps and working through mental clutter is what I find beautiful at the moment.
 
 ### The next steps
 

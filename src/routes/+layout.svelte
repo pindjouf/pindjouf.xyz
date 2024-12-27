@@ -3,6 +3,7 @@
     import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
     import { dev } from '$app/environment';
     import { inject } from '@vercel/analytics';
+    import CopyCodeButton from '$lib/components/CopyCodeButton.svelte';
 
     inject({ mode: dev ? 'development' : 'production' });
     injectSpeedInsights();
@@ -17,7 +18,10 @@
     <hr>
 </div>
 
-<slot></slot>
+<article>
+  <CopyCodeButton buttonPosition="top-right" />
+  <slot />
+</article>
 
 <style>
     .nav {
