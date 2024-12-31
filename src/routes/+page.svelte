@@ -55,11 +55,15 @@
 </style>
 
 {#each Object.keys(data.groupedPosts).sort((a, b) => b - a) as year}
-    <h2>{year}</h2>
-    {#each data.groupedPosts[year].sort((a, b) => new Date(b.date) - new Date(a.date)) as post}
-        <p>
-            {new Date(post.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })} -> 
-            <a href={`/posts/${post.slug}`} style="font-weight: bold;">{post.title}</a>
-        </p>
-    {/each}
+    <section>
+        <h2>{year}</h2>
+        {#each data.groupedPosts[year].sort((a, b) => new Date(b.date) - new Date(a.date)) as post}
+            <p>
+                <time datetime={post.date}>
+                    {new Date(post.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
+                </time> -> 
+                <a href={`/posts/${post.slug}`} style="font-weight: bold;">{post.title}</a>
+            </p>
+        {/each}
+    </section>
 {/each}
