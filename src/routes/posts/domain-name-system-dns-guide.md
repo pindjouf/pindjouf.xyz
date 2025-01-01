@@ -5,9 +5,9 @@ date: "2024-12-27"
 lastUpdated: "2024-12-11"
 author: "pindjouf"
 published: true
+nextPost: "day-5-uart-implementation"
 prevPost: "passive-reconnaissance-guide"
 slug: "domain-name-system-dns-guide"
-draft: true
 tags:
   - "dns"
   - "networking"
