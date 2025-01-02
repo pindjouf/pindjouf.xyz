@@ -2,7 +2,7 @@
 title: "A few notes on the WireGuard Whitepaper"
 description: "An in-depth exploration of WireGuard's architecture, examining its implementation as a Layer 3 network tunnel, virtual interfaces, and cryptographic foundations. This technical analysis covers fundamental networking concepts through practical analogies and real-world implications."
 date: "2025-01-02"
-published: false
+published: true
 lastUpdated: "2025-01-02"
 author: "pindjouf"
 slug: "a-few-notes-on-wireguard"
