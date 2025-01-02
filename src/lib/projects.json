@@ -14,6 +14,13 @@
     "category": "online"
   },
   {
+    "title": "IDY",
+    "link": "https://github.com/pindjouf/idy",
+    "description": "Turning your nmap results into eye candy 🍬",
+    "launch_date": "2025-01-02",
+    "category": "online"
+  },
+  {
     "title": "pindjouf.xyz",
     "description": "Personal website",
     "launch_date": "2023-11-19",
