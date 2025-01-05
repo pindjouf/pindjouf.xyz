@@ -20,6 +20,8 @@ summary: "Exploring the boundaries of perception and abstraction through a perso
 canonicalUrl: "https://pindjouf.xyz/posts/mario-sees-nothing"
 ---
 
+[EDIT:] this article is so dumb, please don't waste your time.
+
 I was thinking about an article I read, which went over multi-dimensional addressing (shoutout [thatgabriel.com](https://thatgabriel.com/posts/tensor_stream/)). I'd skimmed through it once, but I barely understood a thing. So that made me question my fundamental knowledge of dimensions. I thought I had a good grasp of 2D, I mean who doesn't? It's pretty easy to visualize 2 dimensions, so I've never bothered to question how deeply I understood it. Yet when I tried to dig into the implications of something like "Living in 2D" or asking myself "What does mario see?". I quickly saw that my concept of reality held me back in my exploration of the topic.
 
 I'm someone that struggles a lot with abstraction. I often ask "but what does this really mean?" whenever I discover a new topic. Only to find myself uncovering countless layers of abstraction, until I give up because "I've been at this for so long, yet I haven't found the answer to my question (i.e what does this really mean) so I must give up as this would probably consume too much of my time."
