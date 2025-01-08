@@ -5447,68 +5447,17 @@ aspects)
 > Remain calm.  
 > 
 > Remember the teachings.  
-> 
-> 
-
-
-  
-  
-
-
 
 ---
-
-
 
 **Originally archived by the Hyperreal Drug Archives. Hosted by Erowid as of Oct, 1999.**  
 
-
-
 ---
-
-
-
 
 | **Last Modified - 
 Tue, May 14, 2002** | **Used by Erowid without permission of author** |
 
-
-
-
 ---
 
-
-
-
-| 
-[[Plants & Drugs]](https://web.archive.org/web/20021206183350/http://www.erowid.org/psychoactives/psychoactives.shtml) 
-[[Mind & Spirit]](https://web.archive.org/web/20021206183350/http://www.erowid.org/spirit/spirit.shtml) 
-[[Freedom & Law]](https://web.archive.org/web/20021206183350/http://www.erowid.org/freedom/freedom.shtml) 
-[[Arts & Sciences]](https://web.archive.org/web/20021206183350/http://www.erowid.org/culture/culture.shtml) 
-[[Library]](https://web.archive.org/web/20021206183350/http://www.erowid.org/library/library.shtml) 
-[[Search]](https://web.archive.org/web/20021206183350/http://www.erowid.org/search.shtml) 
-[[About]](https://web.archive.org/web/20021206183350/http://www.erowid.org/general/about/about.shtml) 
-
-(html and design [©](https://web.archive.org/web/20021206183350/http://www.erowid.org/general/about/about_copyrights.shtml) 
-2002 Erowid.org. Please ask permission before publicly reproducing.)
-(Contents © respective copyright holders.)
- |
-| --- |
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+| **Last Modified - 
+Wed, Jan 08, 2025** | **Used by pindjouf without permission of author** |

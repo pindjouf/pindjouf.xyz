@@ -11,10 +11,8 @@
 
 <header>
     <nav class="nav">
-        <a href="/" on:click={(e) => { e.preventDefault(); window.location.href = '/' }}>Blog</a>
-        <a href="https://cryptoooor.com">My web app</a>
+        <a href="/">Blog</a>
         <a href="https://twitter.com/pindjouf">Twitter</a>
-        <a href="/roadmap">Roadmap</a>
         <a href="/projects">Projects</a>
         <hr>
     </nav>

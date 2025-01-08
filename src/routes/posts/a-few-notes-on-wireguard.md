@@ -6,6 +6,7 @@ published: true
 lastUpdated: "2025-01-02"
 author: "pindjouf"
 slug: "a-few-notes-on-wireguard"
+nextPost: "mario-sees-nothing"
 prevPost: "day-5-uart-implementation"
 tags:
   - "networking"
