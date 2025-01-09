@@ -11,7 +11,7 @@ Here's what I've been trying and how I've been failing for a whole week.
 
 ## Initial setup
 
-I first start by generating a CA, and a certificate for the elasticsearch server:
+I first start by generating a CA, and a certificate for the elasticsearch & fleet server:
 
 ```bash
 # CA
