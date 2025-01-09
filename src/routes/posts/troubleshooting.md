@@ -31,7 +31,7 @@ openssl x509 -req -in fleet-server.csr -CA ca.crt -CAkey ca.key -CAcreateserial 
 openssl verify -CAfile ca.crt fleet-server.crt # OK
 ```
 
-Then I used this docker-compose.yml to set everything up:
+Then I used this `docker-compose.yml` to set everything up:
 
 ```yaml
 version: '3'
@@ -82,7 +82,7 @@ networks:
   noirnet:
 ```
 
-Here's the configs:
+Here's the configs for `elasticsearch.yml` & `kibana.yml`:
 
 ```yml
 # ======================== Elasticsearch Configuration =========================
