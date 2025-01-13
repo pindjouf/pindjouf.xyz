@@ -5,8 +5,8 @@ date: "2024-08-06"
 lastUpdated: "2024-08-06"
 author: "pindjouf"
 slug: "linkvortex"
-nextPost: "copycat"
-prevPost: "belgian-sfg-training-program"
+nextPost: "escape_two"
+prevPost: "mario-sees-nothing"
 tags:
   - "verilog"
   - "hardware"
@@ -43,7 +43,7 @@ And this is what my routing table became (including only relevant parts):
 As we can see we're connected to 2 other networks than the one we're in, and all that through our default gateway `10.10.14.1`.
 And we know that our interface has routing to the 10.10.11.0/24 subnet because that's our target's subnet and we're able to ping them so why not other machines on that network? It must be routed through a machine on one of the networks we just discovered but that's out of our reach (for now)
 
-## *Quick* enumeration -- recon phase
+## Information gathering -- recon phase
 
 Since we've discovered these new subnets let's see who we got around here! I did a few ping sweeps for network discovery (tried for 10.10.13.0/23 and 10.129.0.0/16 but they didn't yield any additional results)
 
@@ -312,4 +312,134 @@ Host script results:
 Read data files from: /usr/bin/../share/nmap
 ```
 I quickly tried to ask the DNS servers if they had any information about these new domain names but alas they had nothing.
+However I was able to find quite a lot of information about this machines by using `enum4linux-ng -u '' 10.10.10.3` and `smbmap -u -H 10.10.10.3` I did this on all the machines, but the most notable ones are `10.10.10.3` & `10.10.11.35`
+
+Like a list of users (for `10.10.10.3`):
+
+```txt
+root
+daemon
+bin
+sys
+sync
+games
+man
+lp
+mail
+news
+uucp
+proxy
+www-data
+backup
+list
+irc
+gnats
+libuuid
+dhcp
+syslog
+klog
+sshd
+bind
+postfix
+ftp
+postgres
+mysql
+tomcat55
+distccd
+telnetd
+proftpd
+msfadmin
+user
+service
+nobody
+```
+
+And shares:
+
+```js
+[*] Detected 1 hosts serving SMB
+[*] Established 1 SMB connections(s) and 1 authenticated session(s)
+
+[+] IP: 10.10.10.3:445	Name: hackthebox.gr       	Status: Authenticated
+	Disk                                                  	Permissions	Comment
+	----                                                  	-----------	-------
+	print$                                            	NO ACCESS	Printer Drivers
+	tmp                                               	READ, WRITE	oh noes!
+	opt                                               	NO ACCESS
+	IPC$                                              	NO ACCESS	IPC Service (lame server (Samba 3.0.20-Debian))
+	ADMIN$                                            	NO ACCESS	IPC Service (lame server (Samba 3.0.20-Debian))
+```
+
+```js
+[*] Detected 1 hosts serving SMB
+[*] Established 1 SMB connections(s) and 0 authenticated session(s)
+
+[+] IP: 10.10.11.35:445    Name: CICADA-DC            Status: Unauthenticated
+        Disk                                                  	Permissions	Comment
+        ----                                                  	-----------	-------
+        ADMIN$                                            	NO ACCESS	Remote Admin
+        C$                                               	NO ACCESS	Default share
+        DEV                                              	READ ONLY	
+        HR                                               	READ ONLY	
+        IPC$                                             	READ ONLY	Remote IPC
+        NETLOGON                                         	READ ONLY	Logon server share
+        SYSVOL                                           	READ ONLY	Logon server share
+```
+
+I couldn't get much from SMTP so I went straight to SNMP enumeration with `snmpwalk -c public -v2c -Oa 10.10.11.48` and found this on our target's neighbor machine!
+
+```ruby
+Scanning: 10.10.11.48
+iso.3.6.1.2.1.1.1.0 = STRING: "Linux underpass 5.15.0-126-generic #136-Ubuntu SMP Wed Nov 6 10:38:22 UTC 2024 x86_64"
+iso.3.6.1.2.1.1.2.0 = OID: iso.3.6.1.4.1.8072.3.2.10
+iso.3.6.1.2.1.1.3.0 = Timeticks: (935969) 2:35:59.69
+iso.3.6.1.2.1.1.4.0 = STRING: "steve@underpass.htb"
+iso.3.6.1.2.1.1.5.0 = STRING: "UnDerPass.htb is the only daloradius server in the basin!"
+iso.3.6.1.2.1.1.6.0 = STRING: "Nevada, U.S.A. but not Vegas"
+iso.3.6.1.2.1.1.7.0 = INTEGER: 72
+iso.3.6.1.2.1.1.8.0 = Timeticks: (5) 0:00:00.05
+iso.3.6.1.2.1.1.9.1.2.1 = OID: iso.3.6.1.6.3.10.3.1.1
+iso.3.6.1.2.1.1.9.1.2.2 = OID: iso.3.6.1.6.3.11.3.1.1
+iso.3.6.1.2.1.1.9.1.2.3 = OID: iso.3.6.1.6.3.15.2.1.1
+iso.3.6.1.2.1.1.9.1.2.4 = OID: iso.3.6.1.6.3.1
+iso.3.6.1.2.1.1.9.1.2.5 = OID: iso.3.6.1.6.3.16.2.2.1
+iso.3.6.1.2.1.1.9.1.2.6 = OID: iso.3.6.1.2.1.49
+iso.3.6.1.2.1.1.9.1.2.7 = OID: iso.3.6.1.2.1.50
+iso.3.6.1.2.1.1.9.1.2.8 = OID: iso.3.6.1.2.1.4
+iso.3.6.1.2.1.1.9.1.2.9 = OID: iso.3.6.1.6.3.13.3.1.3
+iso.3.6.1.2.1.1.9.1.2.10 = OID: iso.3.6.1.2.1.92
+iso.3.6.1.2.1.1.9.1.3.1 = STRING: "The SNMP Management Architecture MIB."
+iso.3.6.1.2.1.1.9.1.3.2 = STRING: "The MIB for Message Processing and Dispatching."
+iso.3.6.1.2.1.1.9.1.3.3 = STRING: "The management information definitions for the SNMP User-based Security Model."
+iso.3.6.1.2.1.1.9.1.3.4 = STRING: "The MIB module for SNMPv2 entities"
+iso.3.6.1.2.1.1.9.1.3.5 = STRING: "View-based Access Control Model for SNMP."
+iso.3.6.1.2.1.1.9.1.3.6 = STRING: "The MIB module for managing TCP implementations"
+iso.3.6.1.2.1.1.9.1.3.7 = STRING: "The MIB module for managing UDP implementations"
+iso.3.6.1.2.1.1.9.1.3.8 = STRING: "The MIB module for managing IP and ICMP implementations"
+iso.3.6.1.2.1.1.9.1.3.9 = STRING: "The MIB modules for managing SNMP Notification, plus filtering."
+iso.3.6.1.2.1.1.9.1.3.10 = STRING: "The MIB module for logging SNMP Notifications."
+iso.3.6.1.2.1.1.9.1.4.1 = Timeticks: (3) 0:00:00.03
+iso.3.6.1.2.1.1.9.1.4.2 = Timeticks: (3) 0:00:00.03
+iso.3.6.1.2.1.1.9.1.4.3 = Timeticks: (3) 0:00:00.03
+iso.3.6.1.2.1.1.9.1.4.4 = Timeticks: (3) 0:00:00.03
+iso.3.6.1.2.1.1.9.1.4.5 = Timeticks: (3) 0:00:00.03
+iso.3.6.1.2.1.1.9.1.4.6 = Timeticks: (4) 0:00:00.04
+iso.3.6.1.2.1.1.9.1.4.7 = Timeticks: (4) 0:00:00.04
+iso.3.6.1.2.1.1.9.1.4.8 = Timeticks: (5) 0:00:00.05
+iso.3.6.1.2.1.1.9.1.4.9 = Timeticks: (5) 0:00:00.05
+iso.3.6.1.2.1.1.9.1.4.10 = Timeticks: (5) 0:00:00.05
+iso.3.6.1.2.1.25.1.1.0 = Timeticks: (937724) 2:36:17.24
+iso.3.6.1.2.1.25.1.2.0 = STRING: "....&2.+.."
+iso.3.6.1.2.1.25.1.3.0 = INTEGER: 393216
+iso.3.6.1.2.1.25.1.4.0 = STRING: "BOOT_IMAGE=/vmlinuz-5.15.0-126-generic root=/dev/mapper/ubuntu--vg-ubuntu--lv ro net.ifnames=0 biosdevname=0"
+iso.3.6.1.2.1.25.1.5.0 = Gauge32: 0
+iso.3.6.1.2.1.25.1.6.0 = Gauge32: 310
+iso.3.6.1.2.1.25.1.7.0 = INTEGER: 0
+iso.3.6.1.2.1.25.1.7.0 = No more variables left in this MIB View (It is past the end of the MIB tree)
+```
+
+This `iso.3.6.1.2.1.25.1.2.0 = STRING: "....&2.+.."` particular line intrigues me quite a bit, it seems to be encrypted. Mind you I only used the `-Oa` flag, because it was originally a hex string. I thought let's try version 1 since there was no encryption then and it changed to this: `iso.3.6.1.2.1.25.1.2.0 = STRING: "....(%.+.."`. Nothing crazy here, but I'll still take a mental note of it.
+
+## Vulnerability assessment
+
 
