@@ -5,6 +5,7 @@ date: "2025-01-05"
 lastUpdated: "2025-01-05"
 author: "pindjouf"
 slug: "mario-sees-nothing"
+nextPost: "linkvortex"
 prevPost: "a-few-notes-on-wireguard"
 published: true
 tags:
