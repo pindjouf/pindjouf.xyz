@@ -1,5 +1,5 @@
 ---
-title: "Linkvortex write-up: My first pwned machine && an introduction to symlink chaining!"
+title: "Linkvortex write-up: My first pwned machine & an introduction to symlink chaining!"
 description: "A detailed walkthrough of compromising my first machine on HackTheBox, covering reconnaissance, git dumping, and privilege escalation through symlink exploitation."
 date: "2025-01-16"
 lastUpdated: "2025-01-16"
