@@ -8,7 +8,7 @@ slug: "day-3-uart-baud-rate-generator"
 series: "Building a UART from Scratch"
 seriesOrder: 3
 nextPost: "finally-going-east"
-prevPost: "day-3-uart-baud-rate-generator"
+prevPost: "need-to-lock-in"
 tags:
   - "verilog"
   - "uart"
