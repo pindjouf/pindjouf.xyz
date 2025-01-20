@@ -4,6 +4,7 @@ description: "A beginner's journey into ARM assembly, breaking down the basics o
 date: "2025-01-18"
 author: "pindjouf"
 published: true
+nextPost: "oscp-web-log-2"
 prevPost: "linkvortex"
 slug: "day-1-arm-assembly-basics"
 tags:

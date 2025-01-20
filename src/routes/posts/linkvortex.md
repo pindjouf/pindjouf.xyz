@@ -5,6 +5,7 @@ date: "2025-01-16"
 lastUpdated: "2025-01-16"
 author: "pindjouf"
 slug: "linkvortex"
+nextPost: "day-1-arm-assembly-basics"
 prevPost: "mario-sees-nothing"
 tags:
   - "hackthebox"
