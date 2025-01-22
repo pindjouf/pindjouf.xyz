@@ -7,6 +7,13 @@
     "category": "online"
   },
   {
+    "title": "RUIT",
+    "link": "https://github.com/pindjouf/ruit",
+    "description": "CSV integration for Ghunt",
+    "launch_date": "2025-01-22",
+    "category": "online"
+  },
+  {
     "title": "Cryptoooor",
     "link": "https://cryptoooor.com",
     "description": "A file encryption tool that uses AES-GCM",
