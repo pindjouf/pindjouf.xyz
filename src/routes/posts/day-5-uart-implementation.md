@@ -12,6 +12,7 @@ tags:
   - "philosophy"
   - "hacking"
   - "technology"
+nextPost: "a-few-notes-on-wireguard"
 prevPost: "domain-name-system-dns-guide"
 canonicalUrl: "https://pindjouf.xyz/posts/why-i-made-a-uart"
 featured: true

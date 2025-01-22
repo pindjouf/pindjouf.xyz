@@ -13,7 +13,7 @@ tags:
   - "motivation"
   - "problem-solving"
 category: "Personal Growth"
-readingTime: 4
+readingTime: 2
 language: "en"
 ogImage: "/assets/cycle.png"
 ---

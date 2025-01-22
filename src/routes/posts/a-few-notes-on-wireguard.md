@@ -18,7 +18,7 @@ tags:
   - "kernel"
   - "protocols"
 category: "Technical Deep Dive"
-readingTime: 15
+readingTime: 13
 language: "en"
 ogImage: "/assets/wireguard-architecture.png"
 series: "Network Security Fundamentals"

@@ -17,7 +17,7 @@ category: "Security"
 readingTime: 15
 language: "en"
 featured: true
-published: false
+published: true
 ---
 
 ### Table of Contents
@@ -33,12 +33,14 @@ published: false
    1. [Ben 10 -- A first experience with broken access control](#ben-10--a-first-experience-with-broken-access-control)
       1. [Enumeration](#enumeration)
       2. [Foothold](#foothold)
-   2. [MZEEAV](#mzeeav)
-      1. [Enumeration](#enumeration-1)
-      2. [Foothold](#foothold-1)
+   2. [MZEEAV -- Getting a web shell through file uploads](#mzeeav--getting-a-web-shell-through-file-uploads)
+      1. [Enumeration](#enumeration)
+      2. [Foothold](#foothold)
+      3. [Privilege escalation](#privilege-escalation)
    3. [Sightless](#sightless)
-      1. [Enumeration](#enumeration-2)
-      2. [Foothold](#foothold-2)
+      1. [Enumeration](#enumeration)
+      2. [Foothold](#foothold)
+      3. [Privilege escalation](#privilege-escalation)
 4. [End notes](#end-notes)
    1. [Songs I spammed last week](#songs-i-spammed-last-week)
 
@@ -190,17 +192,73 @@ Now we'd simply have to visit http://ben10.challs.srdnlen.it:8080/image/ben10 wi
 
 ### MZEEAV -- Getting a web shell through file uploads
 
-
+Alright for this one I followed the walkthrough from the [OffSec twitch account](https://www.twitch.tv/videos/2355089001). It's starting to get redundant to write about boxes and take screenshots of everything so I'm going to make this as low maintenance as possible and simply talk about it!
 
 #### Enumeration
 
+At first we're dropped into a website that seems ordinary, it's a web page that allows us to upload files to it. After fuzzing the routes, we find these:
+
+- /listing.php
+- /upload.php
+- /backups -- backup.zip
+
+In the `/backups` page there was a directory listing with a backup.zip that was available for download. In that file was the source code for the app, we could see exactly how `listing.php` and `upload.php` worked.
+
 #### Foothold
+
+```php
+/* Check MagicBytes MZ PEFILE 4D5A*/
+$F=fopen($tmp_location,"r");
+$magic=fread($F,2);
+fclose($F);
+$magicbytes = strtoupper(substr(bin2hex($magic),0,4)); 
+error_log(print_r("Magicbytes:" . $magicbytes, TRUE));
+
+/* if its not a PEFILE block it - str_contains onlz php 8*/
+//if ( ! (str_contains($magicbytes, '4D5A'))) {
+if ( strpos($magicbytes, '4D5A') === false ) {
+	echo "Error no valid PEFILE\n";
+	error_log(print_r("No valid PEFILE", TRUE));
+	error_log(print_r("MagicBytes:" . $magicbytes, TRUE));
+	exit ();
+}
+```
+
+Something interesting we found in `upload.php` is that it would block any file that didn't have the `4D5A` magic bytes in it. So this exploit was relatively straightforward, upload a script that contains `4D5A` at the start and get RCE. Through that we were able to get a web shell with this:
+
+```php
+MZ<?php echo shell_exec($_GET['cmd'].' 2>&1'); ?>
+```
+
+But really, I'm sure we could've used anything as long as we accepted a GET request with any parameter and passed that to something like `system()` for instance.
+
+#### Privilege escalation
+
+With that little web shell we were able to get a reverse shell and become the www-data user. From there we quickly checked `SUID` (commands that get ran by the owner of the file no matter who executes them) with `find / -perm /4000 2>/dev/null` and found `/opt/fileS`. After playing with it for a little while we could see it behaved exactly like the `find` command. So we took a trip to our friend [gtfobins](https://gtfobins.github.io/gtfobins/find/) and found several ways to execute whatever commands we wanted as root! Since he was the owner of the `/opt/fileS` file, anything we would run with that command would be executed as root, so we were easily able to get the flag with `/opt/fileS . -exec /bin/cat /root/root.txt -p /; -quit` (don't remember if that's actually where the file was located but you get the point)
 
 ### Sightless -- SSRF leading to root!
 
+I followed a walkthrough from [IppSec](https://www.youtube.com/@ippsec) for this one, it's by far the most complex box I did that week. But it's an easy one according to HTB ratings.
+
 #### Enumeration
 
+In terms of enumeration, there wasn't anything crazy to do as the sqlpad instance was quite obviously displayed on the front page of this website. 
+
 #### Foothold
+
+There was a CVE affecting the sqlpad version they were running that allowed us to do an SSTI so we got a reverse shell through that, in there we got dropped in a docker container which is what the sqlpad instance is running in. Inside that container we were able to cat the `/etc/passwd` and it actually revealed a user from the host machine funnily enough, called `benjamin`
+
+We took his username and hashed password and got to cracking, it didn't take to long to get it. After that we could SSH into the machine!
+
+#### Privilege escalation
+
+Since we were in the machine now we looked at the ports that were open for services that could be running internally and we found something running on port `8080`.
+
+So we re-login with the `-L` to port forward that port and have access to it from our browser. When visiting `localhost:8080`, we could then see that they were running Froxlor and it was vulnerable to a blind xss. We could put a payload in the username field to create an admin account and consequently login with those credentials.
+
+With that admin account we were able to modify the credentials for an FTP user called `web1` we then used them to log into the ftp server they had running to retrieve a KeePass database.
+
+Here I discovered a tool called `keepass2john` which is basically john the ripper for keepass databases. From that we were able to crack the master password and get the private ssh key of the root user, that allowed us to log into that account and get the system flag!
 
 ## End notes
 

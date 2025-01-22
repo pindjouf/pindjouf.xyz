@@ -14,7 +14,7 @@ tags:
   - "cli"
   - "learning"
 category: "Projects"
-readingTime: 5
+readingTime: 2
 language: "en"
 ogImage: "/assets/rust.png"
 project: "kof"

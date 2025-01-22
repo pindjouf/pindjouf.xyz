@@ -14,7 +14,7 @@ tags:
   - "workout"
   - "endurance"
 category: "Fitness"
-readingTime: 20
+readingTime: 7
 language: "en"
 ogImage: "/assets/SFG.png"
 tableOfContents: true

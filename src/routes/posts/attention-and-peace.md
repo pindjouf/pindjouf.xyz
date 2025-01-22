@@ -15,7 +15,7 @@ tags:
   - "focus"
 category: "Lifestyle"
 featured: true
-readingTime: 15
+readingTime: 11
 language: "en"
 ogImage: "/assets/waveform.png"
 ---
