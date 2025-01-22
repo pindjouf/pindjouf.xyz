@@ -1,8 +1,8 @@
 ---
 title: "OSCP Log #2"
 description: "A deep dive into web security challenges, evolving study methods, and experiments with polyphasic sleep while preparing for OSCP"
-date: "2025-01-20"
-lastUpdated: "2025-01-20"
+date: "2025-01-22"
+lastUpdated: "2025-01-22"
 author: "pindjouf"
 slug: "oscp-web-log-2"
 prevPost: "day-1-arm-assembly-basics"
@@ -40,7 +40,7 @@ published: false
       1. [Enumeration](#enumeration-2)
       2. [Foothold](#foothold-2)
 4. [End notes](#end-notes)
-   1. [Songs I've been spamming this week](#songs-ive-been-spamming-this-week)
+   1. [Songs I spammed last week](#songs-i-spammed-last-week)
 
 </div>
 
@@ -82,7 +82,7 @@ The last part is the one I enjoy the most, I get to vibe out listening to music,
 
 ## Penetrating the web
 
-I didn't plan for it but this week had a very web-oriented vibe to it, that's why this section is called that way. Armed with my new methodology and an inspirational X (formerly twitter) post, I was on my way to spamming boxes (not as many as I'd like to since I started this mid-week and have been a bit overwhelmed by things outside of studies).
+I didn't plan for it but last week had a very web-oriented vibe to it, that's why this section is called that way. Armed with my new methodology and an inspirational X (formerly twitter) post, I was on my way to spamming boxes (not as many as I'd like to since I started this mid-week and have been a bit overwhelmed by things outside of studies).
 
 Part of what pushed me to change my study methodology to be more tutorial-friendly was this post of someone getting their OSCP at 16 and subsequently becoming a full-time pentester (from the looks of it) 
 
@@ -99,7 +99,7 @@ OP advises us to follow a volume based approach where we focus mostly on doing H
 
 ### Ben 10 -- A first experience with broken access control
 
-I did a CTF this weekend where I performed quite poorly. It's the first one I did on my own, so I really got to see in what areas I was lacking skills. Well, it turns out I'm bad at everything pentest related since I only managed to get 3 flags and 1 one of them was greppable so it barely counts. This was a good wake-up call and showed me how trash I was, this L will drive me until I git gud at pentesting.
+I did a CTF last weekend where I performed quite poorly. It's the first one I did on my own, so I really got to see in what areas I was lacking skills. Well, it turns out I'm bad at everything pentest related since I only managed to get 3 flags and 1 one of them was greppable so it barely counts. This was a good wake-up call and showed me how trash I was, this L will drive me until I git gud at pentesting.
 
 Anyways here's a challenge called Ben 10 I was able to solve i.e. the one most participants got 360/800!!
 
@@ -188,13 +188,15 @@ Now we had to find an alternative way to get a token that starts with `admin` th
 
 Now we'd simply have to visit http://ben10.challs.srdnlen.it:8080/image/ben10 with that session token, and there it was!
 
-### MZEEAV
+### MZEEAV -- Getting a web shell through file uploads
+
+
 
 #### Enumeration
 
 #### Foothold
 
-### Sightless
+### Sightless -- SSRF leading to root!
 
 #### Enumeration
 
@@ -204,7 +206,7 @@ Now we'd simply have to visit http://ben10.challs.srdnlen.it:8080/image/ben10 wi
 
 I've got nothing else to say, cya.
 
-### Songs I've been spamming this week
+### Songs I spammed last week
 
 - [The Mamas & The Papas - Dancing Bear](https://www.youtube.com/watch?v=HXvyyWBQjck) 
 - [Nelly Furtado - Maneater](https://www.youtube.com/watch?v=8wmbSYASPsY)
