@@ -34,13 +34,7 @@ function generateSitemap(pages) {
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
-    <url>
-        <loc>${site}/roadmap</loc>
-        <lastmod>${now}</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
+<url>
         <loc>${site}/projects</loc>
         <lastmod>${now}</lastmod>
         <changefreq>weekly</changefreq>
@@ -51,7 +45,7 @@ function generateSitemap(pages) {
     ${pages.map(page => `
     <url>
         <loc>${site}/${page.slug}</loc>
-        <lastmod>${new Date(page.lastmod).toISOString()}</lastmod>
+        <lastmod>${page.lastmod && !isNaN(new Date(page.lastmod)) ? new Date(page.lastmod).toISOString() : now}</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>`).join('')}
