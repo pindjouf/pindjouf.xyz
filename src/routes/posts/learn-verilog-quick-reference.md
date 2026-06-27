@@ -2,11 +2,7 @@
 title: "Where X=verilog"
 description: "A quick reference guide to Verilog basics, including module declarations, signal assignments, operators, and common syntax patterns."
 date: "2024-08-06"
-lastUpdated: "2024-08-06"
-author: "pindjouf"
 slug: "learn-verilog-quick-reference"
-nextPost: "copycat"
-prevPost: "belgian-sfg-training-program"
 tags:
   - "verilog"
   - "hardware"
@@ -14,20 +10,10 @@ tags:
   - "digital-design"
   - "fpga"
   - "tutorials"
-category: "Hardware Engineering"
-readingTime: 7
-language: "en"
-tableOfContents: true
-series: "Hardware Description Languages"
-seriesOrder: 1
-featured: true
-references:
-  - name: "Hackman's Verilog Article"
-    url: "https://lateblt.tripod.com/verilog.htm"
-  - name: "Learn X in Y Minutes"
-    url: "https://learnxinyminutes.com"
+published: true
+prevPost: "belgian-sfg-training-program"
+nextPost: "copycat"
 ---
-
 First I would like to thank Hackman since a lot of the verilog stuff I learned comes from his website! [His verilog article.](https://lateblt.tripod.com/verilog.htm)
 There is a lot more to verilog that I still have to learn but these are the basics, I will continually come back and upgrade the page when I feel the need to.
 

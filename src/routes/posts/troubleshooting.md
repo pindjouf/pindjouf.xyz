@@ -1,12 +1,12 @@
 ---
 title: "Troubleshooting ELK"
-author: "pindjouf"
 slug: "troubleshooting"
-language: "en"
+tags:
+  - "elk"
+  - "elasticsearch"
+  - "troubleshooting"
 published: false
-tags: ["elk", "elasticsearch", "troubleshooting"]
 ---
-
 Here's what I've been trying and how I've been failing for a whole week.
 
 ## Initial setup

@@ -2,24 +2,18 @@
 title: "Belgian SFG Training Program"
 description: "A comprehensive 16-week training program based on the Belgian Special Forces Group Q-Course, including detailed workout schedules and progression."
 date: "2024-05-23"
-lastUpdated: "2024-05-23"
-author: "pindjouf"
 slug: "belgian-sfg-training-program"
-nextPost: "learn-verilog-quick-reference"
-prevPost: "t-shaped-skills-learning"
 tags:
   - "fitness"
   - "military-training"
   - "special-forces"
   - "workout"
   - "endurance"
-category: "Fitness"
-readingTime: 7
-language: "en"
 ogImage: "/assets/SFG.png"
-tableOfContents: true
+published: true
+prevPost: "t-shaped-skills-learning"
+nextPost: "learn-verilog-quick-reference"
 ---
-
 ![cycle](/assets/SFG.png)  
 **[Skip to Program Section](#q-course-training-program)**
 

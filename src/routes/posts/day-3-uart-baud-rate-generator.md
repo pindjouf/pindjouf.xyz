@@ -2,25 +2,18 @@
 title: "Day 3 of making a UART 𓇲 I made a baud rate generator"
 description: "Understanding and implementing a baud rate generator for UART communication, with focus on clock synchronization and timing principles."
 date: "2024-11-18"
-lastUpdated: "2024-11-18"
-author: "pindjouf"
 slug: "day-3-uart-baud-rate-generator"
-series: "Building a UART from Scratch"
-seriesOrder: 3
-nextPost: "finally-going-east"
-prevPost: "need-to-lock-in"
 tags:
   - "verilog"
   - "uart"
   - "digital-design"
   - "hardware"
   - "baud-rate"
-category: "Hardware Engineering"
-readingTime: 10
-language: "en"
 ogImage: "/assets/formula.svg"
+published: true
+prevPost: "main-dump-1"
+nextPost: "day-4-uart-transmitter-implementation"
 ---
-
 I want to try a different approach for this article, instead of simply explaining my implementation and reasoning, I'd like to explore the topic first. I'm working on improving my problem-solving skills by following the practices outlined in this [article](https://learnhowtolearn.org/how-to-understand-and-retain-any-concept-10x-better). My first order of business will be to break down the topic to a point where it's easily digestible. Down to first principles. Which means a fundamental truth, one that doesn't need any additional information or facts to prove its validity. "Fire is hot" for instance is not something to be debated, it just is, regardless of any external factors. Only then will I move on to explaining how I've implemented it, so let's get started!
 
 ## What are we trying to achieve?

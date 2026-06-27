@@ -2,23 +2,16 @@
 title: "MainDump #1"
 description: "A collection of personal notes, project ideas, and inspiring quotes from my main.md file, including current tasks and reading recommendations."
 date: "2024-11-08"
-lastUpdated: "2024-11-08"
-author: "pindjouf"
 slug: "main-dump-1"
-nextPost: "need-to-lock-in"
-prevPost: "publicly-passionate"
 tags:
   - "notes"
   - "projects"
   - "ideas"
   - "personal"
-category: "Notes"
-readingTime: 5
-language: "en"
-series: "MainDump"
-seriesOrder: 1
+published: true
+prevPost: "running-with-the-devil-windows"
+nextPost: "day-3-uart-baud-rate-generator"
 ---
-
 I keep a `main.md` file on all my devices, and I sync it with git. That's the main idea behind [kof](https://github.com/pindjouf/kof) (currently in the pits of side project hell). As a way to maintain anti-fragility over that commit history I've decided that I'm gonna dump the file's state on this web page once in a while to have another copy of it, because why not.
 
 Here it is:

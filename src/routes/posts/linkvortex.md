@@ -2,11 +2,7 @@
 title: "Linkvortex write-up: My first pwned machine & an introduction to symlink chaining!"
 description: "A detailed walkthrough of compromising my first machine on HackTheBox, covering reconnaissance, git dumping, and privilege escalation through symlink exploitation."
 date: "2025-01-16"
-lastUpdated: "2025-01-16"
-author: "pindjouf"
 slug: "linkvortex"
-nextPost: "day-1-arm-assembly-basics"
-prevPost: "mario-sees-nothing"
 tags:
   - "hackthebox"
   - "pentesting"
@@ -14,21 +10,10 @@ tags:
   - "privilege-escalation"
   - "symlinks"
   - "ghost-cms"
-category: "Cybersecurity"
-readingTime: 15
-language: "en"
 published: true
-tableOfContents: true
-series: "HackTheBox Machines"
-seriesOrder: 1
-featured: true
-references:
-  - name: "CVE-2023-40028"
-    url: "https://www.cve.org/CVERecord?id=CVE-2023-40028"
-  - name: "GitDump Tool"
-    url: "https://github.com/Ebryx/GitDump"
+prevPost: "a-few-notes-on-wireguard"
+nextPost: "day-1-arm-assembly-basics"
 ---
-
 My first machine on hack the box! I finally took the time to work on finding the flags of a machine, and with the help of a [Noir Chapeau](https://noirchapeau.com) member, I was able to compromise both the user and root account. Admittedly, this is a relatively easy box. But since I'd never successfully done one before, it was a relief to get some help and finally see how it works from beginning to end.
 
 ## Our base -- 10.10.11.47 (target machine)

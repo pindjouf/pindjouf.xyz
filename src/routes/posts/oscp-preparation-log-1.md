@@ -2,8 +2,6 @@
 title: "OSCP Log #1"
 description: "First day of OSCP certification preparation, including study schedule, initial experiences, and reflections on balancing intensive study with physical activity."
 date: "2024-12-09"
-lastUpdated: "2024-12-09"
-author: "pindjouf"
 slug: "oscp-preparation-log-1"
 tags:
   - "oscp"
@@ -12,26 +10,10 @@ tags:
   - "study-log"
   - "certification"
   - "personal"
-category: "Security"
-readingTime: 10
-language: "en"
-series: "OSCP Journey"
-seriesOrder: 1
-nextPost: "passive-reconnaissance-guide"
+published: false
 prevPost: "day-4-uart-transmitter-implementation"
-featured: true
-schedule:
-  totalStudyBlocks: 7
-  blockDuration: 90
-  workouts: 2
-  startTime: "07:00"
-  endTime: "23:00"
-projects:
-  - "Homelab Infrastructure"
-  - "Pomodoro Daemon"
-  - "fromthetransistor"
+nextPost: "passive-reconnaissance-guide"
 ---
-
 Today marks the start of my road to OSCP, I'll try to log each day as best as I can. These posts won't be nearly as readable and articulate as the articles on my blog because their purpose is different. I plan to use this at the end of each day, or even during the day to reflect on what I've learned. It will be free flowing so no format has been predetermined, I will let it morph into what it wants to.
 
 I'll be covering what I'm learning without revealing the syllabus material since that's not allowed, and not really something I want to do anyways. I'm more so going to talk about my day. You can see this as my public journal!

@@ -2,23 +2,17 @@
 title: "I just need to lock in"
 description: "Personal reflections on breaking through mental barriers, taking action, and applying mentor advice for personal growth."
 date: "2024-11-17"
-lastUpdated: "2024-11-17"
-author: "pindjouf"
 slug: "need-to-lock-in"
-nextPost: "day-3-uart-baud-rate-generator"
-prevPost: "main-dump-1"
 tags:
   - "personal-development"
   - "mentorship"
   - "growth"
   - "motivation"
-category: "Personal Growth"
-readingTime: 8
-language: "en"
 ogImage: "/assets/lock_in.jpg"
-featured: true
+published: false
+prevPost: "main-dump-1"
+nextPost: "day-3-uart-baud-rate-generator"
 ---
-
 <img src="/assets/lock_in.jpg" alt="raspberry pi" style="display: block; width: 50%;">
 
 Shit's fucked, so I decided to reflect on a few things and take some notes to remind myself of the advice my GOAT mentor's been giving me throughout the years.

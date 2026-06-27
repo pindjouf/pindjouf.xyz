@@ -64,7 +64,7 @@
         {#each data.groupedPosts[year].sort((a, b) => new Date(b.date) - new Date(a.date)) as post}
             <h3>
                     <time datetime={post.date}>
-                        {new Date(post.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
+                        {new Date(post.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'short' })}
                     </time> -> 
                     <a href={`/posts/${post.slug}`} style="font-weight: bold;">{post.title}</a>
                     <br>

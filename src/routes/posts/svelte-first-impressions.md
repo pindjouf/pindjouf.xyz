@@ -2,25 +2,17 @@
 title: "Svelte first impressions"
 description: "A practical guide to building a blog with SvelteKit, including dynamic routing, markdown processing, and component architecture."
 date: "2024-09-30"
-lastUpdated: "2024-09-30"
-author: "pindjouf"
 slug: "svelte-first-impressions"
-nextPost: "media-pirate-stack"
-prevPost: "kayfabe-selling-job-skills"
 tags:
   - "svelte"
   - "web-development"
   - "javascript"
   - "markdown"
   - "tutorials"
-category: "Web Development"
-readingTime: 8
-language: "en"
-tableOfContents: true
-series: "Web Development"
-seriesOrder: 1
+published: true
+prevPost: "kayfabe-selling-job-skills"
+nextPost: "media-pirate-stack"
 ---
-
 **TL;DR:** I remade my blog with sveltekit.
 
 This is kind of a tutorial to use as a reference more than anything else.

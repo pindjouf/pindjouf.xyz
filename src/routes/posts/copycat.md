@@ -2,23 +2,17 @@
 title: "Copycat"
 description: "A personal reflection on learning through emulation and the power of following role models across different domains of expertise."
 date: "2024-08-15"
-lastUpdated: "2024-08-15"
-author: "pindjouf"
 slug: "copycat"
-nextPost: "comfy-hdl-setup"
-prevPost: "learn-verilog-quick-reference"
 tags:
   - "learning"
   - "personal-development"
   - "role-models"
   - "inspiration"
   - "growth"
-category: "Personal"
-readingTime: 6
-language: "en"
-featured: true
+published: true
+prevPost: "learn-verilog-quick-reference"
+nextPost: "comfy-hdl-setup"
 ---
-
 **TLDR: I learn best by copying cracked people.**
 
 Anything I've ever wanted to get good at I've always found a role model that I just want to emulate, that's why sometimes my endeavors don't seem clear it's because they're predefined by someone else and since I trust in their knowledge more than anyone else's I just follow blindly without questioning!

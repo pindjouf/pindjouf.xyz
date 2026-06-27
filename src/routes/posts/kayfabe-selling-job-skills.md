@@ -2,24 +2,17 @@
 title: "KayFabe: The art of selling your job skills, a guide for zoomers."
 description: "A practical guide to presenting and selling your technical skills in job interviews, with actionable advice for modern job seekers."
 date: "2024-09-19"
-lastUpdated: "2024-09-19"
-author: "pindjouf"
 slug: "kayfabe-selling-job-skills"
-nextPost: "svelte-first-impressions"
-prevPost: "10-days-for-kof"
 tags:
   - "career"
   - "job-hunting"
   - "interviews"
   - "skills"
   - "professional-development"
-category: "Career"
-readingTime: 12
-language: "en"
-featured: true
-tableOfContents: true
+published: true
+prevPost: "10-days-for-kof"
+nextPost: "svelte-first-impressions"
 ---
-
 **TL;DR:** mfs with less skills than you are getting the job you want, because your presentation is awful.
 
 First I'd like to thank [@tunahorse21](https://x.com/tunahorse21) & [@zeroruck](https://x.com/zeroruck) for all the work they're doing to help us make it out.

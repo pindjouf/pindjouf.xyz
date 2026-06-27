@@ -2,25 +2,18 @@
 title: "10 Days For Kof"
 description: "A personal challenge to build a Rust-based encrypted journaling tool in ten days, documenting the journey and learning process."
 date: "2024-09-10"
-lastUpdated: "2024-09-10"
-author: "pindjouf"
 slug: "10-days-for-kof"
-nextPost: "kayfabe-selling-job-skills"
-prevPost: "comfy-hdl-setup"
 tags:
   - "rust"
   - "projects"
   - "encryption"
   - "cli"
   - "learning"
-category: "Projects"
-readingTime: 2
-language: "en"
 ogImage: "/assets/rust.png"
-project: "kof"
-featured: true
+published: true
+prevPost: "comfy-hdl-setup"
+nextPost: "kayfabe-selling-job-skills"
 ---
-
 In ten days I finish my cybersecurity bootcamp, I have nothing to show for it.
 So I will make sure to have something to show in ten days.
 

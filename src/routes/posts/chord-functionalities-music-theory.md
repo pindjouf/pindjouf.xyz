@@ -2,22 +2,16 @@
 title: "Chord Functionalities"
 description: "A deep dive into chord relationships, tonic functions, and modulation techniques in music theory, with examples in F# minor."
 date: "2022-01-23"
-lastUpdated: "2022-01-23"
-author: "pindjouf"
 slug: "chord-functionalities-music-theory"
-nextPost: "hello-world"
 tags:
   - "music-theory"
   - "chords"
   - "modulation"
   - "harmony"
   - "composition"
-category: "Music"
-readingTime: 8
-language: "en"
-tableOfContents: true
+published: true
+nextPost: "hello-world"
 ---
-
 The tonic chord is the big boss, no matter what you’re doing there comes a time when you have to return to it otherwise you’re just building tension indefinitely, and no one wants to hear that.
 
 So understanding how a chord relates to the tonic chord is essential in music.  

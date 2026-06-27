@@ -2,23 +2,17 @@
 title: "Publicly passionate"
 description: "A reflection on the importance of sharing passions, building connections through common interests, and the value of public engagement."
 date: "2024-11-03"
-lastUpdated: "2024-11-03"
-author: "pindjouf"
 slug: "publicly-passionate"
-nextPost: "main-dump-1"
-prevPost: "running-with-the-devil-windows"
 tags:
   - "personal"
   - "passion"
   - "growth"
   - "relationships"
   - "community"
-category: "Personal"
-readingTime: 8
-language: "en"
-featured: true
+published: false
+prevPost: "running-with-the-devil-windows"
+nextPost: "main-dump-1"
 ---
-
 If you know me, you know that I change passions every ~6-12 months. I will abandon everything and start spending all my time doing that one thing. It's always been treated as a problem by myself and others, but I think it's because I've been doing it wrong. I've never shared my passion with anyone to the degree that I see other people do it.
 
 ## Keeping records

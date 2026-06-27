@@ -2,24 +2,18 @@
 title: "Finally going east"
 description: "A three-month journey through Southeast Asia, from unexpected visa challenges in Abu Dhabi to riding scooters in Hanoi's chaotic streets. Experience Vietnam's vibrant culture in Hue and Hanoi, navigate the backpacker trail through Laos, and discover Thailand's hidden gems from Chiang Mai to Pai. This personal travelogue covers visa adventures, transportation mishaps, hostel life, and the profound connections made along the way. Despite losing a scooter, a job contract, and personal items, the journey reveals valuable lessons about genuine connections, cultural adaptation, and finding peace in unexpected places. A story of resilience, self-discovery, and the realization that good company matters more than perfect destinations."
 date: "2024-11-19"
-lastUpdated: "2024-11-19"
-author: "pindjouf"
 slug: "finally-going-east"
-nextPost: "attention-and-peace"
-prevPost: "day-3-uart-baud-rate-generator"
 tags:
   - "travel"
   - "asia"
   - "personal"
   - "adventure"
   - "culture"
-category: "Travel"
-readingTime: 30
-language: "en"
-featured: true
 ogImage: "/assets/nepal.jpg"
+published: false
+prevPost: "day-3-uart-baud-rate-generator"
+nextPost: "attention-and-peace"
 ---
-
 ### Table of Contents
 
 <div class="toc">

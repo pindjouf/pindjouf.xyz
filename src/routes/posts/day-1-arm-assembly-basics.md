@@ -2,10 +2,6 @@
 title: "Day 1 of making an ARM assembler 🛠️ I'm learning assembly"
 description: "A beginner's journey into ARM assembly, breaking down the basics of registers, instructions, and system calls through building a simple exit program. Learn how assembly relates to machine code and memory management from first principles."
 date: "2025-01-18"
-author: "pindjouf"
-published: true
-nextPost: "oscp-web-log-2"
-prevPost: "linkvortex"
 slug: "day-1-arm-assembly-basics"
 tags:
   - "assembly"
@@ -14,12 +10,9 @@ tags:
   - "programming"
   - "computer-architecture"
   - "learning"
-category: "Technical"
-readingTime: 15
-language: "en"
-featured: true
+published: true
+prevPost: "linkvortex"
 ---
-
 A little background on why I'm doing this, I plan to complete the [From the Transistor to the Web Browser](https://github.com/geohot/fromthetransistor) course in 2025. I've been slacking on this so if I don't start picking up the pace starting now, it'll never get done and I will never learn how computers actually work.
 
 I come at this with the idea that I know practically nothing about computers besides what I'm learning in the course, so that I keep a clear mind and let the ideas work their magic, instead of coming in with preconceived notions.

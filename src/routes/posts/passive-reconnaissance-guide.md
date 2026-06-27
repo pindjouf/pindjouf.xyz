@@ -2,25 +2,17 @@
 title: "Information gathering/Reconnaissance (passive)"
 description: "An introduction to passive reconnaissance in penetration testing, using real-world analogies to explain core concepts and methodologies."
 date: "2024-12-11"
-lastUpdated: "2024-12-11"
-author: "pindjouf"
-prevPost: "oscp-preparation-log-1"
-slug: "passive-reconnaissance-guide"
 tags:
   - "security"
   - "pentesting"
   - "recon"
   - "hacking"
   - "infosec"
-category: "Security"
-readingTime: 15
-language: "en"
 ogImage: "/assets/4_digit_pin_lock.jpg"
-tableOfContents: true
-series: "Pentesting Fundamentals"
-seriesOrder: 1
+published: true
+prevPost: "day-4-uart-transmitter-implementation"
+nextPost: "domain-name-system-dns-guide"
 ---
-
 I'm learning how to pentest, and I was reading an [article on attack surface analysis](https://cheatsheetseries.owasp.org/cheatsheets/Attack_Surface_Analysis_Cheat_Sheet.html#defining-the-attack-surface-of-an-application) by [OWASP](https://owasp.org/) today. But it was too interesting to just sit there and keep reading so I started ranting to myself. After my rant was over, I was quite satisfied with it. So now I'm here writing it down for all those interested in the subject matter, and to consolidate my knowledge. Feynman style.
 
 All of this stems from a thinking paradigm I learned from George Hotz. In his stream titled [*"what is programming?"*](https://youtu.be/N2bXEUSAiTI?si=785VNsBWhCNoiPG) he boils down hacking (and computers for that matter) to **input -> system -> output**. This visual aid serves as a reference to the question: "*What input to the system, will generate my desired output/outcome?*" but the workflow in hacking is actually the reverse. Based on the seven stages of a pentest, we'd start by figuring out the desired output and work our way down from there.

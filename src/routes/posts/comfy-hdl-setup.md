@@ -2,11 +2,7 @@
 title: "Comfy HDL Design Setup"
 description: "A beginner-friendly guide to setting up a hardware description language (HDL) development environment with SystemVerilog, Verilator, and GTKWave."
 date: "2024-09-02"
-lastUpdated: "2024-09-02"
-author: "pindjouf"
 slug: "comfy-hdl-design-setup"
-nextPost: "10-days-for-kof"
-prevPost: "copycat"
 tags:
   - "hdl"
   - "systemverilog"
@@ -14,12 +10,11 @@ tags:
   - "gtkwave"
   - "hardware"
   - "tutorial"
-category: "Hardware Engineering"
-readingTime: 5
-language: "en"
 ogImage: "/assets/waves.png"
+published: true
+prevPost: "copycat"
+nextPost: "10-days-for-kof"
 ---
-
 This is for those who want to get into coding in an HDL but don't know where to start, as I was a few months ago.
 
 *   **The language:** systemVerilog

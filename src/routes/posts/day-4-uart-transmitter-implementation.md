@@ -2,8 +2,6 @@
 title: "Day 4 of making a UART 𓇲 I made a transmitter"
 description: "A detailed walkthrough of implementing a UART transmitter in Verilog, covering state machine design, packet structure, and practical implementation with code examples."
 date: "2024-11-29"
-lastUpdated: "2024-11-29"
-author: "pindjouf"
 slug: "day-4-uart-transmitter-implementation"
 tags:
   - "verilog"
@@ -12,21 +10,11 @@ tags:
   - "hardware"
   - "fpga"
   - "embedded-systems"
-series: "Building a UART from Scratch"
-seriesOrder: 4
-nextPost: "oscp-preparation-log-1"
-prevPost: "attention-and-peace"
-canonicalUrl: "https://pindjouf.xyz/posts/day-4-uart-transmitter-implementation"
-featured: true
-category: "Hardware Engineering"
-readingTime: 12
-language: "en"
-tableOfContents: true
 ogImage: "/assets/uart_packet.jpg"
-keywords: "UART transmitter, Verilog implementation, digital design, hardware protocol, state machine, shift register"
-summary: "Learn how to implement a UART transmitter in Verilog, with detailed explanations of the state machine, packet structure, and practical code implementation. This post covers UART protocol basics and provides a working transmitter module design."
+published: true
+prevPost: "day-3-uart-baud-rate-generator"
+nextPost: "passive-reconnaissance-guide"
 ---
-
 This is a continuation of the PISO shift register. Or more accurately, a design refactor. After learning a few things in passing here and there, I came to the conclusion that implementing a shift register should really only require a few lines at most. If you've been following this learning journey, you'd know that I previously made modules for a D flip flop, and PISO/SIPO shift registers. Those "experiments" let's call them, were good for learning and understanding what they are and how they work. But it gets redundant real fast and only adds to your project's complexity unnecessarily.
 
 As per my last article in the series I'd like to first define what it is we're trying to achieve in the context of implementing a UART transmitter. So without further ado let's get to it.

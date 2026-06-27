@@ -2,26 +2,17 @@
 title: "Mario sees nothing"
 description: "A reflective manifesto on reality, abstraction, and redefining mental models for deeper understanding, inspired by personal experiments with 2D vision and beyond."
 date: "2025-01-05"
-lastUpdated: "2025-01-05"
-author: "pindjouf"
 slug: "mario-sees-nothing"
-nextPost: "linkvortex"
-prevPost: "a-few-notes-on-wireguard"
-published: true
 tags:
   - "philosophy"
   - "reality"
   - "dimensions"
   - "learning"
   - "personal-growth"
-category: "Reflection"
-readingTime: 8
-language: "en"
-featured: true
-summary: "Exploring the boundaries of perception and abstraction through a personal lens, questioning how our view of reality shapes understanding."
-canonicalUrl: "https://pindjouf.xyz/posts/mario-sees-nothing"
+published: false
+prevPost: "a-few-notes-on-wireguard"
+nextPost: "linkvortex"
 ---
-
 [EDIT:] this article is so dumb, please don't waste your time.
 
 I was thinking about an article I read, which went over multi-dimensional addressing (shoutout [thatgabriel.com](https://thatgabriel.com/posts/tensor_stream/)). I'd skimmed through it once, but I barely understood a thing. So that made me question my fundamental knowledge of dimensions. I thought I had a good grasp of 2D, I mean who doesn't? It's pretty easy to visualize 2 dimensions, so I've never bothered to question how deeply I understood it. Yet when I tried to dig into the implications of something like "Living in 2D" or asking myself "What does mario see?". I quickly saw that my concept of reality held me back in my exploration of the topic.

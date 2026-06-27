@@ -1,9 +1,9 @@
 ---
 title: "trail"
 date: "2024-09-28"
+tags:
 published: false
 ---
-
 # planning
 
 ## Oct 29 -> Oct 30

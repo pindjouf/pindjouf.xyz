@@ -2,23 +2,17 @@
 title: "T-shaped day"
 description: "Reflections on the value of deep learning and hands-on experience versus surface-level knowledge acquisition."
 date: "2023-12-18"
-lastUpdated: "2023-12-18"
-author: "pindjouf"
 slug: "t-shaped-skills-learning"
-nextPost: "belgian-sfg-training-program"
-prevPost: "achievements-and-progress"
 tags:
   - "learning"
   - "personal-development"
   - "skills"
   - "growth"
   - "education"
-category: "Personal Growth"
-readingTime: 5
-language: "en"
-featured: true
+published: true
+prevPost: "achievements-and-progress"
+nextPost: "belgian-sfg-training-program"
 ---
-
 Being a generalist doesn't mean you can't be great at certain things, that's what it means to have t-shaped skills.
 
 I've kept myself from diving into rabbit holes for years because I thought it'd be time wasted on things I wouldn't need, but now I realize how wrong that is.

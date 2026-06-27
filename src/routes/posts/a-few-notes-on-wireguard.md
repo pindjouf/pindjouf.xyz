@@ -2,12 +2,7 @@
 title: "A few notes on the WireGuard Whitepaper"
 description: "An in-depth exploration of WireGuard's architecture, examining its implementation as a Layer 3 network tunnel, virtual interfaces, and cryptographic foundations. This technical analysis covers fundamental networking concepts through practical analogies and real-world implications."
 date: "2025-01-02"
-published: true
-lastUpdated: "2025-01-02"
-author: "pindjouf"
 slug: "a-few-notes-on-wireguard"
-nextPost: "mario-sees-nothing"
-prevPost: "day-5-uart-implementation"
 tags:
   - "networking"
   - "vpn"
@@ -17,15 +12,11 @@ tags:
   - "cryptography"
   - "kernel"
   - "protocols"
-category: "Technical Deep Dive"
-readingTime: 13
-language: "en"
 ogImage: "/assets/wireguard-architecture.png"
-series: "Network Security Fundamentals"
-featuredImage: "/assets/wireguard-architecture.png"
-toc: true
+published: true
+prevPost: "domain-name-system-dns-guide"
+nextPost: "linkvortex"
 ---
-
 ### Table of Contents
 
 <div class="toc">

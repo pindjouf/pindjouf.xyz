@@ -2,23 +2,17 @@
 title: "Runnin' With the Devil"
 description: "A guide to transitioning from Linux to Windows, including environment setup, customization, and maintaining productivity workflows."
 date: "2024-10-16"
-lastUpdated: "2024-10-16"
-author: "pindjouf"
 slug: "running-with-the-devil-windows"
-nextPost: "publicly-passionate"
-prevPost: "day-2-uart-piso-shift-register"
 tags:
   - "windows"
   - "linux"
   - "customization"
   - "development"
   - "tools"
-category: "Development"
-readingTime: 10
-language: "en"
-tableOfContents: true
+published: true
+prevPost: "day-2-uart-piso-shift-register"
+nextPost: "main-dump-1"
 ---
-
 **TL;DR** I'm moving to windows! aka my 4th environment change this year
 
 Windows...

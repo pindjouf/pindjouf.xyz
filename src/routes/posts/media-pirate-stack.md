@@ -2,24 +2,18 @@
 title: "Media Pirate Stack"
 description: "A comprehensive guide to setting up a home media server using Raspberry Pi, including software recommendations and configuration steps."
 date: "2024-10-03"
-lastUpdated: "2024-10-03"
-author: "pindjouf"
 slug: "media-pirate-stack"
-nextPost: "day-1-uart-sipo-shift-register"
-prevPost: "svelte-first-impressions"
 tags:
   - "raspberry-pi"
   - "self-hosting"
   - "linux"
   - "networking"
   - "tutorials"
-category: "Technical"
-readingTime: 10
-language: "en"
 ogImage: "/assets/pi.png"
-tableOfContents: true
+published: true
+prevPost: "svelte-first-impressions"
+nextPost: "day-1-uart-sipo-shift-register"
 ---
-
 *my pi and its beloved SSD :D*
 <img src="/assets/pi.png" alt="raspberry pi" style="display: block; width: 50%;">
 

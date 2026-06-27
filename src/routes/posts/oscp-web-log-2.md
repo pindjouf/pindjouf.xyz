@@ -2,10 +2,7 @@
 title: "OSCP Log #2"
 description: "A deep dive into web security challenges, evolving study methods, and experiments with polyphasic sleep while preparing for OSCP"
 date: "2025-01-22"
-lastUpdated: "2025-01-22"
-author: "pindjouf"
 slug: "oscp-web-log-2"
-prevPost: "day-1-arm-assembly-basics"
 tags:
   - "oscp"
   - "infosec"
@@ -13,13 +10,9 @@ tags:
   - "web-security"
   - "study-methodology"
   - "personal-growth"
-category: "Security"
-readingTime: 15
-language: "en"
-featured: true
-published: true
+published: false
+prevPost: "day-1-arm-assembly-basics"
 ---
-
 ### Table of Contents
 
 <div class="toc">

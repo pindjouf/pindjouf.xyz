@@ -2,25 +2,18 @@
 title: "Day 1 of making a UART 𓇲 I made a SIPO shift register"
 description: "Learn how to implement a Serial-In Parallel-Out (SIPO) shift register in Verilog, with detailed explanations of D flip-flops and register design fundamentals."
 date: "2024-10-13"
-lastUpdated: "2024-10-13"
-author: "pindjouf"
 slug: "day-1-uart-sipo-shift-register"
-nextPost: "day-2-uart-piso-shift-register"
-prevPost: "media-pirate-stack"
-series: "Building a UART from Scratch"
-seriesOrder: 1
 tags:
   - "verilog"
   - "uart"
   - "digital-design"
   - "hardware"
   - "shift-register"
-category: "Hardware Engineering"
-readingTime: 8
-language: "en"
 ogImage: "/assets/SIPO.png"
+published: true
+prevPost: "media-pirate-stack"
+nextPost: "day-2-uart-piso-shift-register"
 ---
-
 I don't think I've mentioned this on here before but, I'm loosely following the [fromthetransistor](https://github.com/pindjouf/fromthetransistor) course here and there when I have the time and energy.  
 Obviously, I've made this work correctly so I know how to do it. But I wanted to write this down to see how well I could articulate the concepts I've learned.
 

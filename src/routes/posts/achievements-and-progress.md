@@ -2,22 +2,17 @@
 title: "Achievements"
 description: "A reflection on breaking the cycle of getting stuck and giving up, with practical steps for maintaining progress and overcoming analysis paralysis."
 date: "2023-12-17"
-lastUpdated: "2023-12-17"
-nextPost: "t-shaped-skills-learning"
-author: "pindjouf"
 slug: "achievements-and-progress"
-prevPost: "hello-world"
 tags:
   - "personal-development"
   - "productivity"
   - "motivation"
   - "problem-solving"
-category: "Personal Growth"
-readingTime: 2
-language: "en"
 ogImage: "/assets/cycle.png"
+published: true
+prevPost: "hello-world"
+nextPost: "t-shaped-skills-learning"
 ---
-
 <img src="/assets/cycle.png" alt="cycle" style="width: 204px; height: 204px;">
 
 Question of the day: How to stop this cycle and follow through despite feeling lost?

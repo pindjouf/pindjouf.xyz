@@ -6,7 +6,6 @@
 <svelte:head>
     <title>{metadata.title} | Pindjouf.xyz</title>
     <meta name="description" content={metadata.description} />
-    <meta name="keywords" content={metadata.keywords} />
     
     <meta property="og:title" content={`${metadata.title} | Pindjouf.xyz`} />
     <meta property="og:description" content={metadata.description} />
@@ -14,27 +13,18 @@
     <meta property="og:type" content="article" />
     
     <meta property="article:published_time" content={metadata.date} />
-    {#if metadata.lastUpdated}
-    <meta property="article:modified_time" content={metadata.lastUpdated} />
-    {/if}
-    <meta property="article:author" content={metadata.author} />
     {#each metadata.tags as tag}
     <meta property="article:tag" content={tag} />
     {/each}
     
-    {#if metadata.canonicalUrl}
-    <link rel="canonical" href={metadata.canonicalUrl} />
-    {/if}
+
 </svelte:head>
 
 <article>
     <header class="article-header">
         <h1>{metadata.title}</h1>
         <div class="article-meta">
-            <time datetime={metadata.date}>Published on {new Date(metadata.date).toLocaleDateString()}</time>
-            {#if metadata.readingTime}
-            <span>· {metadata.readingTime} min read</span>
-            {/if}
+            <time datetime={metadata.date}>Published on {new Date(metadata.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'numeric', year: 'numeric' })}</time>
         </div>
     </header>
 

@@ -2,25 +2,18 @@
 title: "Day 2 of making a UART 𓇲 I made a PISO shift register"
 description: "A deep dive into implementing a Parallel-In Serial-Out (PISO) shift register in Verilog, covering register design and data shifting techniques."
 date: "2024-10-14"
-lastUpdated: "2024-10-14"
-author: "pindjouf"
 slug: "day-2-uart-piso-shift-register"
-series: "Building a UART from Scratch"
-seriesOrder: 2
-nextPost: "running-with-the-devil-windows"
-prevPost: "day-1-uart-sipo-shift-register"
 tags:
   - "verilog"
   - "uart"
   - "digital-design"
   - "hardware"
   - "shift-register"
-category: "Hardware Engineering"
-readingTime: 7
-language: "en"
 ogImage: "/assets/PISO.png"
+published: true
+prevPost: "day-1-uart-sipo-shift-register"
+nextPost: "running-with-the-devil-windows"
 ---
-
 Like yesterday, the first place I went to was [wikipedia](https://en.wikipedia.org/wiki/Universal_asynchronous_receiver-transmitter) to find the following diagram:
 
 <img src="/assets/PISO.png" alt="PISO shift register" style="display: block; width: 80%;">

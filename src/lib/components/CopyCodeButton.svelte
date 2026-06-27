@@ -7,7 +7,10 @@
     const codeBlocks = document.querySelectorAll('pre');
     
     codeBlocks.forEach(pre => {
-      if (pre.querySelector('.copy-button')) return;
+      if (pre.parentElement.classList.contains('code-block-wrapper')) return;
+      
+      const wrapper = document.createElement('div');
+      wrapper.className = 'code-block-wrapper';
       
       const copyButton = document.createElement('button');
       copyButton.innerHTML = '📋';
@@ -35,8 +38,9 @@
         }
       });
       
-      pre.style.position = 'relative';
-      pre.appendChild(copyButton);
+      pre.parentNode.insertBefore(wrapper, pre);
+      wrapper.appendChild(pre);
+      wrapper.appendChild(copyButton);
     });
   };
 
@@ -61,6 +65,10 @@
 </script>
 
 <style>
+  :global(.code-block-wrapper) {
+    position: relative;
+  }
+
   :global(.copy-button) {
     position: absolute;
     padding: 8px;
@@ -90,9 +98,5 @@
   :global(.copy-button.top-left) {
     top: 8px;
     left: 8px;
-  }
-
-  :global(pre) {
-    position: relative !important;
   }
 </style>

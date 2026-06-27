@@ -2,11 +2,6 @@
 title: "Understanding DNS: A Comprehensive Technical Overview"
 description: "An in-depth technical exploration of DNS architecture, from basic principles to advanced concepts. Learn how DNS works from the ground up, including resolver types, zone authorities, and hierarchical resolution. Understand DNS from multiple perspectives: as a system administrator and programmer."
 date: "2024-12-27"
-lastUpdated: "2024-12-11"
-author: "pindjouf"
-published: true
-nextPost: "day-5-uart-implementation"
-prevPost: "passive-reconnaissance-guide"
 slug: "domain-name-system-dns-guide"
 tags:
   - "dns"
@@ -16,13 +11,10 @@ tags:
   - "infosec"
   - "infrastructure"
   - "system-design"
-category: "Technical"
-readingTime: 15
-language: "en"
-tableOfContents: true
-featured: true
+published: true
+prevPost: "passive-reconnaissance-guide"
+nextPost: "a-few-notes-on-wireguard"
 ---
-
 ### Table of Contents
 
 <div class="toc">

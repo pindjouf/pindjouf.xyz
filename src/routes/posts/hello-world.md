@@ -2,21 +2,15 @@
 title: "Hello, world!"
 description: "An introduction to my personal blog, outlining its purpose as a space for thoughts, goals, and insights in a world of overstimulation."
 date: "2023-11-19"
-lastUpdated: "2023-11-19"
-author: "pindjouf"
 slug: "hello-world"
-nextPost: "achievements-and-progress"
-prevPost: "chord-functionalities-music-theory"
 tags:
   - "introduction"
   - "personal"
   - "blog"
-category: "Personal"
-readingTime: 2
-language: "en"
-featured: true
+published: false
+prevPost: "chord-functionalities-music-theory"
+nextPost: "achievements-and-progress"
 ---
-
 This post is an introduction to my page.
 
 My goal is to make it a log of my thoughts and goals while providing valuable insights.

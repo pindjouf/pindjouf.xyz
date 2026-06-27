@@ -2,29 +2,18 @@
 title: "Day 5 of making a UART 𓇲 why I made a UART!"
 description: "A reflective manifesto on the importance of creating systems to avoid being enslaved by them, inspired by William Blake's philosophy and the cyberpunk hacker ethos."
 date: "2025-01-01"
-lastUpdated: "2025-01-01"
-author: "pindjouf"
 slug: "day-5-uart-implementation"
-published: true
 tags:
   - "cyberpunk"
   - "systems-thinking"
   - "philosophy"
   - "hacking"
   - "technology"
-nextPost: "a-few-notes-on-wireguard"
-prevPost: "domain-name-system-dns-guide"
-canonicalUrl: "https://pindjouf.xyz/posts/why-i-made-a-uart"
-featured: true
-category: "Philosophy & Technology"
-readingTime: 8
-language: "en"
-tableOfContents: false
 ogImage: "/assets/nebuchadnezzar.JPG"
-keywords: "systems thinking, cyberpunk hacker, William Blake, manifesto, creating systems, technology philosophy"
-summary: "Inspired by William Blake's words, this post reflects on the importance of creating systems to stay in control of technology, rejecting dependency, and embracing the hacker ethos."
+published: false
+prevPost: "domain-name-system-dns-guide"
+nextPost: "a-few-notes-on-wireguard"
 ---
-
 It's about time we finish the series. As evidenced by the release dates of each UART article, this took far longer than five days. But I find that it looks cleaner this way, so I'm keeping the title! The reason it took so long is actually threefold: First, I didn't dedicate enough time to studying the subject matter before diving into the implementation, which left me confused and frustrated every time I tried coding. Second, I procrastinated quite a bit. And lastly, I've been busy with other things, like job searching and being a hippie in Southeast Asia.
 
 This won't be a super technical article since most of the implementation details have already been covered. If you're looking for that, check out the [repo](https://github.com/pindjouf/uart).

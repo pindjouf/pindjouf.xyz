@@ -2,24 +2,18 @@
 title: "Attention & Peace"
 description: "An exploration of digital minimalism, the impact of constant availability, and strategies for managing attention in the modern world."
 date: "2024-11-27"
-lastUpdated: "2024-11-27"
-author: "pindjouf"
 slug: "attention-and-peace"
-nextPost: "day-4-uart-transmitter-implementation"
-prevPost: "finally-going-east"
 tags:
   - "productivity"
   - "digital-minimalism"
   - "attention"
   - "mental-health"
   - "focus"
-category: "Lifestyle"
-featured: true
-readingTime: 11
-language: "en"
 ogImage: "/assets/waveform.png"
+published: false
+prevPost: "finally-going-east"
+nextPost: "day-4-uart-transmitter-implementation"
 ---
-
 I was having a conversation recently with a close family member, where she brought up a special subject. She met a man that didn't have a mobile phone, which is a crazy concept in 2024. But one that fascinates me. It's been a few days since we had this conversation, but this is something that hasn't left my mind since. No mobile phone... I can only Imagine the peace of living such a life.
 
 Which is why I'm writing this article, to explore the idea and look at some advice that [@LukasHozda](https://x.com/LukasHozda) provides in his [article](https://x.com/LukasHozda/status/1860442337534468333). It impacted me to the point that I just had sit down and let the ideas simmer for a couple minutes. I reflected on them for a little while until I felt like I had to write something of my own, to consolidate it all. Because a lot of the advice he presents are things I'd already implemented in the past, even though I've lost those habits in the past few years. That's what hooked me onto the article, and I'm glad it did!
