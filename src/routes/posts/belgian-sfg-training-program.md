@@ -10,7 +10,7 @@ tags:
   - "workout"
   - "endurance"
 ogImage: "/assets/SFG.png"
-published: true
+published: false
 prevPost: "t-shaped-skills-learning"
 nextPost: "learn-verilog-quick-reference"
 ---

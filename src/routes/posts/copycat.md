@@ -9,7 +9,7 @@ tags:
   - "role-models"
   - "inspiration"
   - "growth"
-published: true
+published: false
 prevPost: "learn-verilog-quick-reference"
 nextPost: "comfy-hdl-setup"
 ---

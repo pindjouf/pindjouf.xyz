@@ -8,7 +8,7 @@ tags:
   - "projects"
   - "ideas"
   - "personal"
-published: true
+published: false
 prevPost: "running-with-the-devil-windows"
 nextPost: "day-3-uart-baud-rate-generator"
 ---
