@@ -16,7 +16,7 @@ nextPost: "media-pirate-stack"
 **TL;DR:** I remade my blog with sveltekit.
 
 This is kind of a tutorial to use as a reference more than anything else.
-You can find the source code to my blog here -> [repository](https://github.com/pindjouf/esaubukasa.com).
+You can find the source code to my blog here -> [repository](https://github.com/pindjouf/pindjouf.xyz).
 
 ## Why am I using svelte & sveltekit?
 
