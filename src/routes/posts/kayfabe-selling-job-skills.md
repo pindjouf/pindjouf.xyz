@@ -42,7 +42,7 @@ There are some bullet points for your short attention span, *and honestly you co
 - Believe you can solve any problem, and act like it.
 - Be a [social chameleon](https://en.wikipedia.org/wiki/Code-switching).
 - Keep the interview conversational. Avoid answering like a robot.
-- Stop being too humble -- especially when you know what you're talking about.
+- Stop being too humble, especially when you know what you're talking about.
 
 ## Job Requirements
 
