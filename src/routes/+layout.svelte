@@ -14,6 +14,7 @@
         <a href="/">Blog</a>
         <a href="https://twitter.com/pindjouf">Twitter</a>
         <a href="/projects">Projects</a>
+        <a href="/gifts">Gifts</a>
         <hr>
     </nav>
 </header>

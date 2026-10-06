@@ -1,0 +1,56 @@
+{
+  "lastUpdated": "2026-10-06",
+  "categories": [
+    {
+      "category": "Tea",
+      "items": [
+        {
+          "name": "Insulated Gold Thermos (1.5L)",
+          "price": 32.88,
+          "priceCurrency": "EUR",
+          "link": "https://moychay.nl/en-fr/collections/new-arrival-october-2025/products/insulated-gold-thermos-1-5-l-95001"
+        },
+        {
+          "name": "Red Tea Experience Set",
+          "price": 48.60,
+          "priceCurrency": "EUR",
+          "link": "https://moychay.nl/en-fr/collections/experience-sets/products/black-tea"
+        },
+        {
+          "name": "Puer Tea Experience Set",
+          "price": 58.51,
+          "priceCurrency": "EUR",
+          "link": "https://moychay.nl/en-fr/collections/experience-sets/products/puer-set"
+        },
+        {
+          "name": "The Geography of Chinese Tea",
+          "price": 88.26,
+          "priceCurrency": "EUR",
+          "link": "https://moychay.nl/en-fr/products/geography-of-chinese-tea-sergey-shevelev-1"
+        }
+      ]
+    },
+    {
+      "category": "Home",
+      "items": [
+        {
+          "name": "Xiaomi Smart Air Purifier Elite",
+          "price": 322.51,
+          "priceCurrency": "EUR",
+          "link": "https://www.amazon.fr/-/en/gp/product/B0BRBH8NSC?smid=A1X6FK5RDHNB96&th=1"
+        }
+      ]
+    },
+    {
+      "category": "Gym",
+      "items": [
+        {
+          "name": "Weightlifting Shoes (Example)",
+          "price": 90.00,
+          "priceCurrency": "USD",
+          "link": "https://www.adidas.com/us/dropset-control-training-shoes/JQ1768.html?pr=product_rr&slot=2&rec=ds"
+        }
+      ]
+    }
+  ]
+}
