@@ -18,7 +18,7 @@ Like yesterday, the first place I went to was [wikipedia](https://en.wikipedia.o
 
 <img src="/assets/PISO.png" alt="PISO shift register" style="display: block; width: 80%;">
 
-As you can see it's very similar to the [SIPO shift register](https://pindjouf.xyz/posts/day_1) I made yesterday but the main difference is that here we're loading the data straight away into each flip flop and only then does the shifting happen.
+As you can see it's very similar to the [SIPO shift register](https://esaubukasa.com/posts/day_1) I made yesterday but the main difference is that here we're loading the data straight away into each flip flop and only then does the shifting happen.
 
 ## D Flip-flop
 
@@ -37,7 +37,7 @@ if (shift_counter == 0) begin
 ```
 
 As you can see I only load a new data block when the counter is at 0, I tried to use the state of the shift register itself as a condition but I had some trouble making it work. (I blame my lack of knowledge on how to test properly)  
-I also found out that there is a shift operator in verilog :D which made this way simpler than I thought it would be. *I probably should change the [SIPO shift register](https://pindjouf.xyz/posts/day_1) to follow this format as well. We'll see if I stop being lazy.*
+I also found out that there is a shift operator in verilog :D which made this way simpler than I thought it would be. *I probably should change the [SIPO shift register](https://esaubukasa.com/posts/day_1) to follow this format as well. We'll see if I stop being lazy.*
 
 ## Shifting data
 

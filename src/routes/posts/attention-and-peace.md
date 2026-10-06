@@ -63,7 +63,7 @@ He's not sure about the half hour figure, and neither am I. But I think any pers
 
 #### Break it down
 
-Whenever I get stuck now I try to convert problems/concepts/ideas from abstract & complex to detailed & simple. I won't spend too much time on this since I'm probably going to write an article on it later, and you can find glimpses of it already in [this one](https://pindjouf.xyz/posts/day_3), where I use it to figure out how to make a baud rate generator. But really, the gist of it is to figure out the next step. If you want to make a website, but don't know how to write html, then your next step should just be to write an `<html>` tag, figure that out and go from there. Make the next step so easy that it would be ridiculous not to do it.
+Whenever I get stuck now I try to convert problems/concepts/ideas from abstract & complex to detailed & simple. I won't spend too much time on this since I'm probably going to write an article on it later, and you can find glimpses of it already in [this one](https://esaubukasa.com/posts/day_3), where I use it to figure out how to make a baud rate generator. But really, the gist of it is to figure out the next step. If you want to make a website, but don't know how to write html, then your next step should just be to write an `<html>` tag, figure that out and go from there. Make the next step so easy that it would be ridiculous not to do it.
 
 <img src="/assets/waveform.png" alt="cycle">
 <div style="text-align: center;">

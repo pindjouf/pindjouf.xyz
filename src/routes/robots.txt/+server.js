@@ -1,12 +1,12 @@
 export async function GET() {
     const robotsTxt = `
-# https://pindjouf.xyz/robots.txt
+# https://esaubukasa.com/robots.txt
 # Allow all crawlers
 User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://pindjouf.xyz/sitemap.xml
+Sitemap: https://esaubukasa.com/sitemap.xml
 `.trim();
 
     return new Response(robotsTxt, {

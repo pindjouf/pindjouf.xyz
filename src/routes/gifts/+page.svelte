@@ -15,21 +15,21 @@
 </script>
 
 <svelte:head>
-    <title>Gifts | Pindjouf.xyz</title>
+    <title>Gifts | Esaubukasa.com</title>
     <meta name="description" content="A wish list of things I'd love to receive. Browse by category — tea, home, gym gear — and find the perfect gift with direct links to each item." />
 
-    <meta property="og:title" content="Gift Wish List | Pindjouf.xyz" />
+    <meta property="og:title" content="Gift Wish List | Esaubukasa.com" />
     <meta property="og:description" content="A curated wish list of items I'd love to receive. Tea, home, gym gear — with direct links to each product." />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://pindjouf.xyz/gifts" />
+    <meta property="og:url" content="https://esaubukasa.com/gifts" />
 
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Gift Wish List | Pindjouf.xyz" />
+    <meta name="twitter:title" content="Gift Wish List | Esaubukasa.com" />
     <meta name="twitter:description" content="A curated wish list of items I'd love to receive. Tea, home, gym gear — with direct links to each product." />
 
     <meta name="keywords" content="gift list, wish list, gifts, presents, tea, home, gym" />
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://pindjouf.xyz/gifts" />
+    <link rel="canonical" href="https://esaubukasa.com/gifts" />
 </svelte:head>
 
 <style>

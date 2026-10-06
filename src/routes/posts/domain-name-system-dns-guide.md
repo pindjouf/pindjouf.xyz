@@ -38,7 +38,7 @@ nextPost: "a-few-notes-on-wireguard"
 
 </div>
 
-As promised in my [last article](https://pindjouf.xyz/posts/passive-reconnaissance-guide), I will show you the technical aspect of passive information gathering/recon. However, I don't want to rush and simply brush over topics that are as important as DNS for instance, which is our topic of the day. I want to dive into its inner workings and explore all it has to offer since it's the *starting* point into mapping out an attack surface because it reveals subdomains, IPs and other infra details. You can't look into something you haven't found, can you?
+As promised in my [last article](https://esaubukasa.com/posts/passive-reconnaissance-guide), I will show you the technical aspect of passive information gathering/recon. However, I don't want to rush and simply brush over topics that are as important as DNS for instance, which is our topic of the day. I want to dive into its inner workings and explore all it has to offer since it's the *starting* point into mapping out an attack surface because it reveals subdomains, IPs and other infra details. You can't look into something you haven't found, can you?
 
 I will make this a multipart series so that we have the time to truly cover all the aspects of our subjects. I felt that DNS deserved its own article, but the next one will probably cover more topics, like the application itself and all its moving parts for instance.
 

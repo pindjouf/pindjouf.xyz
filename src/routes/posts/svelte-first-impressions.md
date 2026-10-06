@@ -16,7 +16,7 @@ nextPost: "media-pirate-stack"
 **TL;DR:** I remade my blog with sveltekit.
 
 This is kind of a tutorial to use as a reference more than anything else.
-You can find the source code to my blog here -> [repository](https://github.com/pindjouf/pindjouf.xyz).
+You can find the source code to my blog here -> [repository](https://github.com/pindjouf/esaubukasa.com).
 
 ## Why am I using svelte & sveltekit?
 
@@ -54,7 +54,7 @@ For example in my project it's done like this:
     └── where_x_equals_verilog.md
 ```
 
-Now my url can have any of these files' name and it will work ex: https://pindjouf.xyz/posts/kof or https://pindjouf.xyz/posts/kayfabe.
+Now my url can have any of these files' name and it will work ex: https://esaubukasa.com/posts/kof or https://esaubukasa.com/posts/kayfabe.
 
 ## Markdown preprocessor
 

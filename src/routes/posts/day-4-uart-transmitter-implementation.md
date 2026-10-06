@@ -23,7 +23,7 @@ As per my last article in the series I'd like to first define what it is we're t
 
 The most important part of the transmission module is the `tx` output wire. Its purpose is to transmit serial data as per the UART protocol. So what is the UART protocol you might ask? Like any protocol, it's just a simple ruleset that two (or more) devices agree upon for communication. Just like we humans have language, culture, social norms to dictate how we communicate. Machines have protocols!
 
-Our UART has multiple components, notably a [PISO shift register](https://pindjouf.xyz/posts/day_2), [baud rate generator](https://pindjouf.xyz/posts/day_3) and a state machine that all work together to make the transmission of a UART packet possible. We can easily break down the packet into four distinct parts, of which one is optional.
+Our UART has multiple components, notably a [PISO shift register](https://esaubukasa.com/posts/day_2), [baud rate generator](https://esaubukasa.com/posts/day_3) and a state machine that all work together to make the transmission of a UART packet possible. We can easily break down the packet into four distinct parts, of which one is optional.
 
 <img src="/assets/uart_packet.jpg" alt="shift reg states" style="width: 50%; display: block;">
 <i>Figure 1: UART Packet Structure</i>

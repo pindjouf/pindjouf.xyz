@@ -4,10 +4,10 @@
 </script>
 
 <svelte:head>
-    <title>{metadata.title} | Pindjouf.xyz</title>
+    <title>{metadata.title} | Esaubukasa.com</title>
     <meta name="description" content={metadata.description} />
     
-    <meta property="og:title" content={`${metadata.title} | Pindjouf.xyz`} />
+    <meta property="og:title" content={`${metadata.title} | Esaubukasa.com`} />
     <meta property="og:description" content={metadata.description} />
     <meta property="og:image" content={metadata.ogImage} />
     <meta property="og:type" content="article" />

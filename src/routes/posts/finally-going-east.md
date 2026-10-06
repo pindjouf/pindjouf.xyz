@@ -123,7 +123,7 @@ I used to like things more than people, this is something that has started to sh
 
 After a little while in Vietnam, having attended the events I had to attend. I decided to embark on an overland journey to Thailand, I really wanted to see Pai, Mae Hong Son even if just for a few days. I'd watched videos about it and it seemed like a place that still had that 60s-70s ambience.
 
-I looked online and [this](https://pindjouf.xyz/posts/trail) seemed like the most reasonable route (the timeline was waaaaay off as we'll see right now).
+I looked online and [this](https://esaubukasa.com/posts/trail) seemed like the most reasonable route (the timeline was waaaaay off as we'll see right now).
 
 On my "final" day in Vietnam I check out of my hostel and go to a travel agency to book my first bus which would bring me to Savannakhet, a city close to the Laos-Thailand border.
 

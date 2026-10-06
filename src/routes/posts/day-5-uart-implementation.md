@@ -20,7 +20,7 @@ This won't be a super technical article since most of the implementation details
 
 ## Happy New Year
 
-Now that we're wrapping up the UART series—Happy New Year! I wanted to make this post to set the tone for 2025. Things are looking a bit better since the [SEA](https://pindjouf.xyz/posts/finally-going-east) article. I've got an internship starting later this month, which is cool, though I might be gaslighting myself into thinking it's more exciting than it actually is.
+Now that we're wrapping up the UART series—Happy New Year! I wanted to make this post to set the tone for 2025. Things are looking a bit better since the [SEA](https://esaubukasa.com/posts/finally-going-east) article. I've got an internship starting later this month, which is cool, though I might be gaslighting myself into thinking it's more exciting than it actually is.
 
 We aren't quite done with UART yet though, because I still need to explain why I started this journey in the first place. If you've read my other posts, you're probably aware that I think George Hotz is a goat. He made a course outline called [From the Transistor to the Web Browser](https://github.com/geohot/fromthetransistor), which I [forked](https://github.com/pindjouf/fromthetransistor) and have been following loosely for a while (progress has been slow, obviously). 
 

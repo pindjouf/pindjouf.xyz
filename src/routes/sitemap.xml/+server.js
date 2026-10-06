@@ -1,4 +1,4 @@
-const site = 'https://pindjouf.xyz';
+const site = 'https://esaubukasa.com';
 
 async function getPostData() {
     const posts = import.meta.glob('../posts/*.md', { eager: true });
